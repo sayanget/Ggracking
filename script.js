@@ -30,6 +30,9 @@ async function init() {
     updateTime();
     setInterval(updateTime, 1000);
     
+    // Init Today Queries count
+    updateTodayQueries();
+    
     // Initialize Theme (Default is dark theme for premium aesthetics)
     const savedTheme = localStorage.getItem('gtracking-theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -237,6 +240,7 @@ elements.searchBtn.addEventListener('click', async () => {
         const data = await res.json();
         
         if (data.code === 200 && data.data) {
+            updateTodayQueries(true);
             renderResults(data.data);
         } else {
             showError(data.msg || data.error || '查询失败');
@@ -667,3 +671,24 @@ async function fetch17TrackStatus(waybillNo) {
 }
 
 init();
+
+function updateTodayQueries(increment = false) {
+    const today = new Date().toISOString().split('T')[0];
+    let storedDate = localStorage.getItem('gtracking_todayDate');
+    let queryCount = parseInt(localStorage.getItem('gtracking_queryCount') || '0', 10);
+
+    if (storedDate !== today) {
+        queryCount = 0;
+        localStorage.setItem('gtracking_todayDate', today);
+    }
+
+    if (increment) {
+        queryCount++;
+        localStorage.setItem('gtracking_queryCount', queryCount);
+    }
+
+    const counterEl = document.getElementById('today-queries');
+    if (counterEl) {
+        counterEl.textContent = queryCount;
+    }
+}
