@@ -7,6 +7,9 @@ import time
 import urllib.request
 import urllib.error
 import asyncio
+import base64
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
@@ -14,6 +17,15 @@ HOST = "0.0.0.0"
 PORT = 7000
 TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "token.txt")
 COOKIE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cookie.txt")
+
+def encrypt_password(plain_password):
+    key = b"59SO+p2dXTeghIqm"
+    iv = b"59SO+p2dXTeghIqm"
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    padded = pad(plain_password.encode('utf-8'), AES.block_size, style='pkcs7')
+    encrypted = cipher.encrypt(padded)
+    return base64.b64encode(encrypted).decode('utf-8')
+
 
 # In-memory caching for 17track status to prevent rate-limiting and speed up repetitive queries
 TRACKING_CACHE = {}
@@ -132,6 +144,24 @@ class TrackingProxyHandler(SimpleHTTPRequestHandler):
             })
             return
             
+        if parsed.path == "/api/captcha":
+            try:
+                target_url = "https://dms.gofoexpress.com/prod-api/captchaImage"
+                req = urllib.request.Request(target_url, method="GET")
+                req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    res_body = response.read()
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json; charset=utf-8")
+                    self.send_header("Content-Length", str(len(res_body)))
+                    self.send_header("Access-Control-Allow-Origin", "*")
+                    self.end_headers()
+                    self.wfile.write(res_body)
+            except Exception as e:
+                print(f"Failed to fetch captcha: {str(e)}")
+                self._send_json(500, {"error": str(e)})
+            return
+            
         if parsed.path == "/api/17track":
             query_params = parse_qs(parsed.query)
             waybill = query_params.get("waybill", [""])[0].strip()
@@ -194,6 +224,77 @@ class TrackingProxyHandler(SimpleHTTPRequestHandler):
                 self._send_json(200, {"success": True})
             except Exception as e:
                 self._send_json(400, {"error": str(e)})
+            return
+
+        if parsed.path == "/api/login":
+            try:
+                data = json.loads(body_raw.decode("utf-8"))
+                username = data.get("username", "").strip()
+                password = data.get("password", "")
+                code = data.get("code", "").strip()
+                uuid = data.get("uuid", "").strip()
+                
+                if not username or not password or not code or not uuid:
+                    self._send_json(400, {"error": "Missing required fields"})
+                    return
+                
+                # Encrypt password using AES
+                encrypted_pwd = encrypt_password(password)
+                
+                # Call DMS login
+                target_url = "https://dms.gofoexpress.com/prod-api/login"
+                payload = {
+                    "username": username,
+                    "password": encrypted_pwd,
+                    "code": code,
+                    "uuid": uuid
+                }
+                login_body = json.dumps(payload).encode("utf-8")
+                
+                req = urllib.request.Request(target_url, data=login_body, method="POST")
+                req.add_header("Content-Type", "application/json;charset=utf-8")
+                req.add_header("lang", "zh")
+                req.add_header("source", "WEB")
+                req.add_header("tenant-id", "us")
+                req.add_header("app-code", "gofo-base")
+                req.add_header("auth-tag-x", "unauthorized")
+                req.add_header("X-Requested-With", "XMLHttpRequest")
+                req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                
+                print(f"Proxying login for user: {username}")
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    res_body_raw = response.read()
+                    res_body = json.loads(res_body_raw.decode("utf-8"))
+                    
+                    if res_body.get("code") == 200:
+                        token = res_body.get("token", "")
+                        
+                        # Extract cookies from Set-Cookie headers
+                        set_cookie_headers = response.info().get_all("Set-Cookie", [])
+                        cookies_list = []
+                        for sc in set_cookie_headers:
+                            parts = sc.split(";")
+                            if parts:
+                                cookies_list.append(parts[0].strip())
+                        cookies_str = "; ".join(cookies_list) if cookies_list else ""
+                        
+                        # Save config
+                        save_config(token, cookies_str)
+                        print("Login successful, token and cookies saved.")
+                    
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json; charset=utf-8")
+                    self.send_header("Content-Length", str(len(res_body_raw)))
+                    self.send_header("Access-Control-Allow-Origin", "*")
+                    self.end_headers()
+                    self.wfile.write(res_body_raw)
+            except urllib.error.HTTPError as e:
+                error_body = e.read().decode("utf-8") if e.fp else ""
+                print(f"Login HTTP Error {e.code}: {error_body}")
+                self._send_json(e.code, {"error": f"API Error {e.code}", "details": error_body})
+            except Exception as e:
+                print(f"Login Server Error: {str(e)}")
+                self._send_json(500, {"error": str(e)})
             return
 
         if parsed.path == "/api/tracking":

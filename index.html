@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gtracking - 运单查询助手</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
@@ -18,17 +18,54 @@
                 <h1>Gtracking</h1>
             </div>
             <div class="config-panel">
-                <h3>系统配置</h3>
-                <div class="input-group">
-                    <label for="token">Admin-Token</label>
-                    <input type="password" id="token" placeholder="输入您的 Token...">
+                <!-- DMS Login Segment -->
+                <div class="config-section dms-login-section">
+                    <h3>
+                        <span>🔐</span> DMS 快捷登录
+                    </h3>
+                    <div id="dms-login-form" class="dms-login-form">
+                        <div class="input-group">
+                            <label for="dms-phone">手机号</label>
+                            <input type="text" id="dms-phone" placeholder="手机号 / 账号...">
+                        </div>
+                        <div class="input-group">
+                            <label for="dms-pwd">密码</label>
+                            <input type="password" id="dms-pwd" placeholder="密码...">
+                        </div>
+                        <div class="input-group">
+                            <label for="dms-captcha">验证码</label>
+                            <div class="captcha-container-wrapper">
+                                <input type="text" id="dms-captcha" placeholder="验证码...">
+                                <div id="dms-captcha-container" class="captcha-img-container" title="点击刷新验证码">
+                                    <img id="dms-captcha-img" src="" alt="验证码" class="hidden">
+                                    <span id="dms-captcha-loading" class="loader"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="dms-login-btn" class="btn-primary dms-login-btn">
+                            <span class="btn-text">一键登录并保存</span>
+                            <span class="loader hidden"></span>
+                        </button>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="cookie">Cookie</label>
-                    <textarea id="cookie" placeholder="输入完整的 Cookie..." rows="3"></textarea>
+
+                <!-- Manual Configuration -->
+                <div class="config-section manual-config-section">
+                    <h3>
+                        <span>⚙️</span> 手动配置
+                    </h3>
+                    <div class="input-group">
+                        <label for="token">Admin-Token</label>
+                        <input type="password" id="token" placeholder="输入您的 Token...">
+                    </div>
+                    <div class="input-group">
+                        <label for="cookie">Cookie (可选)</label>
+                        <textarea id="cookie" placeholder="输入完整的 Cookie..." rows="2"></textarea>
+                    </div>
+                    <button id="save-config" class="btn-secondary">保存配置</button>
                 </div>
-                <button id="save-config" class="btn-secondary">保存配置</button>
-                <div class="stats-panel">
+
+                <div class="stats-panel sidebar-stats-divider">
                     <div class="stat-item">
                         <span class="stat-label">今日查询</span>
                         <span class="stat-value" id="today-queries">0</span>
@@ -56,7 +93,7 @@
                     <div class="search-inputs">
                         <textarea id="order-nos" placeholder="输入单号，多个请换行..."></textarea>
                         <div class="search-actions">
-                            <select id="query-type">
+                            <select id="query-type" title="查询类型">
                                 <option value="1">面单号</option>
                                 <option value="2">第三方订单号</option>
                                 <option value="3">第三方单号</option>
@@ -115,6 +152,6 @@
     </div>
 
     <script type="text/javascript" src="https://www.17track.net/externalcall.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

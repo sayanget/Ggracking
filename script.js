@@ -10,10 +10,20 @@ const elements = {
     closeModal: document.querySelector('.close-modal'),
     timeline: document.getElementById('timeline'),
     currentTime: document.getElementById('current-time'),
-    themeToggleBtn: document.getElementById('theme-toggle')
+    themeToggleBtn: document.getElementById('theme-toggle'),
+    
+    // DMS login elements
+    dmsPhoneInput: document.getElementById('dms-phone'),
+    dmsPwdInput: document.getElementById('dms-pwd'),
+    dmsCaptchaInput: document.getElementById('dms-captcha'),
+    dmsCaptchaImg: document.getElementById('dms-captcha-img'),
+    dmsCaptchaLoading: document.getElementById('dms-captcha-loading'),
+    dmsCaptchaContainer: document.getElementById('dms-captcha-container'),
+    dmsLoginBtn: document.getElementById('dms-login-btn')
 };
 
 let currentResults = [];
+let captchaUuid = '';
 
 // Init
 async function init() {
@@ -43,6 +53,12 @@ async function init() {
         if (data.cookie) elements.cookieInput.value = data.cookie;
     } catch (e) {
         console.error('Failed to load config', e);
+    }
+
+    // Load DMS captcha
+    fetchDmsCaptcha();
+    if (elements.dmsCaptchaContainer) {
+        elements.dmsCaptchaContainer.addEventListener('click', fetchDmsCaptcha);
     }
 }
 
@@ -85,6 +101,111 @@ elements.saveConfigBtn.addEventListener('click', async () => {
         alert('连接服务器失败');
     }
 });
+
+// Fetch DMS Captcha Image
+async function fetchDmsCaptcha() {
+    if (!elements.dmsCaptchaImg || !elements.dmsCaptchaLoading) return;
+    
+    elements.dmsCaptchaLoading.classList.remove('hidden');
+    elements.dmsCaptchaImg.classList.add('hidden');
+    
+    try {
+        const res = await fetch('/api/captcha');
+        if (!res.ok) throw new Error('API returns error ' + res.status);
+        const data = await res.json();
+        
+        if (data.img) {
+            elements.dmsCaptchaImg.src = 'data:image/jpeg;base64,' + data.img;
+            elements.dmsCaptchaImg.classList.remove('hidden');
+            captchaUuid = data.uuid || '';
+        } else {
+            console.error('No captcha image in response', data);
+        }
+    } catch (e) {
+        console.error('Failed to load captcha:', e);
+    } finally {
+        elements.dmsCaptchaLoading.classList.add('hidden');
+    }
+}
+
+// DMS Quick Login Button Listener
+if (elements.dmsLoginBtn) {
+    elements.dmsLoginBtn.addEventListener('click', async () => {
+        const username = elements.dmsPhoneInput.value.trim();
+        const password = elements.dmsPwdInput.value;
+        const code = elements.dmsCaptchaInput.value.trim();
+        
+        if (!username) {
+            alert('请输入手机号/账号');
+            return;
+        }
+        if (!password) {
+            alert('请输入密码');
+            return;
+        }
+        if (!code) {
+            alert('请输入验证码');
+            return;
+        }
+        if (!captchaUuid) {
+            alert('验证码 UUID 未加载，请刷新验证码');
+            return;
+        }
+        
+        const btnText = elements.dmsLoginBtn.querySelector('.btn-text');
+        const btnLoader = elements.dmsLoginBtn.querySelector('.loader');
+        
+        elements.dmsLoginBtn.disabled = true;
+        if (btnText) btnText.style.opacity = '0.5';
+        if (btnLoader) btnLoader.classList.remove('hidden');
+        
+        try {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                    code,
+                    uuid: captchaUuid
+                })
+            });
+            
+            const data = await res.json();
+            if (data.code === 200) {
+                alert('登录成功！已自动获取并保存 Token');
+                if (data.token) {
+                    elements.tokenInput.value = data.token;
+                }
+                // Also load saved cookies if returned
+                try {
+                    const confRes = await fetch('/api/config');
+                    const confData = await confRes.json();
+                    if (confData.cookie) {
+                        elements.cookieInput.value = confData.cookie;
+                    }
+                } catch (e) {
+                    console.error('Failed to reload cookie config:', e);
+                }
+                elements.dmsCaptchaInput.value = '';
+                await fetchDmsCaptcha();
+            } else {
+                alert('登录失败: ' + (data.msg || data.error || '未知错误'));
+                elements.dmsCaptchaInput.value = '';
+                await fetchDmsCaptcha();
+            }
+        } catch (e) {
+            console.error(e);
+            alert('网络连接错误，登录请求失败');
+        } finally {
+            elements.dmsLoginBtn.disabled = false;
+            if (btnText) btnText.style.opacity = '1';
+            if (btnLoader) btnLoader.classList.add('hidden');
+        }
+    });
+}
 
 // Search
 elements.searchBtn.addEventListener('click', async () => {
