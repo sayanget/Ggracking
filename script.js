@@ -50,7 +50,7 @@ async function init() {
         const res = await fetch('/api/config');
         const data = await res.json();
         if (data.token) elements.tokenInput.value = data.token;
-        if (data.cookie) elements.cookieInput.value = data.cookie;
+        if (data.cookie && elements.cookieInput) elements.cookieInput.value = data.cookie;
     } catch (e) {
         console.error('Failed to load config', e);
     }
@@ -81,7 +81,7 @@ function updateTime() {
 // Save Config
 elements.saveConfigBtn.addEventListener('click', async () => {
     const token = elements.tokenInput.value.trim();
-    const cookie = elements.cookieInput.value.trim();
+    const cookie = elements.cookieInput ? elements.cookieInput.value.trim() : '';
     
     try {
         const res = await fetch('/api/config', {
@@ -183,7 +183,7 @@ if (elements.dmsLoginBtn) {
                 try {
                     const confRes = await fetch('/api/config');
                     const confData = await confRes.json();
-                    if (confData.cookie) {
+                    if (confData.cookie && elements.cookieInput) {
                         elements.cookieInput.value = confData.cookie;
                     }
                 } catch (e) {
