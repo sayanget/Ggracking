@@ -9,7 +9,8 @@ const elements = {
     modal: document.getElementById('detail-modal'),
     closeModal: document.querySelector('.close-modal'),
     timeline: document.getElementById('timeline'),
-    currentTime: document.getElementById('current-time')
+    currentTime: document.getElementById('current-time'),
+    themeToggleBtn: document.getElementById('theme-toggle')
 };
 
 let currentResults = [];
@@ -19,6 +20,21 @@ async function init() {
     updateTime();
     setInterval(updateTime, 1000);
     
+    // Initialize Theme (Default is dark theme for premium aesthetics)
+    const savedTheme = localStorage.getItem('gtracking-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    if (elements.themeToggleBtn) {
+        elements.themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('gtracking-theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
+    
     // Load saved config
     try {
         const res = await fetch('/api/config');
@@ -27,6 +43,13 @@ async function init() {
         if (data.cookie) elements.cookieInput.value = data.cookie;
     } catch (e) {
         console.error('Failed to load config', e);
+    }
+}
+
+function updateThemeIcon(theme) {
+    const iconSpan = elements.themeToggleBtn ? elements.themeToggleBtn.querySelector('.theme-icon') : null;
+    if (iconSpan) {
+        iconSpan.textContent = theme === 'light' ? '☀️' : '🌙';
     }
 }
 

@@ -449,4 +449,98 @@ input:focus, select:focus, textarea:focus {
     border: 1px solid rgba(248, 113, 113, 0.2);
 }
 
+/* Light Theme Variables and Overrides */
+[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --primary: #0284c7;
+    --primary-glow: rgba(2, 132, 199, 0.15);
+    --secondary: #64748b;
+    --accent: #db2777;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: rgba(0, 0, 0, 0.08);
+    --success: #16a34a;
+    --warning: #d97706;
+    --error: #dc2626;
+}
+
+[data-theme="light"] .sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] input, 
+[data-theme="light"] select, 
+[data-theme="light"] textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #0f172a;
+}
+
+[data-theme="light"] input:focus, 
+[data-theme="light"] select:focus, 
+[data-theme="light"] textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+[data-theme="light"] .empty-state {
+    color: #475569;
+}
+
+[data-theme="light"] .result-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .timeline-content {
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Theme Toggle Button Styles */
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.25rem;
+    color: var(--text-main);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--primary);
+}
+
+
 
