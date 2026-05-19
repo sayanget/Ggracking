@@ -1,0 +1,1232 @@
+[
+  {
+    "method": "GET",
+    "url": "https://parcelsapp.com/en/tracking/SPXMCO115400412373",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://parcelsapp.com/redirect-protection.js",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://dvow0vltefbxy.cloudfront.net/packs/css/recent-tracking-ceb7d295.css",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://dvow0vltefbxy.cloudfront.net/packs/js/recent-tracking-b9c47e442a8eeb4fe8ca.js",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://parcelsapp.com/ads.js",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://parcelsapp.com/api/v2/parcels",
+    "post_data": "trackingId=!%251E%2526%251B%2511%251D%257D%257D%2503%2502%257C%257C%2502%257D%2500%2501%2505%2501&carrier=Auto-Detect&language=zh&country=Unknown&platform=web-desktop&wd=true&c=false&p=0&l=1&se=1280x720%2C1280x720%2C1280x720%2Cno%2CWin32%2CGecko%2CMozilla%2CNetscape%2CGoogle+Inc.%2Ctrue%2Cno%2CGoogle+Inc.+(Google)%2CANGLE+(Google%2C+Vulkan+1.3.0+(SwiftShader+Device+(Subzero)+(0x0000C0DE))%2C+SwiftShader+driver)%2Ctrue%2Ctrue%2CcGFyY2Vsc2FwcC5jb20%3D%2CRXJyb3I6IERPV04KICAgIGF0IEMgKGh0dHBzOi8vZHZvdzB2bHRlZmJ4eS5jbG91ZGZyb250Lm5ldC9wYWNrcy9qcy9hcHBsaWNhdGlvbi0xY2MxZjEzYTAwMjMyMmFkYTk0Zi5qczoxOjE4NDEyKQogICAgYXQgT2JqZWN0LlFvekdtIChodHRwczovL2R2b3cwdmx0ZWZieHkuY2xvdWRmcm9udC5uZXQvcGFja3MvanMvYXBwbGljYXRpb24tMWNjMWYxM2EwMDIzMjJhZGE5NGYuanM6MToyMjQyNSkKICAgIGF0IEhUTUxEb2N1bWVudC5xdWVyeVNlbGVjdG9yIChodHRwczovL2R2b3cwdmx0ZWZieHkuY2xvdWRmcm9udC5uZXQvcGFja3MvanMvYXBwbGljYXRpb24tMWNjMWYxM2EwMDIzMjJhZGE5NGYuanM6MToyNDM0MykKICAgIGF0IEZpIChodHRwczovL2R2b3cwdmx0ZWZieHkuY2xvdWRmcm9udC5uZXQvcGFja3MvanMvcmVjZW50LXRyYWNraW5nLWI5YzQ3ZTQ0MmE4ZWViNGZlOGNhLmpzOjE6ODY2NzQpCiAgICBhdCBSaS5lLm1vdW50IChodHRwczovL2R2b3cwdmx0ZWZieHkuY2xvdWRmcm9udC5uZXQvcGFja3MvanMvcmVjZW50LXRyYWNraW5nLWI5YzQ3ZTQ0MmE4ZWViNGZlOGNhLmpzOjE6ODYzOTIpCiAgICBhdCBIVE1MRG9jdW1lbnQuPGFub255bW91cz4gKGh0dHBzOi8vZHZvdzB2bHRlZmJ4eS5jbG91ZGZyb250Lm5ldC9wYWNrcy9qcy9yZWNlbnQtdHJhY2tpbmctYjljNDdlNDQyYThlZWI0ZmU4Y2EuanM6MToxNDM2ODUp%2C1156%2C18%2C3326705770"
+  },
+  {
+    "method": "POST",
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-Z5RCF4F7T8&gtm=45je65i2v9102344800za200zd9102344800&_p=1779229670999&gcs=G111&gcd=13t3t3t3t5l1&npa=0&dma=0&are=1&cid=1386592388.1779229671&frm=0&pscdl=noapi&rcb=1&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B143.0.7499.4%7CChromium%3B143.0.7499.4%7CNot%2520A(Brand%3B24.0.0.0&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=zh-cn&_s=1&tag_exp=0~115938466~115938468&dp=%2Fen%2Ftracking%2FSPXMCO115400412373&sid=1779229671&sct=1&seg=0&dl=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&dt=Universal%20Parcel%20Tracking%20-%20Global%20Package%20Tracking&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.anonymize_ip=true&tfd=1071",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4338069701034964&output=html&adk=2020088507&adf=637443794&lmt=1779229671&plaf=1%3A2%2C7%3A2&plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&format=0x0&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&pra=5&asro=0&aiactd=0&aicctd=0&ailctd=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQzLjAuNzQ5OS40IixudWxsLDAsbnVsbCwiNjQiLFtbIkhlYWRsZXNzQ2hyb21lIiwiMTQzLjAuNzQ5OS40Il0sWyJDaHJvbWl1bSIsIjE0My4wLjc0OTkuNCJdLFsiTm90IEEoQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&abgtt=11&dt=1779229671214&bpp=3&bdt=307&idt=85&shv=r20260519&mjsv=m202605180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=3340036475445&frm=20&pv=2&u_tz=-420&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&adx=-12245933&ady=-12245933&biw=1280&bih=720&scr_x=0&scr_y=0&eid=95387077%2C31098639%2C95390680&oid=2&pvsid=4179069085046814&tmod=1800318565&uas=0&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C1280%2C720&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&bz=1&pgls=CAs.&ifi=1&uci=a!1&fsb=1&dtd=107",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4338069701034964&output=html&h=280&slotname=8520652802&adk=313553619&adf=523434623&pi=t.ma~as.8520652802&w=1200&fwrn=4&fwrnh=100&lmt=1779229671&rafmt=1&format=1200x280&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aiactd=0&aicctd=0&ailctd=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQzLjAuNzQ5OS40IixudWxsLDAsbnVsbCwiNjQiLFtbIkhlYWRsZXNzQ2hyb21lIiwiMTQzLjAuNzQ5OS40Il0sWyJDaHJvbWl1bSIsIjE0My4wLjc0OTkuNCJdLFsiTm90IEEoQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&abgtt=11&dt=1779229671217&bpp=2&bdt=310&idt=110&shv=r20260519&mjsv=m202605180101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3340036475445&frm=20&pv=1&u_tz=-420&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&adx=40&ady=428&biw=1280&bih=720&scr_x=0&scr_y=0&eid=95387077%2C31098639%2C95390680&oid=2&pvsid=4179069085046814&tmod=1800318565&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C1280%2C720&vis=1&rsz=%7C%7CEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1&pgls=CAs.&ifi=2&uci=a!2&fsb=1&dtd=117",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "blob:https://parcelsapp.com/41514663-3f15-410e-82c0-034864eb84bc",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://fundingchoicesmessages.google.com/i/ca-pub-4338069701034964?href=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&ers=2",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://gum.criteo.com/sid/json?origin=prebid&topUrl=https%3A%2F%2Fparcelsapp.com%2F&domain=parcelsapp.com&cw=1&lsw=1",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://id5-sync.com/api/config/prebid",
+    "post_data": "{\"enabledStorageTypes\":[\"html5\"],\"name\":\"id5Id\",\"params\":{\"partner\":711,\"abTesting\":{\"enabled\":true,\"controlGroupPct\":0.5}},\"storage\":{\"type\":\"html5\",\"name\":\"id5id\",\"expires\":90,\"refreshInSeconds\":28800},\"bounce\":true}"
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/rid?ttd_pid=pubmatic&fmt=json",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://api.id5-sync.com/analytics/711/pbjs",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://server.cpmstar.com/view.aspx?media=banner&json=c_b&mv=1&poolid=89722&reachedTop=true&requestid=30018f379720291&referer=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&schain=1.0%2C1%21adpushup.com%2C2f84d16e300999d17ed5601e3eece7bc%2C1%2C%2C%2C",
+    "post_data": "{\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"banner\":{\"sizes\":[[750,280],[728,280],[690,280],[675,280],[670,280],[728,250],[650,280],[630,280],[690,250],[675,250],[600,280],[670,250],[650,250],[630,250],[600,250],[650,150],[336,280],[550,150],[300,250],[728,90],[250,250],[690,90],[675,90],[670,90],[602,100],[650,90],[630,90],[600,90],[580,90],[570,90],[200,200],[320,100],[300,100],[468,60],[300,75],[320,50],[300,50]]},\"imp\":[{\"ext\":{},\"id\":\"30018f379720291\",\"banner\":{\"topframe\":1,\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"secure\":1}],\"source\":{\"ext\":{\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}},\"ext\":{\"prebid\":{\"adServerCurrency\":\"USD\"}},\"site\":{\"domain\":\"parcelsapp.com\",\"publisher\":{\"domain\":\"parcelsapp.com\"},\"page\":\"https://parcelsapp.com/en/tracking/SPXMCO115400412373\"},\"device\":{\"w\":1280,\"h\":720,\"dnt\":0,\"ua\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36\",\"language\":\"zh\",\"ext\":{\"vpw\":1280,\"vph\":720,\"webdriver\":true},\"sua\":{\"source\":1,\"platform\":{\"brand\":\"Windows\"},\"browsers\":[{\"brand\":\"HeadlessChrome\",\"version\":[\"143\"]},{\"brand\":\"Chromium\",\"version\":[\"143\"]},{\"brand\":\"Not A(Brand\",\"version\":[\"24\"]}],\"mobile\":0}},\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}},\"id\":\"11b8407e-6cfa-43ef-a146-abb5b4ca6aad\",\"test\":0,\"tmax\":2000,\"cur\":[\"USD\"]}"
+  },
+  {
+    "method": "POST",
+    "url": "https://hb-api.omnitagjs.com/hb-api/prebid/v1?RefererUrl=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&PageUrl=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&PageReferrer=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&CanonicalUrl=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373",
+    "post_data": "{\"Version\":\"1.0\",\"Bids\":{\"44661d1c74aca838\":{\"PlacementID\":\"924343b34e679ba4f1fea7d253b8939d\",\"Width\":750,\"Height\":280,\"AvailableSizes\":\"750x280,728x280,690x280,675x280,670x280,728x250,650x280,630x280,690x250,675x250,600x280,670x250,650x250,630x250,600x250,650x150,336x280,550x150,300x250,728x90,250x250,690x90,675x90,670x90,602x100,650x90,630x90,600x90,580x90,570x90,200x200,320x100,300x100,468x60,300x75,320x50,300x50\",\"SChain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},\"459f5847ec007cf8\":{\"PlacementID\":\"de0fb50b17d6926c50b56a33329a2941\",\"Width\":750,\"Height\":280,\"AvailableSizes\":\"750x280,728x280,690x280,675x280,670x280,728x250,650x280,630x280,690x250,675x250,600x280,670x250,650x250,630x250,600x250,650x150,336x280,550x150,300x250,728x90,250x250,690x90,675x90,670x90,602x100,650x90,630x90,600x90,580x90,570x90,200x200,320x100,300x100,468x60,300x75,320x50,300x50\",\"SChain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},\"4685d602f9264bc8\":{\"PlacementID\":\"02046c5a18fb0e5e878b63cf72e9e2fe\",\"Width\":750,\"Height\":280,\"AvailableSizes\":\"750x280,728x280,690x280,675x280,670x280,728x250,650x280,630x280,690x250,675x250,600x280,670x250,650x250,630x250,600x250,650x150,336x280,550x150,300x250,728x90,250x250,690x90,675x90,670x90,602x100,650x90,630x90,600x90,580x90,570x90,200x200,320x100,300x100,468x60,300x75,320x50,300x50\",\"SChain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},\"47af9c4f6a240e3\":{\"PlacementID\":\"ad7c2b1f5959445c07a5034abf9d0fc7\",\"Width\":750,\"Height\":280,\"AvailableSizes\":\"750x280,728x280,690x280,675x280,670x280,728x250,650x280,630x280,690x250,675x250,600x280,670x250,650x250,630x250,600x250,650x150,336x280,550x150,300x250,728x90,250x250,690x90,675x90,670x90,602x100,650x90,630x90,600x90,580x90,570x90,200x200,320x100,300x100,468x60,300x75,320x50,300x50\",\"SChain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}},\"PageRefreshed\":false,\"ortb2\":{\"source\":{},\"ext\":{\"prebid\":{\"adServerCurrency\":\"USD\"}},\"site\":{\"domain\":\"parcelsapp.com\",\"publisher\":{\"domain\":\"parcelsapp.com\"},\"page\":\"https://parcelsapp.com/en/tracking/SPXMCO115400412373\"},\"device\":{\"w\":1280,\"h\":720,\"dnt\":0,\"ua\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36\",\"language\":\"zh\",\"ext\":{\"vpw\":1280,\"vph\":720,\"webdriver\":true},\"sua\":{\"source\":1,\"platform\":{\"brand\":\"Windows\"},\"browsers\":[{\"brand\":\"HeadlessChrome\",\"version\":[\"143\"]},{\"brand\":\"Chromium\",\"version\":[\"143\"]},{\"brand\":\"Not A(Brand\",\"version\":[\"24\"]}],\"mobile\":0}},\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}}},\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}],\"pbjs_version\":\"9.41.0\"}"
+  },
+  {
+    "method": "GET",
+    "url": "https://pbjs.e-planning.net/pbjs/1/2a1a4/1/parcelsapp.com/ROS?rnd=0.3422929579837365&e=video_750x280_0%3A750x280%3B1&ur=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&pbv=9.41.0&ncb=1&vs=F&crs=UTF-8&sch=1.0%2C1!adpushup.com%2C2f84d16e300999d17ed5601e3eece7bc%2C1%2C%2C%2C&fr=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&e_pubcid=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3&vctx=2&vv=3",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pbjs.e-planning.net/pbjs/1/2a1a4/1/parcelsapp.com/ROS?rnd=0.3422929579837365&e=video_750x280_0%3A750x280%3B1&ur=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&pbv=9.41.0&ncb=1&vs=F&crs=UTF-8&sch=1.0%2C1!adpushup.com%2C2f84d16e300999d17ed5601e3eece7bc%2C1%2C%2C%2C&fr=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&e_pubcid=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3&vctx=2&vv=3",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://exchange.postrelease.com/prebid?ntv_pb_eid=W3sic291cmNlIjoicHViY2lkLm9yZyIsInVpZHMiOlt7ImlkIjoiMmUyOGQ0YTUtZTVmNi00YTFhLTk4MDctNmE0YWM0NzFlM2UzIiwiYXR5cGUiOjF9XX1d&ntv_ptd=1674752&ntv_pas=eyIxNjc0NzUyIjpbWzc1MCwyODBdLFs3MjgsMjgwXSxbNjkwLDI4MF0sWzY3NSwyODBdLFs2NzAsMjgwXSxbNzI4LDI1MF0sWzY1MCwyODBdLFs2MzAsMjgwXSxbNjkwLDI1MF0sWzY3NSwyNTBdLFs2MDAsMjgwXSxbNjcwLDI1MF0sWzY1MCwyNTBdLFs2MzAsMjUwXSxbNjAwLDI1MF0sWzY1MCwxNTBdLFszMzYsMjgwXSxbNTUwLDE1MF0sWzMwMCwyNTBdLFs3MjgsOTBdLFsyNTAsMjUwXSxbNjkwLDkwXSxbNjc1LDkwXSxbNjcwLDkwXSxbNjAyLDEwMF0sWzY1MCw5MF0sWzYzMCw5MF0sWzYwMCw5MF0sWzU4MCw5MF0sWzU3MCw5MF0sWzIwMCwyMDBdLFszMjAsMTAwXSxbMzAwLDEwMF0sWzQ2OCw2MF0sWzMwMCw3NV0sWzMyMCw1MF0sWzMwMCw1MF1dLCJsZW5ndGgiOjF9&ntv_pbv=v9.41.0&ntv_pb_rid=678a253ca85faed8&ntv_ppc=W3siYWRVbml0Q29kZSI6IkFEUF80MjAzMF9yZXNwb25zaXZleHJlc3BvbnNpdmVfMDAwMDAwMDEtNzQyOTZmMzYtNzY1Yi00Njk1LTk4MWYtZGIzOWVlNTk1MmEyIiwibWVkaWFUeXBlcyI6eyJiYW5uZXIiOnsic2l6ZXMiOltbNzUwLDI4MF0sWzcyOCwyODBdLFs2OTAsMjgwXSxbNjc1LDI4MF0sWzY3MCwyODBdLFs3MjgsMjUwXSxbNjUwLDI4MF0sWzYzMCwyODBdLFs2OTAsMjUwXSxbNjc1LDI1MF0sWzYwMCwyODBdLFs2NzAsMjUwXSxbNjUwLDI1MF0sWzYzMCwyNTBdLFs2MDAsMjUwXSxbNjUwLDE1MF0sWzMzNiwyODBdLFs1NTAsMTUwXSxbMzAwLDI1MF0sWzcyOCw5MF0sWzI1MCwyNTBdLFs2OTAsOTBdLFs2NzUsOTBdLFs2NzAsOTBdLFs2MDIsMTAwXSxbNjUwLDkwXSxbNjMwLDkwXSxbNjAwLDkwXSxbNTgwLDkwXSxbNTcwLDkwXSxbMjAwLDIwMF0sWzMyMCwxMDBdLFszMDAsMTAwXSxbNDY4LDYwXSxbMzAwLDc1XSxbMzIwLDUwXSxbMzAwLDUwXV19LCJ2aWRlbyI6eyJjb250ZXh0Ijoib3V0c3RyZWFtIiwicGxheWVyU2l6ZSI6W1s3NTAsMjgwXV0sIm1pbWVzIjpbInZpZGVvL21wNCIsInZpZGVvL3dlYm0iXSwicHJvdG9jb2xzIjpbMiwzLDUsNl0sImFwaSI6WzJdLCJtYXhkdXJhdGlvbiI6MzAwLCJtaW5kdXJhdGlvbiI6MCwibGluZWFyaXR5IjoxLCJyZW5kZXJlciI6eyJ1cmwiOiJodHRwczovL2Nkbi5hZHB1c2h1cC5jb20vYXBPdXRzdHJlYW1SZW5kZXJlci5qcyJ9LCJwbGNtdCI6NH0sIm5hdGl2ZSI6eyJ0aXRsZSI6eyJyZXF1aXJlZCI6dHJ1ZSwic2VuZElkIjp0cnVlLCJsZW4iOjEwMH0sImJvZHkiOnsicmVxdWlyZWQiOnRydWUsInNlbmRJZCI6dHJ1ZX0sImltYWdlIjp7InJlcXVpcmVkIjp0cnVlLCJzZW5kSWQiOnRydWV9LCJjbGlja1VybCI6eyJyZXF1aXJlZCI6dHJ1ZSwic2VuZElkIjp0cnVlfX19fV0=&ntv_dbr=eyJBRFBfNDIwMzBfcmVzcG9uc2l2ZXhyZXNwb25zaXZlXzAwMDAwMDAxLTc0Mjk2ZjM2LTc2NWItNDY5NS05ODFmLWRiMzllZTU5NTJhMiI6MH0=&ntv_url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373",
+    "post_data": "{\"imp\":[{\"video\":{\"mimes\":[\"video/mp4\",\"video/webm\"],\"protocols\":[2,3,5,6],\"api\":[2],\"maxduration\":300,\"minduration\":0,\"linearity\":1,\"plcmt\":4,\"w\":750,\"h\":280},\"ext\":{\"placementId\":\"1674752\"},\"id\":\"6863b4dae89508\",\"banner\":{\"topframe\":1,\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"secure\":1,\"native\":{\"request\":\"{\\\"ver\\\":\\\"1.2\\\",\\\"assets\\\":[{\\\"id\\\":0,\\\"required\\\":1,\\\"title\\\":{\\\"len\\\":100}},{\\\"id\\\":1,\\\"required\\\":1,\\\"data\\\":{\\\"type\\\":2}},{\\\"id\\\":2,\\\"required\\\":1,\\\"img\\\":{\\\"type\\\":3}}]}\",\"ver\":\"1.2\"},\"tagid\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\"}],\"source\":{\"ext\":{\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}},\"ext\":{\"prebid\":{\"adServerCurrency\":\"USD\"}},\"site\":{\"domain\":\"parcelsapp.com\",\"publisher\":{\"domain\":\"parcelsapp.com\"},\"page\":\"https://parcelsapp.com/en/tracking/SPXMCO115400412373\"},\"device\":{\"w\":1280,\"h\":720,\"dnt\":0,\"ua\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36\",\"language\":\"zh\",\"ext\":{\"vpw\":1280,\"vph\":720,\"webdriver\":true},\"sua\":{\"source\":1,\"platform\":{\"brand\":\"Windows\"},\"browsers\":[{\"brand\":\"HeadlessChrome\",\"version\":[\"143\"]},{\"brand\":\"Chromium\",\"version\":[\"143\"]},{\"brand\":\"Not A(Brand\",\"version\":[\"24\"]}],\"mobile\":0}},\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}},\"id\":\"63dc8f60-84de-4a5e-8121-f20a694e51f4\",\"test\":0,\"tmax\":2000,\"cur\":[\"USD\"]}"
+  },
+  {
+    "method": "POST",
+    "url": "https://tlx.3lift.com/header/auction?lib=prebid&v=9.41.0&referrer=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&tmax=2000",
+    "post_data": "{\"imp\":[{\"id\":0,\"tagid\":\"parcelsapp_ROS_HDX\",\"video\":{\"context\":\"outstream\",\"mimes\":[\"video/mp4\",\"video/webm\"],\"protocols\":[2,3,5,6],\"api\":[2],\"maxduration\":300,\"minduration\":0,\"linearity\":1,\"renderer\":{\"url\":\"https://cdn.adpushup.com/apOutstreamRenderer.js\"},\"plcmt\":4,\"w\":750,\"h\":280},\"banner\":{\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"fpd\":{}},{\"id\":1,\"tagid\":\"parcelsapp_ROS_HDX\",\"video\":{\"context\":\"outstream\",\"mimes\":[\"video/mp4\",\"video/webm\"],\"protocols\":[2,3,5,6],\"api\":[2],\"maxduration\":300,\"minduration\":0,\"linearity\":1,\"renderer\":{\"url\":\"https://cdn.adpushup.com/apOutstreamRenderer.js\"},\"plcmt\":4,\"w\":750,\"h\":280},\"banner\":{\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"fpd\":{}},{\"id\":2,\"tagid\":\"parcelsapp_ROS_HDX\",\"video\":{\"context\":\"outstream\",\"mimes\":[\"video/mp4\",\"video/webm\"],\"protocols\":[2,3,5,6],\"api\":[2],\"maxduration\":300,\"minduration\":0,\"linearity\":1,\"renderer\":{\"url\":\"https://cdn.adpushup.com/apOutstreamRenderer.js\"},\"plcmt\":4,\"w\":750,\"h\":280},\"banner\":{\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"fpd\":{}},{\"id\":3,\"tagid\":\"parcelsapp_ROS_HDX\",\"video\":{\"context\":\"outstream\",\"mimes\":[\"video/mp4\",\"video/webm\"],\"protocols\":[2,3,5,6],\"api\":[2],\"maxduration\":300,\"minduration\":0,\"linearity\":1,\"renderer\":{\"url\":\"https://cdn.adpushup.com/apOutstreamRenderer.js\"},\"plcmt\":4,\"w\":750,\"h\":280},\"banner\":{\"format\":[{\"w\":750,\"h\":280},{\"w\":728,\"h\":280},{\"w\":690,\"h\":280},{\"w\":675,\"h\":280},{\"w\":670,\"h\":280},{\"w\":728,\"h\":250},{\"w\":650,\"h\":280},{\"w\":630,\"h\":280},{\"w\":690,\"h\":250},{\"w\":675,\"h\":250},{\"w\":600,\"h\":280},{\"w\":670,\"h\":250},{\"w\":650,\"h\":250},{\"w\":630,\"h\":250},{\"w\":600,\"h\":250},{\"w\":650,\"h\":150},{\"w\":336,\"h\":280},{\"w\":550,\"h\":150},{\"w\":300,\"h\":250},{\"w\":728,\"h\":90},{\"w\":250,\"h\":250},{\"w\":690,\"h\":90},{\"w\":675,\"h\":90},{\"w\":670,\"h\":90},{\"w\":602,\"h\":100},{\"w\":650,\"h\":90},{\"w\":630,\"h\":90},{\"w\":600,\"h\":90},{\"w\":580,\"h\":90},{\"w\":570,\"h\":90},{\"w\":200,\"h\":200},{\"w\":320,\"h\":100},{\"w\":300,\"h\":100},{\"w\":468,\"h\":60},{\"w\":300,\"h\":75},{\"w\":320,\"h\":50},{\"w\":300,\"h\":50}]},\"fpd\":{}}],\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}},\"ext\":{\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]},\"fpd\":{\"context\":{\"domain\":\"parcelsapp.com\",\"publisher\":{\"domain\":\"parcelsapp.com\"},\"page\":\"https://parcelsapp.com/en/tracking/SPXMCO115400412373\"},\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}}},\"ortb2\":{\"source\":{},\"ext\":{\"prebid\":{\"adServerCurrency\":\"USD\"}},\"site\":{\"domain\":\"parcelsapp.com\",\"publisher\":{\"domain\":\"parcelsapp.com\"},\"page\":\"https://parcelsapp.com/en/tracking/SPXMCO115400412373\"},\"device\":{\"w\":1280,\"h\":720,\"dnt\":0,\"ua\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.7499.4 Safari/537.36\",\"language\":\"zh\",\"ext\":{\"vpw\":1280,\"vph\":720,\"webdriver\":true},\"sua\":{\"source\":1,\"platform\":{\"brand\":\"Windows\"},\"browsers\":[{\"brand\":\"HeadlessChrome\",\"version\":[\"143\"]},{\"brand\":\"Chromium\",\"version\":[\"143\"]},{\"brand\":\"Not A(Brand\",\"version\":[\"24\"]}],\"mobile\":0}},\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3\",\"atype\":1}]}]}}}}}"
+  },
+  {
+    "method": "GET",
+    "url": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=20616&site_id=396318&zone_id=2213528&size_id=15&alt_size_ids=2%2C1%2C13%2C14%2C16%2C19%2C43%2C44%2C117%2C710&rp_schain=1.0,1!adpushup.com,2f84d16e300999d17ed5601e3eece7bc,1,,,&eid_pubcid.org=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3%5E1%5E%5E%5E%5E%5E&rf=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&tg_i.domain=parcelsapp.com&tg_i.page=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&tk_flint=pbjs_lite_v9.41.0&l_pb_bid_id=106c3813c3cf1718&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&m_ch_ua=%22HeadlessChrome%22%7Cv%3D%22143%22%2C%22Chromium%22%7Cv%3D%22143%22%2C%22Not%20A(Brand%22%7Cv%3D%2224%22&m_ch_mobile=%3F0&m_ch_platform=Windows&slots=1&rand=0.07278255134609446",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C500",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pbjs.e-planning.net/hb/1/2a1a4/1/parcelsapp.com/ROS?ct=1&r=pbjs&rnd=0.3422929579837365&e=video_750x280_0%3A750x280%3B1&ur=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&pbv=9.41.0&ncb=1&vs=F&crs=UTF-8&sch=1.0%2C1!adpushup.com%2C2f84d16e300999d17ed5601e3eece7bc%2C1%2C%2C%2C&fr=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&e_pubcid=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3&vctx=2&vv=3",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pbjs.e-planning.net/hb/1/2a1a4/1/parcelsapp.com/ROS?ct=1&r=pbjs&rnd=0.3422929579837365&e=video_750x280_0%3A750x280%3B1&ur=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&pbv=9.41.0&ncb=1&vs=F&crs=UTF-8&sch=1.0%2C1!adpushup.com%2C2f84d16e300999d17ed5601e3eece7bc%2C1%2C%2C%2C&fr=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&e_pubcid=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3&vctx=2&vv=3",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-4338069701034964&output=html&h=280&adk=723392857&adf=1818421530&pi=t.aa~a.3661038192~rp.1&w=1200&fwrn=4&fwrnh=100&lmt=1779229672&rafmt=1&to=qs&pwprc=5616259034&format=1200x280&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&fwr=0&pra=3&rpe=1&resp_fmts=3&asro=0&aiactd=0&aicctd=0&ailctd=0&aimartd=4&aieuf=1&aicrs=1&fa=40&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQzLjAuNzQ5OS40IixudWxsLDAsbnVsbCwiNjQiLFtbIkhlYWRsZXNzQ2hyb21lIiwiMTQzLjAuNzQ5OS40Il0sWyJDaHJvbWl1bSIsIjE0My4wLjc0OTkuNCJdLFsiTm90IEEoQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&abgtt=11&dt=1779229671523&bpp=1&bdt=617&idt=1&shv=r20260519&mjsv=m202605180101&ptt=9&saldr=aa&abxe=1&cookie=ID%3D611a661a1fdd9adb%3AT%3D1779229669%3ART%3D1779229669%3AS%3DALNI_MZ7A1e5BYH2HXYAigvxOKd3m4qEWw&gpic=UID%3D000013d25fa2b7fc%3AT%3D1779229669%3ART%3D1779229669%3AS%3DALNI_Mb3hn8s1I2xXfdNDwTCEb19SbYyJw&eo_id_str=ID%3D8bc809a55cb6f6c3%3AT%3D1779229669%3ART%3D1779229669%3AS%3DAA-AfjZCR1IKBrKLjt3NhTqwZ-Qm&prev_fmts=0x0%2C1200x280&nras=2&correlator=3340036475445&frm=20&pv=1&u_tz=-420&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&adx=40&ady=2106&biw=1280&bih=720&scr_x=0&scr_y=400&eid=95387077%2C31098639%2C95390680&oid=2&psts=AOrYGskivJ6wcjzPM00kZ4qYlouQEwevYDMa9QUgnYZjz8eJFh8AGfwKA65MTs_mPi1yo0eyr1lmRy1_qnrINJyof6gNIh2RJIkckaLS4m9NV0vvhQ&pvsid=4179069085046814&tmod=1800318565&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C1280%2C720&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=1&pgls=CAs.&ifi=3&uci=a!3&btvi=1&fsb=1&dtd=638",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "blob:https://parcelsapp.com/00a782f7-eda8-4327-b781-99fa7639e5c6",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.hadronid.net/hadron.js?url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&ref=&_it=amazon&partner_id=777",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.quantserve.com/pixel;r=2040136772;rf=0;a=p-54Nt-1NAaEEe0;url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373;ns=0;ce=1;qjs=1;qv=cb91e2be-20260407153927;ref=;dst=1;et=1779229672403;tzo=420;ogl=title.Universal%20Parcel%20Tracking%20-%20Global%20Package%20Tracking%0A%2Ctype.website%2Curl.https%3A%2F%2Fparcelsapp%252Ecom%2Fen%2Cimage.%2F%2Fdvow0vltefbxy%252Ecloudfront%252Enet%2Fassets%2Fpreview-52ad4cb1957eaac20649577c26f42e11f4%2Cdescription.Parcel%20Tracking%20Worldwide%252E%20Track%20Parcel%20in%20USA%252E%20Global%20postal%20tracking%20from%20eBay%2Csite_name.Parcels;d=parcelsapp.com;uh=e51ed67dfb8d91dc24b15e2ace0c3bc33bc53c3e1dfb09200d6c2f8387d67ea6;uht=2;fpan=1;fpa=P1-bde99e6b-9cc5-400e-882f-07c9ffbfcd54;pbc=2e28d4a5-e5f6-4a1a-9807-6a4ac471e3e3;_ses=130d6f4c-9e4c-4ff4-8bb7-a773e173f377;_seg=0;_ss=1;_gacid=1386592388.1779229671;_gasid=Z5RCF4F7T8_1779229671;gdpr=0;mdl=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pippio.com/api/sync?pid=5324&it=1&iv=a4da456f35d96ffd85b309f4ae23c56de0220a8a652f641ec09e39633c30b714791426b5417dce21&_=2",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://api.id5-sync.com/analytics/event",
+    "post_data": "{\"source\":\"pbjs\",\"event\":\"auctionEnd\",\"payload\":{\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"timestamp\":1779229671664,\"auctionEnd\":1779229672455,\"auctionStatus\":\"completed\",\"adUnitCodes\":[\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\"],\"bidderRequests\":[{\"bidderCode\":\"smartyads\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"2d71401bb673be\",\"bids\":[{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"3566ac6beeec8f\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"413344d2495951\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"54b84021db55658\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"66d551e6bcafa3\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"7ed20bb97e3692\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"8b0904461cb4338\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"951024c19653a3\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":7,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"108b16a4d509b8e\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":8,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"smartyads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"114da7a92f66599\",\"bidderRequestId\":\"2d71401bb673be\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":9,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671677},{\"bidderCode\":\"programmaticX\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"12671e87435fd3e\",\"bids\":[{\"bidder\":\"programmaticX\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"137afb64a084bf1\",\"bidderRequestId\":\"12671e87435fd3e\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671680},{\"bidderCode\":\"teads\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"141fc6b40446b21\",\"bids\":[{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"15c2d67d4fd73ee\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"16a24b52feb7ea18\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"17749f2a28046bf8\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"18ee751e71421ba\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"191d29270f86bc3\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"20f9fc821541858\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"21c598c8429a3e18\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":7,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"22e7e105b70aa3c\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":8,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"236634ce889a24f\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":9,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"teads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"24d9faa2b05e52f8\",\"bidderRequestId\":\"141fc6b40446b21\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":10,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671682},{\"bidderCode\":\"oftmedia\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"25d63266d3f8aa7\",\"bids\":[{\"bidder\":\"oftmedia\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"26d1cb5fbc073818\",\"bidderRequestId\":\"25d63266d3f8aa7\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671689},{\"bidderCode\":\"criteo\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"27d7b831a0821608\",\"bids\":[{\"bidder\":\"criteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"280b4fb81a79aa1\",\"bidderRequestId\":\"27d7b831a0821608\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671694},{\"bidderCode\":\"cpmstar\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"29c150fe3b4e33f\",\"bids\":[{\"bidder\":\"cpmstar\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"7a239363-44fb-4b10-8120-0ed6321d504f\",\"bidId\":\"30018f379720291\",\"bidderRequestId\":\"29c150fe3b4e33f\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671698},{\"bidderCode\":\"kueezrtb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"319bc432b63736e8\",\"bids\":[{\"bidder\":\"kueezrtb\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"321657491838027\",\"bidderRequestId\":\"319bc432b63736e8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671701},{\"bidderCode\":\"unruly\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"33ca52568f82d7d8\",\"bids\":[{\"bidder\":\"unruly\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"34fe1a38443e93c\",\"bidderRequestId\":\"33ca52568f82d7d8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671704},{\"bidderCode\":\"nobid\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"35df08e5d6812208\",\"bids\":[{\"bidder\":\"nobid\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"361b804275251eb\",\"bidderRequestId\":\"35df08e5d6812208\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671706},{\"bidderCode\":\"medianet\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"37184dabb98adcb\",\"bids\":[{\"bidder\":\"medianet\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"38a7aff748c43ec8\",\"bidderRequestId\":\"37184dabb98adcb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671710},{\"bidderCode\":\"trustedstack\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"39f53d0695be0b78\",\"bids\":[{\"bidder\":\"trustedstack\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"40280a88f530a0b8\",\"bidderRequestId\":\"39f53d0695be0b78\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671713},{\"bidderCode\":\"monetixads\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"41f56d5850b5714\",\"bids\":[{\"bidder\":\"monetixads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"7a239363-44fb-4b10-8120-0ed6321d504f\",\"bidId\":\"42530e371cd31268\",\"bidderRequestId\":\"41f56d5850b5714\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671714},{\"bidderCode\":\"adyoulike\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"430f4551524cda7\",\"bids\":[{\"bidder\":\"adyoulike\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"44661d1c74aca838\",\"bidderRequestId\":\"430f4551524cda7\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"adyoulike\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"459f5847ec007cf8\",\"bidderRequestId\":\"430f4551524cda7\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"adyoulike\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"4685d602f9264bc8\",\"bidderRequestId\":\"430f4551524cda7\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"adyoulike\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"47af9c4f6a240e3\",\"bidderRequestId\":\"430f4551524cda7\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671715},{\"bidderCode\":\"onetag\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"4855e1d4ff5718c\",\"bids\":[{\"bidder\":\"onetag\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"498815f8e4d03cb\",\"bidderRequestId\":\"4855e1d4ff5718c\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671716},{\"bidderCode\":\"msft\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"505a549f0f41bb98\",\"bids\":[{\"bidder\":\"msft\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"7a239363-44fb-4b10-8120-0ed6321d504f\",\"bidId\":\"51376869ca52ce28\",\"bidderRequestId\":\"505a549f0f41bb98\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671718},{\"bidderCode\":\"richaudience\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"52627c221e81c49\",\"bids\":[{\"bidder\":\"richaudience\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"53b7aaf1c57d21\",\"bidderRequestId\":\"52627c221e81c49\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671721},{\"bidderCode\":\"eplanning\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"548bea52bc79d74\",\"bids\":[{\"bidder\":\"eplanning\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"554f55d2e62adf38\",\"bidderRequestId\":\"548bea52bc79d74\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671723},{\"bidderCode\":\"revnew\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"bids\":[{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"57f241b318818e3\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"588e63509aec37b8\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"59ddb947433735e\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"60c567172d7a5258\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"619bfd810647ba68\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"62f1226d5f71a838\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"63ef4b345295178\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":7,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"revnew\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"641183239e0d02a8\",\"bidderRequestId\":\"56315499ebd6f7f8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":8,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671726},{\"bidderCode\":\"conversant\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"6543d1ed7a330ba8\",\"bids\":[{\"bidder\":\"conversant\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"7a239363-44fb-4b10-8120-0ed6321d504f\",\"bidId\":\"669ddb699f131c8\",\"bidderRequestId\":\"6543d1ed7a330ba8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671732},{\"bidderCode\":\"nativo\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"678a253ca85faed8\",\"bids\":[{\"bidder\":\"nativo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"6863b4dae89508\",\"bidderRequestId\":\"678a253ca85faed8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671733},{\"bidderCode\":\"triplelift\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"69a4353e9b49581\",\"bids\":[{\"bidder\":\"triplelift\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"70a58a2ec41752b8\",\"bidderRequestId\":\"69a4353e9b49581\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"triplelift\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"71256fba49a155c\",\"bidderRequestId\":\"69a4353e9b49581\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"triplelift\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"7240865d80c712e8\",\"bidderRequestId\":\"69a4353e9b49581\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"triplelift\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"7355f17660314698\",\"bidderRequestId\":\"69a4353e9b49581\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671736},{\"bidderCode\":\"ix\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"740a82f63febaee\",\"bids\":[{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"754559bc345427a\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"76cc5663071a1de\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"7718276b2251e148\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"783f09f7d6f12b98\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"79dc91cff77e813\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"800b6253d1f4341\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"81f911d05dc44f\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":7,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"8206c91fe975cac\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":8,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"ix\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"8377d747101fee9\",\"bidderRequestId\":\"740a82f63febaee\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":9,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671738},{\"bidderCode\":\"smilewanted\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"8455ec0049e4c04\",\"bids\":[{\"bidder\":\"smilewanted\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"859ed7d579d9065\",\"bidderRequestId\":\"8455ec0049e4c04\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671745},{\"bidderCode\":\"openx\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"8616dc4bbbcff66\",\"bids\":[{\"bidder\":\"openx\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"192e4c2b-bd7f-441d-8373-9f560ee7a3fa\",\"bidId\":\"8717b7db3f7803f8\",\"bidderRequestId\":\"8616dc4bbbcff66\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"openx\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"7a239363-44fb-4b10-8120-0ed6321d504f\",\"bidId\":\"885cc39cbb501918\",\"bidderRequestId\":\"8616dc4bbbcff66\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671746},{\"bidderCode\":\"iionads\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"890813d686cf6958\",\"bids\":[{\"bidder\":\"iionads\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"90f20ef74dbd2e3\",\"bidderRequestId\":\"890813d686cf6958\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671747},{\"bidderCode\":\"amx\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"9103619ff2f9861\",\"bids\":[{\"bidder\":\"amx\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"92000bf5e2c9cbd\",\"bidderRequestId\":\"9103619ff2f9861\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671748},{\"bidderCode\":\"sovrn\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"935f949ab9fde238\",\"bids\":[{\"bidder\":\"sovrn\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"94a08227fe3acef8\",\"bidderRequestId\":\"935f949ab9fde238\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sovrn\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"9552b4695b455778\",\"bidderRequestId\":\"935f949ab9fde238\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sovrn\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"968a881cf17c56b\",\"bidderRequestId\":\"935f949ab9fde238\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sovrn\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"977ca2ff493dcdb8\",\"bidderRequestId\":\"935f949ab9fde238\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671750},{\"bidderCode\":\"pubmatic\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"bids\":[{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"99b441d22bd137a8\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"10018d9a2e3274428\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"101795ecbab8dda5\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"1022456aa8ba3e638\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"1039b622f8cd4c04\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"pubmatic\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"104fddba285def078\",\"bidderRequestId\":\"98dd0be65642fdc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671752},{\"bidderCode\":\"rubicon\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"1052022488d37edc8\",\"bids\":[{\"bidder\":\"rubicon\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"106c3813c3cf1718\",\"bidderRequestId\":\"1052022488d37edc8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]},\"startTime\":1779229671759,\"serverResponseTimeMs\":1}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671757,\"serverResponseTimeMs\":1},{\"bidderCode\":\"rise\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"1078f1238d9627b1\",\"bids\":[{\"bidder\":\"rise\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"108dab4432c4ec34\",\"bidderRequestId\":\"1078f1238d9627b1\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671762},{\"bidderCode\":\"sharethrough\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"109ef35017526a0c8\",\"bids\":[{\"bidder\":\"sharethrough\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"110d1fa21c8f6f2d\",\"bidderRequestId\":\"109ef35017526a0c8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sharethrough\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"11194c5695414ad7\",\"bidderRequestId\":\"109ef35017526a0c8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sharethrough\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"112e7e2e145bb16c\",\"bidderRequestId\":\"109ef35017526a0c8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sharethrough\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"11327bc5ea937de2\",\"bidderRequestId\":\"109ef35017526a0c8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sharethrough\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"114b6fe42ed413a48\",\"bidderRequestId\":\"109ef35017526a0c8\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671764},{\"bidderCode\":\"adagio\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"115dd7f5c987a10a\",\"bids\":[{\"bidder\":\"adagio\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"11686b3b5da653cb\",\"bidderRequestId\":\"115dd7f5c987a10a\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"adagio\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"117fab48542f08388\",\"bidderRequestId\":\"115dd7f5c987a10a\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671768},{\"bidderCode\":\"sparteo\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"bids\":[{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"1198285c8f5cbb2f\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":1,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"120918e6623be0c4\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":2,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"1219e90291b371cd8\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":3,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"122f01b21fe0ad2d8\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":4,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"123aad85b88a6c828\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":5,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"12477a35e5ac012c8\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":6,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"1257f05f144fd3468\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":7,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"12648585281fdf3a\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":8,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}},{\"bidder\":\"sparteo\",\"userId\":{\"pubcid\":\"__ID5_REDACTED__\"},\"userIdAsEids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"id\":\"__ID5_REDACTED__\",\"atype\":1}]}],\"adUnitCode\":\"ADP_42030_responsivexresponsive_00000001-74296f36-765b-4695-981f-db39ee5952a2\",\"transactionId\":\"d7008cb5-367f-4995-8fb9-faf8e82c75be\",\"adUnitId\":\"1bf7294f-8d8b-48c1-965b-f0625ebaafcb\",\"bidId\":\"127a9358278170008\",\"bidderRequestId\":\"11802d4e8fda7ccb\",\"auctionId\":\"8c174b5d-8bcb-4a4c-a876-280ce91fe43b\",\"src\":\"client\",\"auctionsCount\":1,\"bidRequestsCount\":3,\"bidderRequestsCount\":9,\"bidderWinsCount\":0,\"deferBilling\":false,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"schain\":{\"ver\":\"1.0\",\"complete\":1,\"nodes\":[{\"asi\":\"adpushup.com\",\"sid\":\"2f84d16e300999d17ed5601e3eece7bc\",\"hp\":1}]}}],\"auctionStart\":1779229671664,\"timeout\":2000,\"ortb2\":{\"user\":{\"ext\":{\"eids\":[{\"source\":\"pubcid.org\",\"uids\":[{\"atype\":1}]}]}}},\"start\":1779229671770}],\"noBids\":[{\"bidId\":\"137afb64a084bf1\"},{\"bidId\":\"51376869ca52ce28\"},{\"bidId\":\"26d1cb5fbc073818\"},{\"bidId\":\"40280a88f530a0b8\"},{\"bidId\":\"53b7aaf1c57d21\"},{\"bidId\":\"110d1fa21c8f6f2d\"},{\"bidId\":\"11194c5695414ad7\"},{\"bidId\":\"112e7e2e145bb16c\"},{\"bidId\":\"11327bc5ea937de2\"},{\"bidId\":\"114b6fe42ed413a48\"},{\"bidId\":\"38a7aff748c43ec8\"},{\"bidId\":\"44661d1c74aca838\"},{\"bidId\":\"459f5847ec007cf8\"},{\"bidId\":\"4685d602f9264bc8\"},{\"bidId\":\"47af9c4f6a240e3\"},{\"bidId\":\"15c2d67d4fd73ee\"},{\"bidId\":\"16a24b52feb7ea18\"},{\"bidId\":\"17749f2a28046bf8\"},{\"bidId\":\"18ee751e71421ba\"},{\"bidId\":\"191d29270f86bc3\"},{\"bidId\":\"20f9fc821541858\"},{\"bidId\":\"21c598c8429a3e18\"},{\"bidId\":\"22e7e105b70aa3c\"},{\"bidId\":\"236634ce889a24f\"},{\"bidId\":\"24d9faa2b05e52f8\"},{\"bidId\":\"361b804275251eb\"},{\"bidId\":\"754559bc345427a\"},{\"bidId\":\"76cc5663071a1de\"},{\"bidId\":\"7718276b2251e148\"},{\"bidId\":\"783f09f7d6f12b98\"},{\"bidId\":\"79dc91cff77e813\"},{\"bidId\":\"800b6253d1f4341\"},{\"bidId\":\"81f911d05dc44f\"},{\"bidId\":\"8206c91fe975cac\"},{\"bidId\":\"8377d747101fee9\"},{\"bidId\":\"8717b7db3f7803f8\"},{\"bidId\":\"885cc39cbb501918\"},{\"bidId\":\"669ddb699f131c8\"},{\"bidId\":\"92000bf5e2c9cbd\"},{\"bidId\":\"11686b3b5da653cb\"},{\"bidId\":\"117fab48542f08388\"},{\"bidId\":\"94a08227fe3acef8\"},{\"bidId\":\"9552b4695b455778\"},{\"bidId\":\"968a881cf17c56b\"},{\"bidId\":\"977ca2ff493dcdb8\"},{\"bidId\":\"70a58a2ec41752b8\"},{\"bidId\":\"71256fba49a155c\"},{\"bidId\":\"7240865d80c712e8\"},{\"bidId\":\"7355f17660314698\"},{\"bidId\":\"6863b4dae89508\"},{\"bidId\":\"280b4fb81a79aa1\"},{\"bidId\":\"99b441d22bd137a8\"},{\"bidId\":\"10018d9a2e3274428\"},{\"bidId\":\"101795ecbab8dda5\"},{\"bidId\":\"1022456aa8ba3e638\"},{\"bidId\":\"1039b622f8cd4c04\"},{\"bidId\":\"104fddba285def078\"},{\"bidId\":\"106c3813c3cf1718\"},{\"bidId\":\"34fe1a38443e93c\"},{\"bidId\":\"321657491838027\"},{\"bidId\":\"859ed7d579d9065\"},{\"bidId\":\"554f55d2e62adf38\"},{\"bidId\":\"498815f8e4d03cb\"},{\"bidId\":\"30018f379720291\"},{\"bidId\":\"57f241b318818e3\"},{\"bidId\":\"588e63509aec37b8\"},{\"bidId\":\"59ddb947433735e\"},{\"bidId\":\"60c567172d7a5258\"},{\"bidId\":\"619bfd810647ba68\"},{\"bidId\":\"62f1226d5f71a838\"},{\"bidId\":\"63ef4b345295178\"},{\"bidId\":\"641183239e0d02a8\"},{\"bidId\":\"42530e371cd31268\"},{\"bidId\":\"90f20ef74dbd2e3\"},{\"bidId\":\"1198285c8f5cbb2f\"},{\"bidId\":\"120918e6623be0c4\"},{\"bidId\":\"1219e90291b371cd8\"},{\"bidId\":\"122f01b21fe0ad2d8\"},{\"bidId\":\"123aad85b88a6c828\"},{\"bidId\":\"12477a35e5ac012c8\"},{\"bidId\":\"1257f05f144fd3468\"},{\"bidId\":\"12648585281fdf3a\"},{\"bidId\":\"127a9358278170008\"},{\"bidId\":\"3566ac6beeec8f\"},{\"bidId\":\"413344d2495951\"},{\"bidId\":\"54b84021db55658\"},{\"bidId\":\"66d551e6bcafa3\"},{\"bidId\":\"7ed20bb97e3692\"},{\"bidId\":\"8b0904461cb4338\"},{\"bidId\":\"951024c19653a3\"},{\"bidId\":\"108b16a4d509b8e\"},{\"bidId\":\"114da7a92f66599\"},{\"bidId\":\"108dab4432c4ec34\"}],\"bidsReceived\":[],\"bidsRejected\":[],\"winningBids\":[],\"timeout\":2000,\"seatNonBids\":[]},\"partnerId\":711,\"meta\":{\"sampling\":1,\"pbjs\":\"v9.41.0\",\"tz\":420}}"
+  },
+  {
+    "method": "GET",
+    "url": "https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C500",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.id5-sync.com/api/1.0/esp.js",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=4179069085046814&correlator=909671760835664&eid=31098618&output=ldjh&gdfp_req=1&vrg=202605130101&ptt=17&impl=fifs&gdpr=0&iu_parts=103512698%3A23200393508%2C22651270369&enc_prev_ius=%2F0%2F1&prev_iu_szs=320x50%7C750x280%7C728x280%7C690x280%7C675x280%7C670x280%7C728x250%7C650x280%7C630x280%7C690x250%7C675x250%7C600x280%7C670x250%7C650x250%7C630x250%7C600x250%7C650x150%7C336x280%7C550x150%7C300x250%7C728x90%7C250x250%7C690x90%7C675x90%7C670x90%7C602x100%7C650x90%7C630x90%7C600x90%7C580x90%7C570x90%7C200x200%7C320x100%7C300x100%7C468x60%7C300x75%7C320x50%7C300x50&fluid=height&ifi=4&didk=1133566581&dids=ADP_42030_responsivexresponsiv&adfs=3235269734&sfv=1-0-45&eri=1&sc=1&cookie=ID%3D611a661a1fdd9adb%3AT%3D1779229669%3ART%3D1779229669%3AS%3DALNI_MZ7A1e5BYH2HXYAigvxOKd3m4qEWw&gpic=UID%3D000013d25fa2b7fc%3AT%3D1779229669%3ART%3D1779229669%3AS%3DALNI_Mb3hn8s1I2xXfdNDwTCEb19SbYyJw&abxe=1&dt=1779229672861&lmt=1779229672&adxs=70&adys=1208&biw=1280&bih=720&scr_x=0&scr_y=428&btvi=1&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&u_tz=-420&dmc=8&bc=31&nvt=1&uach=WyJXaW5kb3dzIiwiMTkuMC4wIiwieDg2IiwiIiwiMTQzLjAuNzQ5OS40IixudWxsLDAsbnVsbCwiNjQiLFtbIkhlYWRsZXNzQ2hyb21lIiwiMTQzLjAuNzQ5OS40Il0sWyJDaHJvbWl1bSIsIjE0My4wLjc0OTkuNCJdLFsiTm90IEEoQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&vis=1&psz=750x0&msz=750x0&fws=0&ohw=0&a3p=EjYKDGFkc2VydmVyLm9yZxIkYzg0MWUwNzEtMDYyYy00MTM0LThmNzctY2IxYmJjMmM1NDU2WAESnQEKCmNyaXRlby5jb20SjAFGT3RrN1Y5WllucHdVV3hpUWprbE1rSWxNa0pJWkhWaFEzSXhVbVFsTWtKdWRreGljSEJPYjJsclNucHhVV3BXUVU5SlRYWnZVVk4yTkRacllVaEtiSFpIZVNVeVFtVkdURlZXV21aRWRUQklWa1ZqVVdSSmNVZFJXVXBqZEZVMloyWjNKVE5FSlRORVgBEhwKDWNyd2RjbnRybC5uZXQYjovpkuQzSABSAghkEjQKCnB1YmNpZC5vcmcSJDJlMjhkNGE1LWU1ZjYtNGExYS05ODA3LTZhNGFjNDcxZTNlM1gBEhsKDGlkNS1zeW5jLmNvbRiOi-mS5DNIAFICCGQSHQoOZXNwLmNyaXRlby5jb20YjovpkuQzSABSAghkEiEKEmludGltYXRlbWVyZ2VyLmNvbRiOi-mS5DNIAFICCGQSGAoJeWFob28uY29tGI6L6ZLkM0gAUgIIZBIXCghydGJob3VzZRiOi-mS5DNIAFICCGQ.&cbidsp=Cp0VCAESHQoJc21hcnR5YWRzEIcGIAI4AVIJc21hcnR5YWRzEh0KCXNtYXJ0eWFkcxCHBiACOAFSCXNtYXJ0eWFkcxIdCglzbWFydHlhZHMQhwYgAjgBUglzbWFydHlhZHMSHQoJc21hcnR5YWRzEIcGIAI4AVIJc21hcnR5YWRzEh0KCXNtYXJ0eWFkcxCIBiACOAFSCXNtYXJ0eWFkcxIdCglzbWFydHlhZHMQiAYgAjgBUglzbWFydHlhZHMSHQoJc21hcnR5YWRzEIgGIAI4AVIJc21hcnR5YWRzEh0KCXNtYXJ0eWFkcxCIBiACOAFSCXNtYXJ0eWFkcxIdCglzbWFydHlhZHMQiAYgAjgBUglzbWFydHlhZHMSJAoNcHJvZ3JhbW1hdGljWBABIAI4AVINcHJvZ3JhbW1hdGljWBIVCgV0ZWFkcxDQASACOAFSBXRlYWRzEhUKBXRlYWRzENABIAI4AVIFdGVhZHMSFQoFdGVhZHMQ0AEgAjgBUgV0ZWFkcxIVCgV0ZWFkcxDQASACOAFSBXRlYWRzEhUKBXRlYWRzENABIAI4AVIFdGVhZHMSFQoFdGVhZHMQ0AEgAjgBUgV0ZWFkcxIVCgV0ZWFkcxDQASACOAFSBXRlYWRzEhUKBXRlYWRzENABIAI4AVIFdGVhZHMSFQoFdGVhZHMQ0AEgAjgBUgV0ZWFkcxIVCgV0ZWFkcxDQASACOAFSBXRlYWRzEiUKCG9mdG1lZGlhEIsBIAI4AVIIYXBwbmV4dXNSCG9mdG1lZGlhEhcKBmNyaXRlbxCSAiACOAFSBmNyaXRlbxIZCgdjcG1zdGFyEOcDIAI4AVIHY3Btc3RhchIbCghrdWVlenJ0YhCdAiACOAFSCGt1ZWV6cnRiEhcKBnVucnVseRCYAiACOAFSBnVucnVseRIVCgVub2JpZBDzASACOAFSBW5vYmlkEhsKCG1lZGlhbmV0EKsBIAI4AVIIbWVkaWFuZXQSLQoMdHJ1c3RlZHN0YWNrEIIBIAI4AVIIbWVkaWFuZXRSDHRydXN0ZWRzdGFjaxIoCgptb25ldGl4YWRzENgEIAI4AVIHYWRtYXRpY1IKbW9uZXRpeGFkcxIdCglhZHlvdWxpa2UQpgEgAjgBUglhZHlvdWxpa2USHQoJYWR5b3VsaWtlEKYBIAI4AVIJYWR5b3VsaWtlEh0KCWFkeW91bGlrZRCmASACOAFSCWFkeW91bGlrZRIdCglhZHlvdWxpa2UQpgEgAjgBUglhZHlvdWxpa2USFwoGb25ldGFnEOoCIAI4AVIGb25ldGFnEhIKBG1zZnQQYSACOAFSBG1zZnQSIgoMcmljaGF1ZGllbmNlEHsgAjgBUgxyaWNoYXVkaWVuY2USHQoJZXBsYW5uaW5nEOACIAI4AVIJZXBsYW5uaW5nEiAKBnJldm5ldxDMAyACOAFSB25leHgzNjBSBnJldm5ldxIgCgZyZXZuZXcQzAMgAjgBUgduZXh4MzYwUgZyZXZuZXcSIAoGcmV2bmV3EMwDIAI4AVIHbmV4eDM2MFIGcmV2bmV3EiAKBnJldm5ldxDMAyACOAFSB25leHgzNjBSBnJldm5ldxIgCgZyZXZuZXcQzAMgAjgBUgduZXh4MzYwUgZyZXZuZXcSIAoGcmV2bmV3EMwDIAI4AVIHbmV4eDM2MFIGcmV2bmV3EiAKBnJldm5ldxDMAyACOAFSB25leHgzNjBSBnJldm5ldxIgCgZyZXZuZXcQzAMgAjgBUgduZXh4MzYwUgZyZXZuZXcSHwoKY29udmVyc2FudBDbASACOAFSCmNvbnZlcnNhbnQSFwoGbmF0aXZvEOsBIAI4AVIGbmF0aXZvEh8KCnRyaXBsZWxpZnQQ5wEgAjgBUgp0cmlwbGVsaWZ0Eh8KCnRyaXBsZWxpZnQQ5wEgAjgBUgp0cmlwbGVsaWZ0Eh8KCnRyaXBsZWxpZnQQ5wEgAjgBUgp0cmlwbGVsaWZ0Eh8KCnRyaXBsZWxpZnQQ5wEgAjgBUgp0cmlwbGVsaWZ0Eg8KAml4ENQBIAI4AVICaXgSDwoCaXgQ1AEgAjgBUgJpeBIPCgJpeBDUASACOAFSAml4Eg8KAml4ENQBIAI4AVICaXgSDwoCaXgQ1AEgAjgBUgJpeBIPCgJpeBDUASACOAFSAml4Eg8KAml4ENQBIAI4AVICaXgSDwoCaXgQ1AEgAjgBUgJpeBIPCgJpeBDUASACOAFSAml4EiEKC3NtaWxld2FudGVkEMgCIAI4AVILc21pbGV3YW50ZWQSFQoFb3BlbngQzAEgAjgBUgVvcGVueBIVCgVvcGVueBDMASACOAFSBW9wZW54EisKB2lpb25hZHMQ6wQgAjgBUhBsaW1lbGlnaHREaWdpdGFsUgdpaW9uYWRzEhEKA2FteBDQASACOAFSA2FteBIVCgVzb3ZybhDQASACOAFSBXNvdnJuEhUKBXNvdnJuENABIAI4AVIFc292cm4SFQoFc292cm4Q0AEgAjgBUgVzb3ZybhIVCgVzb3ZybhDQASACOAFSBXNvdnJuEhsKCHB1Ym1hdGljENoBIAI4AVIIcHVibWF0aWMSGwoIcHVibWF0aWMQ2gEgAjgBUghwdWJtYXRpYxIbCghwdWJtYXRpYxDaASACOAFSCHB1Ym1hdGljEhsKCHB1Ym1hdGljENsBIAI4AVIIcHVibWF0aWMSGwoIcHVibWF0aWMQ2wEgAjgBUghwdWJtYXRpYxIbCghwdWJtYXRpYxDbASACOAFSCHB1Ym1hdGljEhkKB3J1Ymljb24Q4AEgAjgBUgdydWJpY29uEhMKBHJpc2UQtQUgAjgBUgRyaXNlEiIKDHNoYXJldGhyb3VnaBB0IAI4AVIMc2hhcmV0aHJvdWdoEiIKDHNoYXJldGhyb3VnaBB0IAI4AVIMc2hhcmV0aHJvdWdoEiIKDHNoYXJldGhyb3VnaBB0IAI4AVIMc2hhcmV0aHJvdWdoEiIKDHNoYXJldGhyb3VnaBB0IAI4AVIMc2hhcmV0aHJvdWdoEiIKDHNoYXJldGhyb3VnaBB0IAI4AVIMc2hhcmV0aHJvdWdoEhcKBmFkYWdpbxC-ASACOAFSBmFkYWdpbxIXCgZhZGFnaW8QvgEgAjgBUgZhZGFnaW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8SGQoHc3BhcnRlbxDVBCACOAFSB3NwYXJ0ZW8YAiIkZDcwMDhjYjUtMzY3Zi00OTk1LThmYjktZmFmOGU4MmM3NWJlKgQIAyAAMgd2OS40MS4wQNAPSgBSJWh0dHBzOi8vcHJlYmlkLmFkbnhzLmNvbS9wYmMvdjEvY2FjaGU.&dlt=1779229670907&idt=1504&prev_scp=ap_replaceSlot%3Dfalse%26amznbid%3D2%26amznp%3D2%26dg_pv%3Dmaster_1%26adpushup_ran%3D1%26hb_ap_siteid%3D42030%26hb_ap_ran%3D1%26fluid%3D0%26da%3Dadx%26refreshcount%3D0%26refreshrate%3D45%26ivt_vr%3DCONTROL%26adro_prod%3Dv1_c_20%26ap_product%3Dadpushup%26outbrain%3Dtrue%26pubmatic_eb_disable%3Dtrue%26ap_fp_engine_ran%3D0%26fp_engine_ran%3D0_1%26ap_fp_engine_type%3Dnone%26ap_fp_engine_temp%3Dnone_1%26misc%3Dv1_id5_e%26faid%3Dfalse%26vacant_variation%3Dexperiment_bp_0%26vacant_RV%3Dexperiment_pv%26vacant_RCA%3DE_0%26miscE%3Dpo_1_true_pv%252Chbvg_e_1_pv%252Cbb_no_bidder_0_pv%252Cgpid_1_false_pv%252C0_gpt_priority_normal%26stopUnfilledRefresh3%3Dd_g0_u0%26control_reporting%3Dchrome_DESKTOP_15_0_pv%26cluster_reporting%3Dchrome_DESKTOP_15_1_active_0_pv%26mfr%3D15_DESKTOP_chrome_0_0_pv%26refresh27Split%3Drefresh_experiment_1_pv%26ap_refresh_type%3DBG_1%26fcEnabled%3D0&cust_params=deployment%3Dmaster_1-5.16.3%252Cdg_mc_122%26optiRef%3DoptiRef_v3_e_all&adks=859091130&frm=20&eo_id_str=ID%3D8bc809a55cb6f6c3%3AT%3D1779229669%3ART%3D1779229669%3AS%3DAA-AfjZCR1IKBrKLjt3NhTqwZ-Qm&pb_szs=750x280%7C728x280%7C690x280%7C675x280%7C670x280%7C728x250%7C650x280%7C630x280%7C690x250%7C675x250%7C600x280%7C670x250%7C650x250%7C630x250%7C600x250%7C650x150%7C336x280%7C550x150%7C300x250%7C728x90%7C250x250%7C690x90%7C675x90%7C670x90%7C602x100%7C650x90%7C630x90%7C600x90%7C580x90%7C570x90%7C200x200%7C320x100%7C300x100%7C468x60%7C300x75%7C320x50%7C300x50%7C480x270&pgls=CAs.&pbbce=1",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://a.ad.gt/api/v1/u/matches/777?_it=amazon",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://id.hadron.ad.gt/v1/hadron.json?_it=amazon&partner_id=777&sync=0&domain=parcelsapp.com&url=https://parcelsapp.com/en/tracking/SPXMCO115400412373&v=06",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync6.im-apps.net/9001/pid?ref=null&page=https://parcelsapp.com/en/tracking/SPXMCO115400412373",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://id5-sync.com/api/esp/increment?counter=no-config",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.hadronid.net/hadron.js?partner_id=777&sync=1&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://p.ad.gt/api/v1/p/777",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids4.ad.gt/api/v1/ip_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https://ids.ad.gt/api/v1/match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&adnxs_id=$UID&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://u.openx.net/w/1.0/cm?id=998eaf06-9905-4eae-9e26-9fac75960c53&r=https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Fopenx%3Fopenx_id%3D%7BOPENX_ID%7D%26id%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26auid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://image2.pubmatic.com/AdServer/UCookieSetPug?rd=https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Fpbm_match%3Fpbm%3D%23PM_USER_ID%26id%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=8gkxb6n&ttd_tpi=1&ttd_puid=AU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.tapad.com/idsync/ex/receive?partner_id=3185&partner_device_id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&partner_url=https://ids.ad.gt%2Fapi%2Fv1%2Ftapad_match%3Fid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26tapad_id%3D%24%7BTA_DEVICE_ID%7D&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://d.turn.com/r/dd/id/L2NzaWQvMS9jaWQvMTc0ODI0MTY1OC90LzA/url/https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Famo_match%3Fturn_id%3D%24!%7BTURN_UUID%7D%26id%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.go.sonobi.com/us?https://ids.ad.gt/api/v1/son_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&uid=[UID]&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.360yield.com/ux?&publisher_dmp_id=15&r=https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Fimpr_match%3Fid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26impr_uid%3D%7BPUB_USER_ID%7D&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/pbm_match?pbm=05C1DC71-E282-4E85-A3BB-83D71CF5F50F&id=AU1D-0100-001779229673-H9WOJGOY-Y2EL",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/g_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0&google_error=15",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/t_match?tdid=c841e071-062c-4134-8f77-cb1bbc2c5456&id=AU1D-0100-001779229673-H9WOJGOY-Y2EL",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://gum.criteo.com/syncframe?origin=publishertagids&topUrl=parcelsapp.com&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/rub_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&rub=MPD7EO8Q-F-8NTD&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "POST",
+    "url": "https://a.ad.gt/api/v1/collect",
+    "post_data": "eyJjYXRlZ29yeSI6InBhZ2VWaWV3IiwidmVyc2lvbiI6InYyIiwiY3JlYXRlZF9hdCI6MTc3OTIyOTY3MzA1MiwicHJvcGVydGllcyI6eyJldmVudF90aW1lc3RhbXAiOjE3NzkyMjk2NzMwNTIsInVybCI6Imh0dHBzOi8vcGFyY2Vsc2FwcC5jb20vZW4vdHJhY2tpbmcvU1BYTUNPMTE1NDAwNDEyMzczIiwicmVmZXJyZXIiOiIiLCJwYXJ0bmVyX2lkIjoiNzc3IiwidGFnZ2VyX2lkIjoiYTljODJhMGRhOGFjODEyYmRkMTg5MzM2Yzk2NWQ1NDIiLCJhdWRpZ2VudF9pZCI6IkFVMUQtMDEwMC0wMDE3NzkyMjk2NzMtSDlXT0pHT1ktWTJFTCIsInNlc3Npb25faWQiOiJBVTFTLTAxMDAtMDAxNzc5MjI5NjczLTkyUURNQUs5LTVGU0siLCJwX3NfZiI6WyJCVCIsIkpJIiwiUkEiLCJBUiJdLCJoYWRyb25faWQiOiIwNjBuaWVsN2phaGFoajJnNTllOWE5ZTk5OWY5YTk5OTc5YTR1bTAyd2VzZXN3c3F5Nm02ZTZtNjY2bzZlNjY2MiJ9fQ=="
+  },
+  {
+    "method": "GET",
+    "url": "https://pixels.ad.gt/api/v1/getpixels?tagger_id=a9c82a0da8ac812bdd189336c965d542&url=https%3A%2F%2Fparcelsapp.com%2Fen%2Ftracking%2FSPXMCO115400412373&code=%27none%27",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/son_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&uid=b6f6b29f-33f3-4db2-b6b2-edc66d80b6ea&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/amo_match?turn_id=3565474099130638316&id=AU1D-0100-001779229673-H9WOJGOY-Y2EL",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://u.openx.net/w/1.0/cm?cc=1&id=998eaf06-9905-4eae-9e26-9fac75960c53&r=https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Fopenx%3Fopenx_id%3D%7BOPENX_ID%7D%26id%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26auid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.tapad.com/idsync/ex/receive/check?partner_id=3185&partner_device_id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&partner_url=https://ids.ad.gt%2Fapi%2Fv1%2Ftapad_match%3Fid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26tapad_id%3D%24%7BTA_DEVICE_ID%7D&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/openx?openx_id=4a4349ee-162f-42d4-9924-4b11a6913d30&id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&auid=AU1D-0100-001779229673-H9WOJGOY-Y2EL&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=tapad&ttd_tpi=1&ttd_puid=8fcb6bae-c93a-45a8-80f0-c5f559ba4a06%252Chttps%25253A%25252F%25252Fids.ad.gt%25252Fapi%25252Fv1%25252Ftapad_match%25253Fid%25253DAU1D-0100-001779229673-H9WOJGOY-Y2EL%252526tapad_id%25253D8fcb6bae-c93a-45a8-80f0-c5f559ba4a06%252C&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.tapad.com/idsync/ex/receive?partner_id=1830&partner_device_id=c841e071-062c-4134-8f77-cb1bbc2c5456&ttd_puid=8fcb6bae-c93a-45a8-80f0-c5f559ba4a06%2Chttps%253A%252F%252Fids.ad.gt%252Fapi%252Fv1%252Ftapad_match%253Fid%253DAU1D-0100-001779229673-H9WOJGOY-Y2EL%2526tapad_id%253D8fcb6bae-c93a-45a8-80f0-c5f559ba4a06%2C",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://fonts.googleapis.com/css?family=Open%20Sans%3A400%2C500",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.360yield.com/ul_cb/ux?&publisher_dmp_id=15&r=https%3A%2F%2Fids.ad.gt%2Fapi%2Fv1%2Fimpr_match%3Fid%3DAU1D-0100-001779229673-H9WOJGOY-Y2EL%26impr_uid%3D%7BPUB_USER_ID%7D&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/tapad_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&tapad_id=8fcb6bae-c93a-45a8-80f0-c5f559ba4a06",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ids.ad.gt/api/v1/impr_match?id=AU1D-0100-001779229673-H9WOJGOY-Y2EL&impr_uid=6a829fd1-be66-4032-b183-8618657ec3b5",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.google.com/recaptcha/api2/aframe",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sdk.streamrail.com/cs-config/cs.html?org=62cd704719862c0001a0406b&tc=6437de52ef16c40001dbd26a&as=6437de52ef16c40001dbd26c&type=hb&wd=cs.yellowblue.io&domain=parcelsapp.com&us_privacy=1NNN",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/sync/iframe/?cid=&gdpr=0&gdpr_consent=&us_privacy=&coppa=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://gum.criteo.com/syncframe?origin=criteoPrebidAdapter&topUrl=parcelsapp.com&gpp=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/sync/iframe/?cid=&gdpr=0&gdpr_consent=&us_privacy=&coppa=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://api-ssp.spot.im/pixels/ayl_pixel?ayl_id=0e9d3fae20e0b6a5715d367f817ca90d",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?coppa=&gdpr=0&gdpr_consent=&gpp=&gpp_sid=&ttd_pid=k2j3gqp&ttd_tpi=1&usp=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/openx?oxid=6303508b-9fa3-7d28-cadf-5f41b1eef234&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://tr.blismedia.com/v1/api/sync/openx",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=eu&gdpr=0&gdpr_consent=&p=adyoulike",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/openx?oxid=6303508b-9fa3-7d28-cadf-5f41b1eef234&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://tr.blismedia.com/v1/api/sync/openx",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cs.yellowblue.io/list?cb=__SRCsSC73883522&org=62cd704719862c0001a0406b&tc=6437de52ef16c40001dbd26a&as=6437de52ef16c40001dbd26c&type=hb&wd=cs.yellowblue.io&domain=parcelsapp.com&us_privacy=1NNN",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=22&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.33across.com/ps?m=xch&rt=html&id=0010b00002Mq2FYAAZ&ru=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D304%26uid%3D33XUSERID33X%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=duration_media&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://onetag-sys.com/usync/?pubId=694e68b73971b58&gdpr=0&gdpr_consent=&us_privacy=1YN-&https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D318%26uid%3D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=9&gdpr=0&gdpr_consent=&us_privacy=1YN-&&redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D317%26uid%3D%24UID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cs-server-s2s.yellowblue.io/sync-iframe?gdpr=0&gdpr_consent=&us_privacy=1YN-&&redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D352%26uid%3D%7BpartnerId%7D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/user/html/685297194d85991a5e6e36dd?redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D357%26uid%3D%24%7BuserId%7D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssp.disqus.com/redirectuser?sid=693&r=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D346%26uid%3DBUYERUID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.inmobi.com/oRTB?gdpr=0&gdpr_consent=&us_privacy=1YN-&&redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D344%26uid%3D%7BID5UID%7D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ce.lijit.com/merge?pid=273657&3pid=273657&gdpr=0&gdpr_consent=&us_privacy=1YN-&&location=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D310%26uid%3D%5BSOVRNID%5D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.1rx.io/usersync2/rmpssp?sub=duration&redir=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D321%26uid%3D%5BRX_UUID%5D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ib.adnxs.com/getuid?https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D312%26uid%3D%24UID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://hbx.media.net/cksync.php?cs=1&type=pbs&ovsid=setstatuscode&bidder=medianet&gdpr=0&gdpr_consent=&us_privacy=1YN-&&redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D353%26uid%3D%3Cvsid%3E%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.go.sonobi.com/usa?loc=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D332%26uid%3D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://prebid.a-mo.net/cchain/0?gdpr=0&gdpr_consent=&us_privacy=1YN-&&cb=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D327%26uid%3D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ap.lijit.com/pixel?pid=273657&3pid=273657&gdpr=0&gdpr_consent=&us_privacy=1YN-&&redir=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D310%26uid%3D%24UID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://jadserve.postrelease.com/suid/101952?ntv_r=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D322%26uid%3DNTV_USER_ID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.dxtech.ai/usync?pid=1535&cb=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D335%26uid%3D%24UID%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=1&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=310&uid=MscDALZHGCNyS0EfSaWksTU5&origin=https://parcelsapp.com/",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=332&uid=&origin=https%3A%2F%2Fparcelsapp.com%2Fb6f6b29f-33f3-4db2-b6b2-edc66d80b6ea",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=duration_media&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=9&gdpr=0&gdpr_consent=&us_privacy=1YN-&&redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D317%26uid%3D%24UID%26origin%3Dhttps%253A%252F%252Fvisitor.omnitagjs.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/user/html/685297194d85991a5e6e36dd?redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D357%26uid%3D%24%7BuserId%7D%26origin%3Dhttps%253A%252F%252Fvisitor.omnitagjs.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=321&uid=OPTOUT&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=335&uid=760db812-e530-4b75-ab44-3a755311725b&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=310&uid=MscDALZHGCNyS0EfSaWksTU5&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://de.tynt.com/deb/?m=xch&rt=html&id=0010b00002Mq2FYAAZ&ru=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D304%26uid%3D33XUSERID33X%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.inmobi.com/sync?redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D344%26uid%3D%7BID5UID%7D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F&gdpr_consent=&gdpr=0&us_privacy=1YN-&gdpr_pd=&source=5&google_push=&retry=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=357&uid=7bbc2e61-fd90-db3f-da76-537f54a35e70&origin=https://parcelsapp.com/",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-xandr%26userId%3D%24UID%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D&gdpr=&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dono-xandr%26userId%3D%24UID%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D&gdpr=&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://s.ad.smaato.net/c/?adExInit=p&gdpr=&gdpr_consent=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dsmaato-progx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://eb2.3lift.com/getuid?gdpr=&cmp_cs=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dtriplelift-progx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://s.ad.smaato.net/c/?adExInit=p&gdpr=&gdpr_consent=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dsmaato-tb%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://csync.loopme.me/?pubid=14129&gdpr=&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-loopme%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%7Bviewer_token%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.go.sonobi.com/us?loc=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-sonobi%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%5BUID%5D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://prebid.a-mo.net/cchain/0?gdpr=&gdpr_consent=&us_privacy=&cb=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-amx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.sparteo.com/sync?gdpr=0&gdpr_consent=null&us_privacy=null&cb=0.908926828330494&if=1&origin=https%3A%2F%2Fsync.sparteo.com%2F&src=meetscale&type=f&la[]=https://parcelsapp.com",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=1YN-&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=77&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=352&uid=9Q6QR02nCj_s&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=353&uid=4222312744230226000V10&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.inmobi.com/sync?redirect=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D344%26uid%3D%7BID5UID%7D%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F&gdpr_consent=&gdpr=0&us_privacy=1YN-&gdpr_pd=&source=5&google_push=&retry=true",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=svx9t50&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://hde.tynt.com/deb/?m=xch&rt=html&id=0010b00002Mq2FYAAZ&ru=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D304%26uid%3D33XUSERID33X%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F&b=1",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=77&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-xandr%26userId%3D%24UID%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D&gdpr=&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dono-xandr%26userId%3D%24UID%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D&gdpr=&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://s.ad.smaato.net/c/?adExInit=p&gdpr=&gdpr_consent=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dsmaato-progx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://eb2.3lift.com/getuid?gdpr=&cmp_cs=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dtriplelift-progx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://s.ad.smaato.net/c/?adExInit=p&gdpr=&gdpr_consent=&redir=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dsmaato-tb%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://csync.loopme.me/?pubid=14129&gdpr=&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-loopme%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%7Bviewer_token%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.go.sonobi.com/us?loc=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-sonobi%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%5BUID%5D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://prebid.a-mo.net/cchain/0?gdpr=&gdpr_consent=&us_privacy=&cb=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-amx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=vidazoo&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://visitor-programmaticx.omnitagjs.com/visitor/bsync?uid=a92febfdfeb911b25e77aa73748842b5&name=programmaticx&gdpr=&gdpr_consent=&url=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adyoulike%26userId%3DPARTNER_USER_ID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://visitor-px.omnitagjs.com/visitor/bsync?uid=b371d231e3c72a7ebff727414e31c4cc&name=PX&gdpr=&gdpr_consent=&url=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3DTB-adyoulike%26userId%3DPARTNER_USER_ID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssc-cms.33across.com/ps/?m=xch&rt=html&id=001Pg000019IbWWIA0&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://u-las.4dex.io/ortb/usync.html?publisher_id=1543&domain=programmaticx.ai&gdpr=&gdpr_consent=&us_privacy=&r=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adagio%26userId%3D%7BUID%7D%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://dsp-service.adtarget.biz/cookie_sync?r=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adtarget%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24%7BUSER_ID%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=344&uid=ID5-5-f193ce48-a6e8-4d48-84af-b59a080d0255&origin=https://parcelsapp.com/",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=triplelift-progx&gdpr=&gdpr_consent=&us_privacy=&userId=484236964519805615296",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&redirectUri=https%3A%2F%2Fcs-server-s2s.yellowblue.io%2Fcs%3Ffwrd%3D1%26aid%3D11600%26uid%3D%5Bssb_sync_pid%5D&us_privacy=1YN-",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-sonobi&gdpr=&gdpr_consent=&us_privacy=&userId=b6f6b29f-33f3-4db2-b6b2-edc66d80b6ea",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=us-east&p=insticator&gdpr=0&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fpbs2.cpmstar.com%2Fsetuid%3Fbidder%3Dinsticator%26gdpr%3D0%26gdpr_consent%3D%26gpp%3D%26gpp_sid%3D%26f%3Db%26uid%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://de.tynt.com/deb/?m=xch&rt=html&id=001Pg000019IbWWIA0&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=us-east&p=rise_engage",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=1YN-&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=2xlgrzl&ttd_tpi=1&ttd_puid=env%3DmWeb%26eventType%3Dmap%26gdpr%3D1%26gdpr_consent%3D%26id_mid_4%3De9c0c6e1-6d4b-4917-57b2-dc170561000f%26reqId%3D50f452bd-560b-4e7f-5eaf-de500376a708%26zdid%3D1361&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=triplelift-progx&gdpr=&gdpr_consent=&us_privacy=&userId=484236964519805615296",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=us-east&p=rise_engage",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=vidazoo&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://visitor-programmaticx.omnitagjs.com/visitor/bsync?uid=a92febfdfeb911b25e77aa73748842b5&name=programmaticx&gdpr=&gdpr_consent=&url=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adyoulike%26userId%3DPARTNER_USER_ID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://visitor-px.omnitagjs.com/visitor/bsync?uid=b371d231e3c72a7ebff727414e31c4cc&name=PX&gdpr=&gdpr_consent=&url=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3DTB-adyoulike%26userId%3DPARTNER_USER_ID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssc-cms.33across.com/ps/?m=xch&rt=html&id=001Pg000019IbWWIA0&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://u-las.4dex.io/ortb/usync.html?publisher_id=1543&domain=programmaticx.ai&gdpr=&gdpr_consent=&us_privacy=&r=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adagio%26userId%3D%7BUID%7D%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://dsp-service.adtarget.biz/cookie_sync?r=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-adtarget%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24%7BUSER_ID%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=132",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-loopme&gdpr=&gdpr_consent=&us_privacy=&userId=f050aabe-8eb6-4dae-8e79-5a8d631ee3e4&us_privacy=null&gdpr_consent=null&gdpr=null",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=75&gdpr=0&gdpr_consent=&redirectUri=https%3A%2F%2Fmeasureadv.com%2FuserBackIframe%3Fuid%3D%5Bssb_sync_pid%5D%26gdpr%3D%7BGDPR%7D%26gdpr_consent%3D%7BGDPR_CONSENT%7D%26p%3D6",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=us-east&p=rise_engage",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=smaato-tb&gdpr=&gdpr_consent=&us_privacy=&userId=c6e7401541",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=smaato-progx&gdpr=&gdpr_consent=&us_privacy=&userId=25278161a4",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-sonobi&gdpr=&gdpr_consent=&us_privacy=&userId=b6f6b29f-33f3-4db2-b6b2-edc66d80b6ea",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=697a927726556b50&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://de.tynt.com/deb/?m=xch&rt=html&id=001Pg000019IbWWIA0&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=smaato-progx&gdpr=&gdpr_consent=&us_privacy=&userId=c271dabb58",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=smaato-tb&gdpr=&gdpr_consent=&us_privacy=&userId=c817c07623",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-loopme&gdpr=&gdpr_consent=&us_privacy=&userId=f050aabe-8eb6-4dae-8e79-5a8d631ee3e4&us_privacy=null&gdpr_consent=null&gdpr=null",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=10d9d2aad4e8fb98&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=pubmatic&ttd_tpi=1&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=33across&endpoint=us-east&us_privacy=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssc-cms.33across.com/ps/?_=1779229674646.&ri=0010b00002Mq2FYAAZ&gdpr_58=&gdpr=0&gdpr_consent=&us_privacy=&ru=https%3A%2F%2Fads.servenobid.com%2Fsync%3Fpid%3D304%26uid%3D33XUSERID33X%26origin%3Dhttps%253A%252F%252Fparcelsapp.com%252F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=33across&endpoint=us-east&us_privacy=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=33across&endpoint=us-east&us_privacy=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ads.servenobid.com/sync?pid=304&uid=213337391687437&origin=https%3A%2F%2Fparcelsapp.com%2F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=59&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=17184&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://bttrack.com/pixel/cookiesyncredir?rurl=https%3A%2F%2Fsync.aniview.com%2Fcookiesyncendpoint%3Fauid%3Df86a5c21-d6ca-46b7-ada7-9b2610f18e16%26biddername%3D204%26pid%3D62f53b2c7850d0786f227f64%26key%3D%7Bglobalid%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=1&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-onetag&userId=EX-1jqWanBnmU-ajwD7dnLUOrlS4e5fm3ZLd2kbAe0I",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssc-cms.33across.com/ps/?_=1779229674770.&ri=001Pg000019IbWWIA0&gdpr_58=&gdpr=0&gdpr_consent=&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=f0v35ew&ttd_tpi=1&us_privacy=&gpp=&gpp_sid=&coppa=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-33across&gdpr=&gdpr_consent=&us_privacy=&userId=213337391687437",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-onetag&userId=EX-1jqWanBnmU-ajwD7dnLUOrlS4e5fm3ZLd2kbAe0I",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=1&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?endpoint=us-west&p=minute_media",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=1YN-&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssc-cms.33across.com/ps/?_=1779229675068.&ri=001Pg000019IbWWIA0&gdpr_58=&gdpr=0&gdpr_consent=&us_privacy=&ru=https%3A%2F%2Fsync.programmaticx.ai%2Fapi%2Fcookie%3FpartnerId%3Dprogx-33across%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D33XUSERID33X",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=1NNN&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-33across&gdpr=&gdpr_consent=&us_privacy=&userId=213337391687437",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/user/html/62ce79e7dd15099534ae5e04?pbs=true&gdpr=&gdpr_consent=&us_privacy=&gpp=&gpp_sid=&redirect=https%3A%2F%2Fprebid.admatic.de%2Fsetuid%3Fbidder%3Dkueezrtb%26gdpr%3D%26gdpr_consent%3D%26f%3Di%26uid%3D%24%7BuserId%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-adagio&userId=46979fd7-075e-4e46-ae63-8d42fa988ed9&gdpr=&gdpr_consent=&us_privacy=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/rubicon",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://csync.smilewanted.com/drop_cookie_sw.php?source=parcelsapp.com",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-adtarget&gdpr=&gdpr_consent=&us_privacy=&userId=0c8b19e5-743c-4e0f-b69f-ae0b7789375d",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=onfocus&endpoint=us-west",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-adagio&userId=f683865e-8087-4353-9b14-4256a3aa31f6&gdpr=&gdpr_consent=&us_privacy=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.programmaticx.ai/api/cookie?partnerId=progx-adtarget&gdpr=&gdpr_consent=&us_privacy=&userId=66021e39-8819-4e67-9a19-19bb386197b1",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=onfocus&endpoint=us-west",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=agyie4r&ttd_tpi=1&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://trace.us.rtbwise.com/api/v1/cookie/sync?partner=criteo&cb=https%3a%2f%2fssp-sync.criteo.com%2fuser-sync%2fmatch%3fp%3d236OAV9oYjElMkJDRDZySXlScmRqRjhLUGJYWWp0UUpDOTM3ZyUyRk9IUzZiMGs0S2xRayUzRA%26u%3d%24%7bUSER_ID%7d",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure.adnxs.com/getuid?https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-xandr%26userId%3D%24UID%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D&gdpr=&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://image8.pubmatic.com/AdServer/ImgSync?p=162110&gdpr=&gdpr_consent=&pu=https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-pubmatic%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%23PMUID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://cs.media.net/cksync?cs=45&type=ku&gdpr=&gdpr_consent=&redirect=https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-medinet%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D=%3Cvsid%3E",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://hb.trustedstack.com/cksync.php?cs=61&type=kz&gdpr=${GDPR}&gdpr_consent=${GDPR_CONSENT}&us_privacy=${USP_CONSENT}&gpp_sid=${GPP_SID}&redirect=https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-trustedstack%26userId%3D%3Cvsid%3E",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ap.lijit.com/pixel?gdpr=&gdpr_consent=&redir=https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-sovrn%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%24UID",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://u.openx.net/w/1.0/cm?id=99b0e635-e719-4648-8bd7-0fd339d4e2e5&gdpr=&gdpr_consent=&us_privacy=&r=https%3A%2F%2Fsync.kueezrtb.com%2Fapi%2Fcookie%3FpartnerId%3Dkueez-openx%26gdpr%3D%26gdpr_consent%3D%26us_privacy%3D%26userId%3D%7BOPENX_ID%7D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/cookie?gdpr=&gdpr_consent=&partnerId=kueez-pubmatic&us_privacy=&userId=05C1DC71-E282-4E85-A3BB-83D71CF5F50F",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=160&gdpr=0&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fpbs2.cpmstar.com%2Fsetuid%3Fbidder%3Dinsticator%26gdpr%3D0%26gdpr_consent%3D%26gpp%3D%26gpp_sid%3D%26f%3Db%26uid%3D%24UID&redirectUri=https://cs.ingage.tech/v1/sync/equative/3a3c64ec-6533-4ab4-9f62-38082fc0d4f2?uid=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/cookie?partnerId=kueez-medinet&gdpr=&gdpr_consent=&us_privacy=&userId==",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/cookie?partnerId=kueez-trustedstack&userId=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub13186530141056%26gdpr%3D%26consent%3D%26us_privacy%3D%26custom_data%3DA4ltY191V295TmZiUlJQNkltcHkwdmNFRFg4ZWNDUWV3VHdxcjhCelExWUh0T3RFJTNE",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=1&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.cootlogix.com/api/cookie?partnerId=rubicon&userId=MPD7EO8Q-F-8NTD",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/cookie?partnerId=kueez-sovrn&gdpr=&gdpr_consent=&us_privacy=&userId=MscDALZHGCNyS0EfSaWksTU5",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=ogury&endpoint=us-west-2&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync.smartadserver.com/api/sync?callerId=73&gdpr=0&gdpr_consent=",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=kueez&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=kueez&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=kueez&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=kueez&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=kueez&endpoint=us-east",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.kueezrtb.com/api/cookie?partnerId=kueez-openx&gdpr=&gdpr_consent=&us_privacy=&userId=4a7d00dd-6833-4a32-8cd5-db6eead3d386",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub9858090441216%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://sync.sparteo.com/sync?gdpr=0&gdpr_consent=&us_privacy=null&cb=0.5379093363154859&if=1&origin=https%3A%2F%2Fsync.sparteo.com%2F&src=meetscale&type=f&la[]=https://dsp-service.admatic.de&la[]=https://cpm.vistarsagency.com&la[]=https://visitor.omnitagjs.com&la[]=https://parcelsapp.com",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://pixel.tapad.com/idsync/ex/receive?partner_id=1388&partner_device_id=WO6qF2oM4%2BqgZPkEFF8kVg%3D%3D&us_privacy=&random=1779229676656.5&redirect=https%3A%2F%2Fthinkcxad.azurewebsites.net%2Fapi%2Fpixel%3Fid%3D%24%7BTA_DEVICE_ID%7D%26partner%3DTAPAD",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=xksw9la&ttd_tpi=1&gdpr=0",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ssbsync-global.smartadserver.com/api/sync?callerId=5&gdpr=0&gdpr_consent=&us_privacy=&redirectUri=https%3A%2F%2Fonetag-sys.com%2Fmatch%2F%3Fint_id%3D107%26uid%3D[ssb_sync_pid]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=seedtag&endpoint=eu",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=pxpinp0&ttd_tpi=1&gdpr=0&gdpr_consent=[GDPR_CONSENT]&us_privacy=1YN-&gpp=[GPP]&gpp_sid=[GPP_SID]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=5jrh0rv&ttd_tpi=1&gdpr=0&gdpr_consent=[GDPR_CONSENT]&us_privacy=1YN-&gpp=[GPP]&gpp_sid=[GPP_SID]",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=0&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub10101531197440%26gdpr%3D0%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  },
+  {
+    "method": "GET",
+    "url": "https://www.temu.com/api/adx/cm/pixel-opera?adx_uid=b7f94e6d7ab5055e&gdpr=&gdpr_consent=&us_privacy=&redir=https%3A%2F%2Ft.oa.opera.com%2Fsync%3Fvendor%3D60369%26pubid%3Dpub9283744565120%26gdpr%3D%26consent%3D%26us_privacy%3D%26custom_data%3D",
+    "post_data": null
+  }
+]

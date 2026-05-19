@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.playwright/
+node_modules/
+token.txt
+cookie.txt
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.txt
+!README.md
+!requirements.txt

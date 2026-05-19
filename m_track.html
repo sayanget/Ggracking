@@ -1,0 +1,344 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>Your ALL-IN-ONE Package Tracker | 17TRACK</title><meta name="keywords" content="tracking number, track package, tracking, package tracking, track, track my package, package tracker, track order"><meta name="description" content="17TRACK is the most powerful and comprehensive package tracking platform. Track packages from 2400+ carriers, including USPS, UPS, FedEx, and DHL. Get real-time updates on your orders from Shopify, Amazon, AliExpress, eBay, and more."><script>document.addEventListener('DOMContentLoaded', function() {
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px';
+			});
+
+			Element.prototype.matches = Element.prototype.matches ||
+										Element.prototype.matchesSelector ||
+										Element.prototype.webkitMatchesSelector ||
+										Element.prototype.msMatchesSelector ||
+										Element.prototype.mozMatchesSelector ||
+										Element.prototype.oMatchesSelector;</script><script src="//www.17track.net/home/getcountry?r=js"></script><script>(() => {
+			window.isEEA = function() {
+				try {
+					// 欧盟经济区国家二字码
+					var EEAList = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO'];
+					var countryCode = window.YQ?.country
+					if (!countryCode) {
+						return true
+					}
+					return EEAList.includes(countryCode);
+				} catch (error) {
+					console.dir(error)
+					return true
+				}
+			}
+		})()</script><script>(function() {
+		window.cmpListen = function(cb) {
+			// Queue the callback using the CONSENT_API_READY key on the callbackQueue.
+			window.googlefc.callbackQueue.push({
+				CONSENT_API_READY: () =>
+				__tcfapi('addEventListener', 2.2, (tcData, success) => {
+					if (tcData.purpose && tcData.purpose.consents) {
+						const consents = tcData.purpose.consents
+						// 用户已经做了选择
+						const adStorage = consents[1] && consents[2] ? 'granted' : 'denied'
+						//  1：存储和/或访问设备上的信息（这是基础）， 7：测量内容效果（可能包括分析）
+						const analyticsStorage = consents[1] && consents[7] ? 'granted' : 'denied'
+						// 基础广告、用户画像、广告个性化
+						const adPersonalization =
+							consents[2] && consents[3] && consents[4] ? 'granted' : 'denied'
+
+						const adUserData = consents[1] && consents[2] ? 'granted' : 'denied'
+						const functionalityStorage = consents[1] ? 'granted' : 'denied'
+
+						const consentData = {
+							adStorage,
+							analyticsStorage,
+							adPersonalization,
+							adUserData,
+							functionalityStorage
+						}
+				
+						console.dir('CMP: User consent detected, updating consent mode:', consentData)
+
+						cb(consentData, tcData, true)
+					} else {
+						// 用户没有触发选择，判断 GDPR适用性， true gdpr适用于当前用户（欧盟用户）， false 则不适用（非欧盟用户）
+						if (tcData.gdprApplies) {
+							// 弹窗正在显示，不做处理
+							console.dir('CMP: GDPR applies, waiting for user choice')
+						} else {
+							// 非欧盟用户，全部允许
+							const consentData = {
+								adStorage: 'granted',
+								analyticsStorage: 'granted',
+								adPersonalization: 'granted',
+								adUserData: 'granted',
+								functionalityStorage: 'granted'
+							}
+							console.dir('CMP: Non-GDPR user, granting all consents:', consentData)
+							// 第三个参数是 非欧盟经济区
+							cb(consentData, tcData, false)
+						}
+					}
+				})
+			})
+	}
+			})()</script><script>(function() {
+			if (typeof window === 'undefined') {
+				return
+			}
+			window.googlefc = window.googlefc || {}
+			window.googlefc.callbackQueue = window.googlefc.callbackQueue || []
+
+			window.dataLayer = window.dataLayer || []
+			window.setDefaultTagData = window.setDefaultTagData || function () {
+				window.dataLayer.push(arguments)
+			}
+
+			// LocalStorage key 和数据过期时间（13个月，与 IAB TCF 标准一致）
+			const CONSENT_STORAGE_KEY = 'yq_gdpr_consent_choices'
+			const CONSENT_EXPIRY_DAYS = 395 // 13个月
+			
+			/**
+			 * 保存用户同意选择到 localStorage
+			 */
+			window.saveConsentToLocal = function(consentData) {
+				try {
+					const dataToSave = {
+						consent: consentData,
+						timestamp: Date.now(),
+						expiresAt: Date.now() + (CONSENT_EXPIRY_DAYS * 24 * 60 * 60 * 1000)
+					}
+					localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(dataToSave))
+					console.dir('Consent data saved to localStorage:', consentData)
+				} catch (e) {
+					console.dir('Failed to save consent to localStorage:', e)
+				}
+			}
+			
+			/**
+			 * 从 localStorage 读取用户同意选择
+			 */
+			window.loadConsentFromLocal = function() {
+				try {
+					const stored = localStorage.getItem(CONSENT_STORAGE_KEY)
+					if (!stored) return null
+					
+					const data = JSON.parse(stored)
+					
+					// 检查是否过期
+					if (data.expiresAt && Date.now() > data.expiresAt) {
+						console.dir('Stored consent data expired, removing...')
+						localStorage.removeItem(CONSENT_STORAGE_KEY)
+						return null
+					}
+					
+					console.dir('Loaded consent data from localStorage:', data.consent)
+					return data.consent
+				} catch (e) {
+					console.dir('Failed to load consent from localStorage:', e)
+					return null
+				}
+			}
+
+
+		if (window.isEEA()) {
+			// 先尝试从本地加载用户之前的选择
+			const savedConsent = window.loadConsentFromLocal()
+			
+			if (savedConsent) {
+				// 立即应用用户之前保存的选择
+				console.dir('EEA user - Applying saved consent immediately')
+				console.dir(savedConsent)
+				setDefaultTagData('consent', 'default', {
+					ad_storage: savedConsent.adStorage || 'denied',
+					analytics_storage: savedConsent.analyticsStorage || 'denied',
+					ad_personalization: savedConsent.adPersonalization || 'denied',
+					ad_user_data: savedConsent.adUserData || 'denied',
+					functionality_storage: savedConsent.functionalityStorage || 'granted',
+					security_storage: 'granted',
+					wait_for_update: 800
+				})
+			} else {
+				// 首次访问且没有本地保存，设置默认拒绝
+				console.dir('EEA user - First visit, setting default consent')
+				setDefaultTagData('consent', 'default', {
+					ad_storage: 'denied',                // 广告存储：拒绝（必须征得同意）
+					analytics_storage: 'denied',         // 分析存储：拒绝（更安全的做法）
+					functionality_storage: 'granted',    // 功能存储：允许（用户体验必需）
+					security_storage: 'granted',         // 安全存储：允许（合法权益）
+					ad_user_data: 'denied',             // 广告用户数据：拒绝（必须征得同意）
+					ad_personalization: 'denied',         // 广告个性化：拒绝（必须征得同意）
+					wait_for_update: 800
+				})
+			}
+		}
+	 })()</script><script>(function() {
+				/**
+				 * 加个 undefined”是为了覆盖“未显式设置 domain 的主机级 cookie
+				 */
+				function getRootDomain(hostname) {
+					if (!hostname || hostname === 'localhost' || /^\d+\.\d+\.\d+\.\d+$/.test(hostname)) return hostname
+					const parts = hostname.split('.')
+					if (parts.length <= 2) return hostname
+					return parts.slice(-2).join('.')
+				}
+	
+				function setExpiredCookie(name, domain, path) {
+					const segments = []
+					segments.push(name + '=')
+					segments.push('Max-Age=0')
+					if (path) segments.push('Path=' + path)
+					if (domain) segments.push('Domain=' + domain)
+					document.cookie = segments.join('; ')
+				}
+	
+				function removeCookieEverywhere(name) {
+					const hostname = typeof window !== 'undefined' ? window.location.hostname : undefined
+					const root = hostname ? getRootDomain(hostname) : undefined
+					const domains = []
+					// if (hostname) domains.push(hostname)
+					if (root && root !== hostname) domains.push('.' + root)
+					const paths = ['/']
+					domains.forEach((domain) => {
+						paths.forEach((path) => {
+						try {
+							setExpiredCookie(name, domain, path)
+						} catch (_) {
+							// ignore
+							console.log('err', _)
+						}
+						})
+					})
+				}
+	
+				function removeCookiesByPrefix(prefix) {
+					if (typeof document === 'undefined') return
+					const all = document.cookie ? document.cookie.split('; ') : []
+					all.forEach((kv) => {
+						const eqIdx = kv.indexOf('=')
+						const key = eqIdx === -1 ? kv : kv.slice(0, eqIdx)
+						if (key.startsWith(prefix)) removeCookieEverywhere(key)
+					})
+				}
+	
+			function clearGoogleCookie(policyData) {
+				// 防御性检查：如果 policyData 无效或为空对象，不执行清理
+				if (!policyData || typeof policyData !== 'object' || Object.keys(policyData).length === 0) {
+					console.dir('clearGoogleCookie: Invalid policyData, skipping cookie cleanup')
+					console.dir(policyData)
+					return
+				}
+				
+				const denyAll = !Object.values(policyData).some((v) => v === 'granted')
+				console.dir('-----clearGoogleCookie denyAll-------')
+				console.dir(denyAll)
+				
+				if (denyAll) {
+					const prefixCookies = ['_ga', '_gat', '_gac_', '_gcl_', 'cto', '_pubcid', 'pbjs-', '_awl']
+					const constCookies = ['_gid', '__gpi', '__gads']
+					prefixCookies.forEach((prefix) => {
+						removeCookiesByPrefix(prefix)
+					})
+					constCookies.forEach((cookie) => {
+						removeCookieEverywhere(cookie)
+					})
+				}
+			}
+			
+			// 只在 EEA 地区或明确需要 GDPR 的情况下监听同意变化
+			// 对于非 EEA 用户，Google Analytics 应该正常工作
+			if (window.isEEA && window.isEEA()) {
+				window.cmpListen((data) => {
+					clearGoogleCookie(data)
+				})
+			}
+		})()</script><script>(function(YQReloadMobile){
+            var localUrl = location.href;
+            var search = location.search;
+						var origin = location.origin;
+						var pathname = location.pathname;
+
+						var redirectUrl = origin
+						var redirectArr = ['/track', '/track-details']
+						var redirectFlag = false
+						for (var i = 0; i < redirectArr.length; i++) {
+							var item = redirectArr[i];
+							if (pathname.indexOf(item) !== -1) {
+								redirectFlag = true
+								redirectUrl += pathname.split(item)[0] || ''
+								break
+							}
+						}
+						if (!redirectFlag) {
+							redirectUrl += pathname
+						}
+
+            var desHref;
+
+            // 新版M站灰度测试国家
+            var pilotCountry = ['CN', 'NZ', 'JP'];
+            if(pilotCountry.indexOf(getCookie('country')) > -1){
+                // 命中新版M站，加上是否已存在v=2参数判断，防止Nginx失效时无限跳转
+                if(search){
+                    var searchArr = search.split('?')[1].split('&');
+                    if(searchArr.indexOf('v=2') > -1){
+                        return;
+                    }
+										// 参数转哈希
+										if (search.indexOf('nums=') > -1) {
+											desHref = redirectUrl + '?v=2' + search.replace('?', '#')
+										} else {
+											desHref = redirectUrl + search + '&v=2' + location.hash;
+										}
+                    
+                }else{
+                    desHref = redirectUrl + '?v=2' + location.hash;
+                }
+								// console.log(desHref)
+								// console.log(getCookie(''))
+                window.location.replace(desHref)
+                return;
+            }
+
+            // 获取指定名称的cookie的值
+            function getCookie(name) {
+                var arrStr = document.cookie.split("; ");
+                for (var i = 0; i < arrStr.length; i++) {
+                    var temp = arrStr[i].split("=");
+                    if (temp[0] == name) return unescape(temp[1]);
+                }
+            }
+            
+        })()</script><link yqrole="css" href="//res.17track.net/asset/css-enum/info-state/info-state.min.css?v=53787b262d" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-enum/package-state/package-state.min.css?v=bb20f102bd" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-enum/avatar/avatar.min.css?v=416b413c6c" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-sprites/social/social.min.css?v=c64c7c8115" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-enum/buyervip-mobile/buyervip-mobile.min.css?v=f93fc076c0" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-sprites/post/post.min.css?v=5a6e63b54c" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/css-enum/express/express.min.css?v=c99dd38a72" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/fonts/common/common.min.css?v=c828ff3876" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/fonts/roboto/roboto.min.css?v=fb827a4694" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/fonts/status/status.min.css?v=d8116beb7b" rel="stylesheet"><link yqrole="css" href="//res.17track.net/asset/carrier/css/carrier.min.css" rel="stylesheet"><link rel="stylesheet" href="//res.17track.net/uni/static/index.css"> <script> var YQ = YQ || {}, V5Front = V5Front || {}; YQ.configs = { filePath: "/track", isDefaultFilePath: false, lang: "en", zendeskLang: "en-us", env: "production", supportLang: "en,zh-cn,zh-hk,ja,ko,fi,pl,tr,cs,it,de,es,fr,ru,pt,nl,uk,hu,sv,kk,el,th,bg,sk,lt,ro,no,sq,sl,sr,az,da,mk", version: "Wed, 01 Apr 2026 10:34:41 GMT", md5: "13bd3a6", manifest: {}, adId: "61953607" }; var YQG = YQG || { sendSocialShare: function () {}, sendLogError: function () {}, sendPageView: function () {}, sendLogInfo: function () {}, sendEvent: function () {}, sendSocialFollow: function () {}, sendTiming: function () {}, initDisplay: function () {}, loadDaJs: function () {}, addItem: function () {}, refresh: function () {}, resize: function () {}, setInterval: function () {}, initRefresh: function () {} }; var YQEnvHost = { res: "res", user: "user", t: "t", msg: "msg", pay: "pay", asset: "asset", console: "console", api: "api", } </script></head><body><script>// 根据是否为欧盟经济区国家动态加载 Google Funding Choices 脚本
+			(function() {
+				if (window.isEEA && window.isEEA()) {
+					console.log('window.isEEA hello')
+					var script = document.createElement('script');
+					script.src = '//fundingchoicesmessages.google.com/i/pub-6437015247773992.js?ers=1';
+					script.async = true;
+					console.dir(script)
+					console.dir(document.body)
+					document.body.appendChild(script);
+				}
+			})();</script><script>var query = toQuery(window.location.search);
+			var hash  = toQuery(window.location.hash);
+			var filePath = YQ.configs.filePath;
+			if (filePath === '/') {
+				if (query.nums || hash.nums) {
+					jump('track-details');
+				}
+			}
+			if (filePath === '/track') {
+				if (query.nums || hash.nums) {
+					jump('track-details');
+				}
+			}
+			function toQuery(str) {
+				str = decodeURIComponent(str);
+				var arr = str.match(new RegExp('([^(?|#)=&]+)(=([^&]*))', 'g'));
+				var a = [];
+				if (arr) {
+					return arr.reduce(function (r, v) {
+						a = v.split('=');
+						r[a[0]] = a[1];
+						return r;
+					}, {})
+				}
+				return {}
+			}
+			function jump(pageName) {
+				window.location.href = window.location.origin + '/' + YQ.configs.lang + '/' + pageName + window.location.search + window.location.hash;
+			}</script><noscript><strong>Please enable JavaScript to continue.</strong></noscript><div id="app"></div><script yqrole="i18n" src="//res.17track.net/i18n/merge-i18n/base-site/base-site.en.js?v=1d654eebe3" crossorigin="anonymous"></script><script yqrole="i18n" src="//res.17track.net/i18n/merge-i18n/enum/enum.en.js?v=06a3f43407" crossorigin="anonymous"></script><script yqrole="i18n" src="//res.17track.net/i18n/merge-i18n/base-track/base-track.en.js?v=74598f333d" crossorigin="anonymous"></script><script yqrole="i18n" src="//res.17track.net/i18n/merge-i18n/enum-wd/enum-wd.en.js?v=0e1160993d" crossorigin="anonymous"></script><script src="//res.17track.net/uni/i18n/global.en.js?v=55fc809fa778b6188ff14a1471d0f840" crossorigin="anonymous"></script><script src="//res.17track.net/asset/carrier/info/carrier.all.js"></script><script yqrole="js" src="//res.17track.net/global-v2/vendor/babel-polyfill/polyfill.min.js?v=b8d5580894" crossorigin="anonymous"></script><script src="//res.17track.net/uni/js/chunk-vendors.js?v=8282de8c75430d14949d" crossorigin="anonymous"></script><script src="//res.17track.net/uni/js/index.js?v=874ca0c10e778f6b74d4" crossorigin="anonymous"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"89ef6bf9e40a459ba1869beb3e847be7","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

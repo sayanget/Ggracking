@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gtracking - 运单查询助手</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Config -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">G</span>
+                <h1>Gtracking</h1>
+            </div>
+            <div class="config-panel">
+                <h3>系统配置</h3>
+                <div class="input-group">
+                    <label for="token">Admin-Token</label>
+                    <input type="password" id="token" placeholder="输入您的 Token...">
+                </div>
+                <div class="input-group">
+                    <label for="cookie">Cookie</label>
+                    <textarea id="cookie" placeholder="输入完整的 Cookie..." rows="3"></textarea>
+                </div>
+                <button id="save-config" class="btn-secondary">保存配置</button>
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span class="stat-label">今日查询</span>
+                        <span class="stat-value" id="today-queries">0</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>轨迹查询仪表盘</h2>
+                <div class="user-info">
+                    <span id="current-time"></span>
+                </div>
+            </header>
+
+            <section class="search-section">
+                <div class="search-card card">
+                    <div class="search-inputs">
+                        <textarea id="order-nos" placeholder="输入单号，多个请换行..."></textarea>
+                        <div class="search-actions">
+                            <select id="query-type">
+                                <option value="1">面单号</option>
+                                <option value="2">第三方订单号</option>
+                                <option value="3">第三方单号</option>
+                            </select>
+                            <button id="search-btn" class="btn-primary">
+                                <span class="btn-text">立即查询</span>
+                                <span class="loader hidden"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div id="results-container" class="results-grid">
+                    <!-- Results will be injected here -->
+                    <div class="empty-state">
+                        <img src="https://img.icons8.com/fluency/96/delivery.png" alt="box">
+                        <p>等待查询，请输入运单号开始</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Detail -->
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-content card">
+            <header class="modal-header">
+                <h3>运单轨迹详情</h3>
+                <button class="close-modal">&times;</button>
+            </header>
+            <div class="modal-body">
+                <div id="timeline" class="timeline"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for 17Track Detail -->
+    <div id="yq-modal" class="modal hidden">
+        <div class="modal-content card yq-modal-content">
+            <header class="modal-header">
+                <div class="modal-logo-wrapper">
+                    <span class="logo-icon yq-logo-icon">17</span>
+                    <h3 id="yq-modal-title">17TRACK 派送查询</h3>
+                </div>
+                <div class="modal-actions-wrapper">
+                    <a id="yq-external-link" href="#" target="_blank" class="btn-secondary yq-external-btn">在新窗口打开</a>
+                    <button class="close-modal" id="close-yq-modal">&times;</button>
+                </div>
+            </header>
+            <div class="modal-body yq-modal-body">
+                <div id="YQContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://www.17track.net/externalcall.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
