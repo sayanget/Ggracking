@@ -5,6 +5,7 @@ const elements = {
     orderNosInput: document.getElementById('order-nos'),
     queryTypeSelect: document.getElementById('query-type'),
     searchBtn: document.getElementById('search-btn'),
+    exportBtn: document.getElementById('export-btn'),
     resultsContainer: document.getElementById('results-container'),
     modal: document.getElementById('detail-modal'),
     closeModal: document.querySelector('.close-modal'),
@@ -62,6 +63,9 @@ async function init() {
     fetchDmsCaptcha();
     if (elements.dmsCaptchaContainer) {
         elements.dmsCaptchaContainer.addEventListener('click', fetchDmsCaptcha);
+    }
+    if (elements.exportBtn) {
+        elements.exportBtn.addEventListener('click', exportToCSV);
     }
 }
 
@@ -224,6 +228,7 @@ elements.searchBtn.addEventListener('click', async () => {
 
     setLoading(true);
     elements.resultsContainer.innerHTML = '';
+    if (elements.exportBtn) elements.exportBtn.classList.add('hidden');
 
     try {
         const queryType = elements.queryTypeSelect.value || '1';
@@ -265,6 +270,18 @@ function setLoading(loading) {
     }
 }
 
+const parseDate = (d) => {
+    const parts = d.split(' ');
+    if(parts.length >= 3) {
+        const dp = parts[1].split('/');
+        const tp = parts[2].split(':');
+        if(dp.length === 3 && tp.length >= 2) {
+            return new Date(dp[2], dp[1]-1, dp[0], tp[0], tp[1], tp[2]||0).getTime();
+        }
+    }
+    return 0;
+};
+
 function renderResults(results) {
     currentResults = results;
     if (!results || results.length === 0) {
@@ -273,8 +290,10 @@ function renderResults(results) {
                 <p>未找到匹配的记录</p>
             </div>
         `;
+        if (elements.exportBtn) elements.exportBtn.classList.add('hidden');
         return;
     }
+    if (elements.exportBtn) elements.exportBtn.classList.remove('hidden');
 
     elements.resultsContainer.innerHTML = results.map((item, index) => {
         const waybillNo = item.waybill ? (item.waybill.waybillNo || item.waybill.thirdWaybillNo || '未知单号') : '未知单号';
@@ -288,24 +307,13 @@ function renderResults(results) {
                         allEvents.push({
                             date: group.operationTime + ' ' + node.operationTime,
                             desc: node.es_context || node.pub_es_context || '',
-                            loc: node.location || ''
+                            loc: node.location || '',
+                            operator: node.create_by_name || node.createByName || ''
                         });
                     });
                 }
             });
         }
-
-        const parseDate = (d) => {
-            const parts = d.split(' ');
-            if(parts.length >= 3) {
-                const dp = parts[1].split('/');
-                const tp = parts[2].split(':');
-                if(dp.length === 3 && tp.length >= 2) {
-                    return new Date(dp[2], dp[1]-1, dp[0], tp[0], tp[1], tp[2]||0).getTime();
-                }
-            }
-            return 0;
-        };
 
         let timelineHtml = '<p class="last-event" style="margin-top:1rem;">暂无轨迹数据</p>';
         let totalDurationHtml = '';
@@ -322,6 +330,47 @@ function renderResults(results) {
             const isDelivered = latestDesc.toLowerCase().includes('delivered') || status === '已送达' || status === '已签收';
             statusClass = isDelivered ? 'latest-status-delivered' : 'latest-status-pending';
             const deliveredEvent = allEvents.find(ev => ev.desc && ev.desc.toLowerCase().includes('delivered'));
+
+            // Analyze IN and OUT pairing
+            let lastUnpairedInNode = null;
+            let deliveryIndex = -1;
+            for (let i = 0; i < allEvents.length; i++) {
+                const ev = allEvents[i];
+                const desc = (ev.desc || '').toLowerCase();
+                if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
+                    deliveryIndex = i;
+                    break;
+                }
+            }
+
+            for (let i = allEvents.length - 1; i >= 0; i--) {
+                const node = allEvents[i];
+                const lowerDesc = (node.desc || '').toLowerCase();
+                const isIn = lowerDesc.includes('signed in');
+                const isOut = lowerDesc.includes('left sorting center');
+                
+                if (isIn) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+                    }
+                    lastUnpairedInNode = node;
+                } else if (isOut) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode = null;
+                    } else {
+                        node.warning = '漏操作风险：签出前无对应签入';
+                    }
+                }
+                
+                if (i === deliveryIndex) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode = null;
+                    }
+                }
+            }
+            if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
+                lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+            }
             
             let globalDiffMs = 0;
             if (deliveredEvent) {
@@ -470,27 +519,37 @@ function renderResults(results) {
                     const nextNode = allEvents[i + 1];
                     if (node.ts > 0 && nextNode.ts > 0) {
                         let diffMs = Math.abs(node.ts - nextNode.ts);
-                        let diffHours = (diffMs / (1000 * 60 * 60)).toFixed(1);
-                        intervalHtml = `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
+                        const hoursVal = diffMs / (1000 * 60 * 60);
+                        let diffHours = hoursVal.toFixed(1);
+                        if (hoursVal > 24) {
+                            intervalHtml = `<div class="timeline-interval" style="color: #f87171; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 0 8px rgba(248, 113, 113, 0.15); font-weight: 700;">⚠️ 间隔 ${diffHours} 小时 (操作超时)</div>`;
+                        } else {
+                            intervalHtml = `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
+                        }
                     }
                 }
                 const tags = [];
                 const lowerDesc = (node.desc || '').toLowerCase();
                 if (lowerDesc.includes('signed in')) tags.push('<span style="background:rgba(167,139,250,0.15);color:#8b5cf6;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(139,92,246,0.15);">签入</span>');
+                if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
                 if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
                 if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
                 const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
+                const operatorTagHtml = node.operator ? `<span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05); z-index: 2;">👤 ${node.operator}</span>` : '';
+
                 return `
                     <div class="timeline-item" ${node.blockId ? `id="${node.blockId}"` : ''}>
                         <div class="timeline-dot"></div>
-                        <div class="timeline-content" style="background: ${node.bgColor}; transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-                            <div style="flex: 1; min-width: 0;">
+                        <div class="timeline-content" style="position: relative; background: ${node.bgColor}; transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+                            <div style="flex: 1; min-width: 0; padding-right: 120px;">
                                 <div class="timeline-time">${node.date}</div>
                                 <div class="timeline-desc">${node.desc}</div>
-                                ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px">${node.loc}</div>` : ''}
+                                ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                                 ${node.stayDuration ? `<div class="stay-duration ${node.isOver24h ? 'stay-duration-over24h' : ''}" style="font-size:0.75rem; color:${node.isOver24h ? '#ef4444' : 'var(--accent)'}; margin-top:6px; font-weight:600; background:${node.isOver24h ? 'rgba(239,68,68,0.1)' : 'rgba(244,114,182,0.1)'}; display:inline-block; padding:2px 8px; border-radius:4px; ${node.isOver24h ? 'border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.2);' : ''}">⏱️ ${node.stayLoc} ${node.stayDuration}${node.isOver24h ? ' <span style="margin-left:4px">⚠️ 滞留超时</span>' : ''}</div>` : ''}
+                                ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
                             </div>
+                            ${operatorTagHtml}
                             ${tagHtml}
                         </div>
                         ${intervalHtml}
@@ -537,31 +596,96 @@ function showDetail(index) {
                 allEvents.push({
                     date: group.operationTime + ' ' + node.operationTime,
                     desc: node.es_context || node.pub_es_context || '',
-                    loc: node.location || ''
+                    loc: node.location || '',
+                    operator: node.create_by_name || node.createByName || ''
                 });
             });
         }
     });
 
-    elements.timeline.innerHTML = allEvents.map(node => {
+    if (allEvents.length > 0) {
+        allEvents.forEach((ev) => ev.ts = parseDate(ev.date));
+        
+        let lastUnpairedInNode = null;
+        let deliveryIndex = -1;
+        for (let i = 0; i < allEvents.length; i++) {
+            const ev = allEvents[i];
+            const desc = (ev.desc || '').toLowerCase();
+            if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
+                deliveryIndex = i;
+                break;
+            }
+        }
+
+        for (let i = allEvents.length - 1; i >= 0; i--) {
+            const node = allEvents[i];
+            const lowerDesc = (node.desc || '').toLowerCase();
+            const isIn = lowerDesc.includes('signed in');
+            const isOut = lowerDesc.includes('left sorting center');
+            
+            if (isIn) {
+                if (lastUnpairedInNode) {
+                    lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+                }
+                lastUnpairedInNode = node;
+            } else if (isOut) {
+                if (lastUnpairedInNode) {
+                    lastUnpairedInNode = null;
+                } else {
+                    node.warning = '漏操作风险：签出前无对应签入';
+                }
+            }
+            
+            if (i === deliveryIndex) {
+                if (lastUnpairedInNode) {
+                    lastUnpairedInNode = null;
+                }
+            }
+        }
+        if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
+            lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+        }
+    }
+
+    elements.timeline.innerHTML = allEvents.map((node, i) => {
+        let intervalHtml = '';
+        if (i < allEvents.length - 1) {
+            const nextNode = allEvents[i + 1];
+            if (node.ts > 0 && nextNode.ts > 0) {
+                let diffMs = Math.abs(node.ts - nextNode.ts);
+                const hoursVal = diffMs / (1000 * 60 * 60);
+                let diffHours = hoursVal.toFixed(1);
+                if (hoursVal > 24) {
+                    intervalHtml = `<div class="timeline-interval" style="color: #f87171; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 0 8px rgba(248, 113, 113, 0.15); font-weight: 700;">⚠️ 间隔 ${diffHours} 小时 (操作超时)</div>`;
+                } else {
+                    intervalHtml = `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
+                }
+            }
+        }
         const tags = [];
         const lowerDesc = (node.desc || '').toLowerCase();
         if (lowerDesc.includes('signed in')) tags.push('<span style="background:rgba(167,139,250,0.15);color:#8b5cf6;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(139,92,246,0.15);">签入</span>');
+        if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
         if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
         if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
         const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
+        const operatorTagHtml = node.operator ? `<span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05); z-index: 2;">👤 ${node.operator}</span>` : '';
+
         return `
         <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-content" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-                <div style="flex: 1; min-width: 0;">
+            <div class="timeline-content" style="position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+                <div style="flex: 1; min-width: 0; padding-right: 120px;">
                     <div class="timeline-time">${node.date}</div>
                     <div class="timeline-desc">${node.desc}</div>
-                    ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px">${node.loc}</div>` : ''}
+                    ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
+                    ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
                 </div>
+                ${operatorTagHtml}
                 ${tagHtml}
             </div>
+            ${intervalHtml}
         </div>
         `;
     }).join('');
@@ -691,4 +815,121 @@ function updateTodayQueries(increment = false) {
     if (counterEl) {
         counterEl.textContent = queryCount;
     }
+}
+
+function exportToCSV() {
+    if (!currentResults || currentResults.length === 0) {
+        alert('暂无查询结果可导出');
+        return;
+    }
+
+    // CSV Headers
+    const headers = ['运单号', '第三方单号', '当前状态', '轨迹时间', '轨迹描述', '轨迹地点', '操作人', '相邻节点间隔 (小时)', '异常提示'];
+    const rows = [headers];
+
+    currentResults.forEach(item => {
+        const waybillNo = item.waybill ? (item.waybill.waybillNo || '无') : '无';
+        const thirdWaybillNo = item.waybill ? (item.waybill.thirdWaybillNo || '无') : '无';
+        const status = item.waybill ? (item.waybill.exceptionStatusName || '进行中') : '未知状态';
+
+        const allEvents = [];
+        if (item.list) {
+            item.list.forEach(group => {
+                if (group.trackList) {
+                    group.trackList.forEach(node => {
+                        allEvents.push({
+                            date: group.operationTime + ' ' + node.operationTime,
+                            desc: node.es_context || node.pub_es_context || '',
+                            loc: node.location || '',
+                            operator: node.create_by_name || node.createByName || ''
+                        });
+                    });
+                }
+            });
+        }
+
+        if (allEvents.length > 0) {
+            allEvents.forEach((ev) => ev.ts = parseDate(ev.date));
+            
+            let lastUnpairedInNode = null;
+            let deliveryIndex = -1;
+            for (let i = 0; i < allEvents.length; i++) {
+                const ev = allEvents[i];
+                const desc = (ev.desc || '').toLowerCase();
+                if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
+                    deliveryIndex = i;
+                    break;
+                }
+            }
+
+            for (let i = allEvents.length - 1; i >= 0; i--) {
+                const node = allEvents[i];
+                const lowerDesc = (node.desc || '').toLowerCase();
+                const isIn = lowerDesc.includes('signed in');
+                const isOut = lowerDesc.includes('left sorting center');
+                
+                if (isIn) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+                    }
+                    lastUnpairedInNode = node;
+                } else if (isOut) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode = null;
+                    } else {
+                        node.warning = '漏操作风险：签出前无对应签入';
+                    }
+                }
+                
+                if (i === deliveryIndex) {
+                    if (lastUnpairedInNode) {
+                        lastUnpairedInNode = null;
+                    }
+                }
+            }
+            if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
+                lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
+            }
+        }
+
+        if (allEvents.length === 0) {
+            rows.push([waybillNo, thirdWaybillNo, status, '暂无轨迹', '', '', '', '', '']);
+        } else {
+            allEvents.forEach((node, i) => {
+                let intervalStr = '';
+                if (i < allEvents.length - 1) {
+                    const nextNode = allEvents[i + 1];
+                    if (node.ts > 0 && nextNode.ts > 0) {
+                        let diffMs = Math.abs(node.ts - nextNode.ts);
+                        const hoursVal = diffMs / (1000 * 60 * 60);
+                        intervalStr = hoursVal.toFixed(1);
+                    }
+                }
+                rows.push([
+                    waybillNo,
+                    thirdWaybillNo,
+                    status,
+                    node.date,
+                    node.desc,
+                    node.loc,
+                    node.operator || '',
+                    intervalStr,
+                    node.warning || ''
+                ]);
+            });
+        }
+    });
+
+    const csvContent = '\uFEFF' + rows.map(r => r.map(val => `"${(val || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    
+    const timestamp = new Date().toISOString().slice(0,10).replace(/-/g, '');
+    link.setAttribute('download', `Gtracking_export_${timestamp}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
