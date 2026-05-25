@@ -536,7 +536,26 @@ function renderResults(results) {
                 if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
                 const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
-                const operatorTagHtml = node.operator ? `<span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05); z-index: 2;">👤 ${node.operator}</span>` : '';
+                let shiftTagHtml = '';
+                if (lowerDesc.includes('bagging the parcel')) {
+                    const timePart = (node.date || '').split(' ')[1] || '';
+                    const hourStr = timePart.split(':')[0] || '';
+                    const hour = parseInt(hourStr, 10);
+                    if (!isNaN(hour)) {
+                        if (hour >= 8 && hour < 20) {
+                            shiftTagHtml = `<span style="background:rgba(245,158,11,0.12); color:#f59e0b; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(245,158,11,0.25); display:inline-flex; align-items:center; gap:2px;">☀️ 早班</span>`;
+                        } else {
+                            shiftTagHtml = `<span style="background:rgba(99,102,241,0.12); color:#818cf8; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(99,102,241,0.25); display:inline-flex; align-items:center; gap:2px;">🌙 晚班</span>`;
+                        }
+                    }
+                }
+
+                const middleContainerHtml = (node.operator || shiftTagHtml) ? `
+                    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
+                        ${shiftTagHtml}
+                        ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
+                    </div>
+                ` : '';
 
                 return `
                     <div class="timeline-item" ${node.blockId ? `id="${node.blockId}"` : ''}>
@@ -549,7 +568,7 @@ function renderResults(results) {
                                 ${node.stayDuration ? `<div class="stay-duration ${node.isOver24h ? 'stay-duration-over24h' : ''}" style="font-size:0.75rem; color:${node.isOver24h ? '#ef4444' : 'var(--accent)'}; margin-top:6px; font-weight:600; background:${node.isOver24h ? 'rgba(239,68,68,0.1)' : 'rgba(244,114,182,0.1)'}; display:inline-block; padding:2px 8px; border-radius:4px; ${node.isOver24h ? 'border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.2);' : ''}">⏱️ ${node.stayLoc} ${node.stayDuration}${node.isOver24h ? ' <span style="margin-left:4px">⚠️ 滞留超时</span>' : ''}</div>` : ''}
                                 ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
                             </div>
-                            ${operatorTagHtml}
+                            ${middleContainerHtml}
                             ${tagHtml}
                         </div>
                         ${intervalHtml}
@@ -670,7 +689,26 @@ function showDetail(index) {
         if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
         const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
-        const operatorTagHtml = node.operator ? `<span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05); z-index: 2;">👤 ${node.operator}</span>` : '';
+        let shiftTagHtml = '';
+        if (lowerDesc.includes('bagging the parcel')) {
+            const timePart = (node.date || '').split(' ')[1] || '';
+            const hourStr = timePart.split(':')[0] || '';
+            const hour = parseInt(hourStr, 10);
+            if (!isNaN(hour)) {
+                if (hour >= 8 && hour < 20) {
+                    shiftTagHtml = `<span style="background:rgba(245,158,11,0.12); color:#f59e0b; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(245,158,11,0.25); display:inline-flex; align-items:center; gap:2px;">☀️ 早班</span>`;
+                } else {
+                    shiftTagHtml = `<span style="background:rgba(99,102,241,0.12); color:#818cf8; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(99,102,241,0.25); display:inline-flex; align-items:center; gap:2px;">🌙 晚班</span>`;
+                }
+            }
+        }
+
+        const middleContainerHtml = (node.operator || shiftTagHtml) ? `
+            <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
+                ${shiftTagHtml}
+                ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
+            </div>
+        ` : '';
 
         return `
         <div class="timeline-item">
@@ -682,7 +720,7 @@ function showDetail(index) {
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                     ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
                 </div>
-                ${operatorTagHtml}
+                ${middleContainerHtml}
                 ${tagHtml}
             </div>
             ${intervalHtml}
