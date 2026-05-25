@@ -534,7 +534,7 @@ function renderResults(results) {
                 if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
                 if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
                 if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
-                const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
+                const tagHtml = tags.length > 0 ? `<div class="timeline-tags" style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
                 let shiftTagHtml = '';
                 if (lowerDesc.includes('bagging the parcel')) {
@@ -551,7 +551,7 @@ function renderResults(results) {
                 }
 
                 const middleContainerHtml = (node.operator || shiftTagHtml) ? `
-                    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
+                    <div class="timeline-middle" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
                         ${shiftTagHtml}
                         ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
                     </div>
@@ -561,7 +561,7 @@ function renderResults(results) {
                     <div class="timeline-item" ${node.blockId ? `id="${node.blockId}"` : ''}>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content" style="position: relative; background: ${node.bgColor}; transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                            <div style="flex: 1; min-width: 0; padding-right: 120px;">
+                            <div class="timeline-info" style="flex: 1; min-width: 0; padding-right: 120px;">
                                 <div class="timeline-time">${node.date}</div>
                                 <div class="timeline-desc">${node.desc}</div>
                                 ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
@@ -687,7 +687,7 @@ function showDetail(index) {
         if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
         if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
         if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
-        const tagHtml = tags.length > 0 ? `<div style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
+        const tagHtml = tags.length > 0 ? `<div class="timeline-tags" style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
         let shiftTagHtml = '';
         if (lowerDesc.includes('bagging the parcel')) {
@@ -704,7 +704,7 @@ function showDetail(index) {
         }
 
         const middleContainerHtml = (node.operator || shiftTagHtml) ? `
-            <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
+            <div class="timeline-middle" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
                 ${shiftTagHtml}
                 ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
             </div>
@@ -714,7 +714,7 @@ function showDetail(index) {
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content" style="position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                <div style="flex: 1; min-width: 0; padding-right: 120px;">
+                <div class="timeline-info" style="flex: 1; min-width: 0; padding-right: 120px;">
                     <div class="timeline-time">${node.date}</div>
                     <div class="timeline-desc">${node.desc}</div>
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}

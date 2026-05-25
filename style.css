@@ -649,3 +649,121 @@ input:focus, select:focus, textarea:focus {
         transform: rotate(360deg);
     }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        overflow: auto !important;
+    }
+
+    .app-container {
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border) !important;
+        padding: 1.5rem 1rem !important;
+        gap: 1.5rem !important;
+    }
+
+    .main-content {
+        padding: 1.5rem 1rem !important;
+        width: 100% !important;
+        overflow-y: visible !important;
+    }
+
+    .top-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .top-bar-right {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 1rem !important;
+    }
+
+    .search-inputs {
+        gap: 0.75rem !important;
+    }
+
+    .search-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+
+    .search-actions button {
+        width: 100% !important;
+    }
+
+    .results-grid {
+        gap: 1rem !important;
+    }
+
+    .result-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.5rem !important;
+    }
+
+    .latest-status-desc {
+        margin-left: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Modal responsiveness */
+    .modal-content {
+        width: 95% !important;
+        max-height: 90vh !important;
+        margin: 10px !important;
+        padding: 1rem !important;
+    }
+
+    /* Timeline absolute centering override for mobile */
+    .timeline {
+        padding-left: 1.5rem !important;
+    }
+
+    .timeline::before {
+        left: 5px !important;
+    }
+
+    .timeline-dot {
+        left: -1.5rem !important;
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    .timeline-content {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        padding: 0.75rem 1rem !important;
+    }
+
+    .timeline-info {
+        padding-right: 0 !important;
+    }
+
+    .timeline-middle {
+        position: static !important;
+        transform: none !important;
+        margin: 4px 0 !important;
+    }
+
+    .timeline-tags {
+        align-self: flex-start !important;
+    }
+
+    /* 17TRACK modal iframe height on mobile */
+    #YQContainer {
+        min-height: 400px !important;
+    }
+}
