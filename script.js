@@ -20,7 +20,12 @@ const elements = {
     dmsCaptchaImg: document.getElementById('dms-captcha-img'),
     dmsCaptchaLoading: document.getElementById('dms-captcha-loading'),
     dmsCaptchaContainer: document.getElementById('dms-captcha-container'),
-    dmsLoginBtn: document.getElementById('dms-login-btn')
+    dmsLoginBtn: document.getElementById('dms-login-btn'),
+
+    // Scanner elements
+    scanBtn: document.getElementById('scan-btn'),
+    scanModal: document.getElementById('scan-modal'),
+    closeScanModal: document.getElementById('close-scan-modal')
 };
 
 let currentResults = [];
@@ -66,6 +71,101 @@ async function init() {
     }
     if (elements.exportBtn) {
         elements.exportBtn.addEventListener('click', exportToCSV);
+    }
+    
+    // Initialize Barcode/QR Code scanner
+    initBarcodeScanner();
+}
+
+let html5QrCode = null;
+
+function initBarcodeScanner() {
+    if (!elements.scanBtn || !elements.scanModal || !elements.closeScanModal) return;
+
+    elements.scanBtn.addEventListener('click', () => {
+        elements.scanModal.classList.remove('hidden');
+        startScanner();
+    });
+
+    elements.closeScanModal.addEventListener('click', () => {
+        stopScanner();
+        elements.scanModal.classList.add('hidden');
+    });
+}
+
+function startScanner() {
+    const feedback = document.getElementById('scan-feedback');
+    if (!feedback) return;
+
+    feedback.textContent = '正在激活摄像头...';
+    feedback.style.color = 'var(--text-muted)';
+
+    // Instantiate html5QrCode scanner
+    html5QrCode = new Html5Qrcode("reader");
+
+    // Barcode scanner configuration
+    const config = {
+        fps: 10,
+        // Scan area optimized for rectangular shipping barcodes and QR codes
+        qrbox: (width, height) => {
+            const w = Math.min(width * 0.85, 380);
+            const h = Math.min(height * 0.45, 160);
+            return { width: w, height: h };
+        },
+        aspectRatio: 1.0
+    };
+
+    html5QrCode.start(
+        { facingMode: "environment" },
+        config,
+        (decodedText, decodedResult) => {
+            if (decodedText) {
+                // Play a brief haptic vibration if supported
+                if (navigator.vibrate) {
+                    navigator.vibrate(100);
+                }
+
+                // Add waybill number to the textarea
+                const currentVal = elements.orderNosInput.value.trim();
+                if (currentVal) {
+                    const list = currentVal.split('\n');
+                    if (!list.includes(decodedText)) {
+                        elements.orderNosInput.value = currentVal + '\n' + decodedText;
+                    }
+                } else {
+                    elements.orderNosInput.value = decodedText;
+                }
+
+                feedback.textContent = `🎉 扫码成功: ${decodedText}`;
+                feedback.style.color = 'var(--success)';
+
+                // Automatically stop and close scanner after a brief delay
+                setTimeout(() => {
+                    stopScanner();
+                    elements.scanModal.classList.add('hidden');
+                }, 1000);
+            }
+        },
+        (errorMessage) => {
+            // Silence frame processing parse failures
+        }
+    ).then(() => {
+        feedback.textContent = '📷 对准条形码或二维码即可自动识别';
+        feedback.style.color = 'var(--text-muted)';
+    }).catch(err => {
+        console.error("Camera access error:", err);
+        feedback.textContent = `❌ 无法启动摄像头: ${err.message || '请确保授予了相机权限，且在 HTTPS 环境下打开'}`;
+        feedback.style.color = 'var(--error)';
+    });
+}
+
+function stopScanner() {
+    if (html5QrCode) {
+        html5QrCode.stop().then(() => {
+            html5QrCode = null;
+        }).catch(err => {
+            console.error("Stop scanner error:", err);
+        });
     }
 }
 
