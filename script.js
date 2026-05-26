@@ -1,4 +1,5 @@
 const elements = {
+    proxyUrlInput: document.getElementById('proxy-url'),
     tokenInput: document.getElementById('token'),
     cookieInput: document.getElementById('cookie'),
     saveConfigBtn: document.getElementById('save-config'),
@@ -31,6 +32,15 @@ const elements = {
 let currentResults = [];
 let captchaUuid = '';
 
+function getApiBase() {
+    const proxyUrl = elements.proxyUrlInput ? elements.proxyUrlInput.value.trim() : '';
+    if (proxyUrl) {
+        // Strip trailing slash if present
+        return proxyUrl.replace(/\/+$/, '');
+    }
+    return '';
+}
+
 // Init
 async function init() {
     updateTime();
@@ -56,14 +66,16 @@ async function init() {
     
     // Load saved config
     // 1. Load from localStorage first (for instantaneous render and static deployment fallback)
+    const localProxyUrl = localStorage.getItem('gtracking-proxy-url');
     const localToken = localStorage.getItem('gtracking-token');
     const localCookie = localStorage.getItem('gtracking-cookie');
+    if (localProxyUrl && elements.proxyUrlInput) elements.proxyUrlInput.value = localProxyUrl;
     if (localToken) elements.tokenInput.value = localToken;
     if (localCookie && elements.cookieInput) elements.cookieInput.value = localCookie;
 
     // 2. Fetch from backend API to synchronize if server is running
     try {
-        const res = await fetch('/api/config');
+        const res = await fetch(getApiBase() + '/api/config');
         if (res.ok) {
             const data = await res.json();
             if (data.token) {
@@ -229,15 +241,17 @@ function updateTime() {
 
 // Save Config
 elements.saveConfigBtn.addEventListener('click', async () => {
+    const proxyUrl = elements.proxyUrlInput ? elements.proxyUrlInput.value.trim() : '';
     const token = elements.tokenInput.value.trim();
     const cookie = elements.cookieInput ? elements.cookieInput.value.trim() : '';
     
     // Always save to localStorage first
+    localStorage.setItem('gtracking-proxy-url', proxyUrl);
     localStorage.setItem('gtracking-token', token);
     localStorage.setItem('gtracking-cookie', cookie);
     
     try {
-        const res = await fetch('/api/config', {
+        const res = await fetch(getApiBase() + '/api/config', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -264,7 +278,7 @@ async function fetchDmsCaptcha() {
     elements.dmsCaptchaImg.classList.add('hidden');
     
     try {
-        const res = await fetch('/api/captcha');
+        const res = await fetch(getApiBase() + '/api/captcha');
         if (!res.ok) throw new Error('API returns error ' + res.status);
         const data = await res.json();
         
@@ -314,7 +328,7 @@ if (elements.dmsLoginBtn) {
         if (btnLoader) btnLoader.classList.remove('hidden');
         
         try {
-            const res = await fetch('/api/login', {
+            const res = await fetch(getApiBase() + '/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -336,7 +350,7 @@ if (elements.dmsLoginBtn) {
                 }
                 // Also load saved cookies if returned
                 try {
-                    const confRes = await fetch('/api/config');
+                    const confRes = await fetch(getApiBase() + '/api/config');
                     if (confRes.ok) {
                         const confData = await confRes.json();
                         if (confData.cookie && elements.cookieInput) {
@@ -384,7 +398,7 @@ elements.searchBtn.addEventListener('click', async () => {
     try {
         const queryType = elements.queryTypeSelect.value || '1';
 
-        const res = await fetch('/api/tracking', {
+        const res = await fetch(getApiBase() + '/api/tracking', {
             method: 'POST',
             body: JSON.stringify({
                 orderNos: orderNos,
@@ -402,7 +416,7 @@ elements.searchBtn.addEventListener('click', async () => {
             showError(data.msg || data.error || '查询失败');
         }
     } catch (e) {
-        showError('无法连接到代理服务器，请确保 server.py 正在运行');
+        showError('无法连接到代理服务器。如果您在 Netlify/静态部署上运行，请在左侧“手动配置”中填写您的“代理服务器地址”（例如 http://您的服务器IP:7000），并确保您的 server.py 代理服务已启动。');
     } finally {
         setLoading(false);
     }
