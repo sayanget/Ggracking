@@ -55,13 +55,28 @@ async function init() {
     }
     
     // Load saved config
+    // 1. Load from localStorage first (for instantaneous render and static deployment fallback)
+    const localToken = localStorage.getItem('gtracking-token');
+    const localCookie = localStorage.getItem('gtracking-cookie');
+    if (localToken) elements.tokenInput.value = localToken;
+    if (localCookie && elements.cookieInput) elements.cookieInput.value = localCookie;
+
+    // 2. Fetch from backend API to synchronize if server is running
     try {
         const res = await fetch('/api/config');
-        const data = await res.json();
-        if (data.token) elements.tokenInput.value = data.token;
-        if (data.cookie && elements.cookieInput) elements.cookieInput.value = data.cookie;
+        if (res.ok) {
+            const data = await res.json();
+            if (data.token) {
+                elements.tokenInput.value = data.token;
+                localStorage.setItem('gtracking-token', data.token);
+            }
+            if (data.cookie && elements.cookieInput) {
+                elements.cookieInput.value = data.cookie;
+                localStorage.setItem('gtracking-cookie', data.cookie);
+            }
+        }
     } catch (e) {
-        console.error('Failed to load config', e);
+        console.warn('Unable to load from server.py backend, using localStorage configuration fallback.', e);
     }
 
     // Load DMS captcha
@@ -217,6 +232,10 @@ elements.saveConfigBtn.addEventListener('click', async () => {
     const token = elements.tokenInput.value.trim();
     const cookie = elements.cookieInput ? elements.cookieInput.value.trim() : '';
     
+    // Always save to localStorage first
+    localStorage.setItem('gtracking-token', token);
+    localStorage.setItem('gtracking-cookie', cookie);
+    
     try {
         const res = await fetch('/api/config', {
             method: 'POST',
@@ -226,13 +245,14 @@ elements.saveConfigBtn.addEventListener('click', async () => {
             body: JSON.stringify({ token, cookie })
         });
         if (res.ok) {
-            alert('配置已保存');
+            alert('配置已同步保存到服务器！');
         } else {
-            const errData = await res.json().catch(() => ({}));
-            alert('保存失败: ' + (errData.error || '未知错误'));
+            console.warn('Server failed to save config, keeping in localStorage.');
+            alert('配置已成功保存至本地浏览器（静态代理模式）');
         }
     } catch (e) {
-        alert('连接服务器失败');
+        console.warn('Server connection failed, keeping in localStorage.', e);
+        alert('配置已成功保存至本地浏览器（静态代理模式）');
     }
 });
 
@@ -312,16 +332,20 @@ if (elements.dmsLoginBtn) {
                 alert('登录成功！已自动获取并保存 Token');
                 if (data.token) {
                     elements.tokenInput.value = data.token;
+                    localStorage.setItem('gtracking-token', data.token);
                 }
                 // Also load saved cookies if returned
                 try {
                     const confRes = await fetch('/api/config');
-                    const confData = await confRes.json();
-                    if (confData.cookie && elements.cookieInput) {
-                        elements.cookieInput.value = confData.cookie;
+                    if (confRes.ok) {
+                        const confData = await confRes.json();
+                        if (confData.cookie && elements.cookieInput) {
+                            elements.cookieInput.value = confData.cookie;
+                            localStorage.setItem('gtracking-cookie', confData.cookie);
+                        }
                     }
                 } catch (e) {
-                    console.error('Failed to reload cookie config:', e);
+                    console.warn('Failed to reload cookie config from server, keeping local session:', e);
                 }
                 elements.dmsCaptchaInput.value = '';
                 await fetchDmsCaptcha();
