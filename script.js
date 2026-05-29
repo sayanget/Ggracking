@@ -920,13 +920,6 @@ function renderResults(results) {
                     }
                 }
 
-                const middleContainerHtml = (node.operator || shiftTagHtml) ? `
-                    <div class="timeline-middle" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
-                        ${shiftTagHtml}
-                        ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
-                    </div>
-                ` : '';
-
                 // Extract node-specific SOP metrics alerts
                 const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
                 let nodeAlertsHtml = '';
@@ -938,11 +931,27 @@ function renderResults(results) {
                     `).join('');
                 }
 
+                // Group action tags and operator/shift tags together on the right side
+                let rightContainerHtml = '';
+                if (tagHtml || shiftTagHtml || node.operator) {
+                    rightContainerHtml = `
+                        <div class="timeline-right" style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; min-width: fit-content; justify-content: center; z-index: 2;">
+                            ${tagHtml}
+                            ${shiftTagHtml || node.operator ? `
+                                <div class="operator-group" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end;">
+                                    ${shiftTagHtml}
+                                    ${node.operator ? `<span style="background:rgba(255,255,255,0.06); color:var(--text-secondary); padding:4px 8px; border-radius:6px; font-size:0.8rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.08); display:inline-flex; align-items:center; gap:3px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+
                 return `
                     <div class="timeline-item" ${node.blockId ? `id="${node.blockId}"` : ''}>
                         <div class="timeline-dot"></div>
                         <div class="timeline-content" style="position: relative; background: ${node.bgColor}; transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                            <div class="timeline-info" style="flex: 1; min-width: 0; padding-right: 120px;">
+                            <div class="timeline-info" style="flex: 1; min-width: 0;">
                                 <div class="timeline-time">${node.date}</div>
                                 <div class="timeline-desc">${node.desc}</div>
                                 ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
@@ -950,8 +959,7 @@ function renderResults(results) {
                                 ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
                                 ${nodeAlertsHtml}
                             </div>
-                            ${middleContainerHtml}
-                            ${tagHtml}
+                            ${rightContainerHtml}
                         </div>
                         ${intervalHtml}
                     </div>
@@ -1121,13 +1129,6 @@ function showDetail(index) {
             }
         }
 
-        const middleContainerHtml = (node.operator || shiftTagHtml) ? `
-            <div class="timeline-middle" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; z-index: 2;">
-                ${shiftTagHtml}
-                ${node.operator ? `<span style="background:rgba(255,255,255,0.08); color:var(--text-secondary); padding:4px 10px; border-radius:6px; font-size:0.875rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.1); display:inline-flex; align-items:center; gap:4px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
-            </div>
-        ` : '';
-
         // Extract node-specific SOP metrics alerts for the modal
         const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
         let nodeAlertsHtml = '';
@@ -1139,19 +1140,34 @@ function showDetail(index) {
             `).join('');
         }
 
+        // Group action tags and operator/shift tags together on the right side for modal
+        let rightContainerHtml = '';
+        if (tagHtml || shiftTagHtml || node.operator) {
+            rightContainerHtml = `
+                <div class="timeline-right" style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; min-width: fit-content; justify-content: center; z-index: 2;">
+                    ${tagHtml}
+                    ${shiftTagHtml || node.operator ? `
+                        <div class="operator-group" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end;">
+                            ${shiftTagHtml}
+                            ${node.operator ? `<span style="background:rgba(255,255,255,0.06); color:var(--text-secondary); padding:4px 8px; border-radius:6px; font-size:0.8rem; font-weight:600; white-space:nowrap; border:1px solid rgba(255,255,255,0.08); display:inline-flex; align-items:center; gap:3px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">👤 ${node.operator}</span>` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
         return `
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content" style="position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                <div class="timeline-info" style="flex: 1; min-width: 0; padding-right: 120px;">
+                <div class="timeline-info" style="flex: 1; min-width: 0;">
                     <div class="timeline-time">${node.date}</div>
                     <div class="timeline-desc">${node.desc}</div>
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                     ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
                     ${nodeAlertsHtml}
                 </div>
-                ${middleContainerHtml}
-                ${tagHtml}
+                ${rightContainerHtml}
             </div>
             ${intervalHtml}
         </div>
