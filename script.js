@@ -436,16 +436,200 @@ function setLoading(loading) {
 }
 
 const parseDate = (d) => {
+    if (!d) return 0;
+    // Standard ISO/custom format: yyyy-mm-dd hh:mm:ss
+    if (typeof d === 'string' && d.includes('-') && d.includes(':')) {
+        return new Date(d.replace(/-/g, '/')).getTime();
+    }
+    // Custom format: 星期一, 11/05/2026 06:07:58
     const parts = d.split(' ');
     if(parts.length >= 3) {
         const dp = parts[1].split('/');
         const tp = parts[2].split(':');
         if(dp.length === 3 && tp.length >= 2) {
-            return new Date(dp[2], dp[1]-1, dp[0], tp[0], tp[1], tp[2]||0).getTime();
+            return new Date(dp[2], dp[1]-1, dp[0], tp[0], tp[1], dp[2]||0).getTime();
         }
     }
-    return 0;
+    // Fallback standard parse
+    const t = Date.parse(d);
+    return isNaN(t) ? 0 : t;
 };
+
+// SOP 转运核心指标及安全/运营隐患分析引擎 (Based on hub_metrics_formulas.pdf)
+function analyzeHubSafetyRisks(allEvents, isDelivered) {
+    const alerts = [];
+    if (!allEvents || allEvents.length === 0) return alerts;
+
+    // Chronological order for sequence analysis
+    const chronoEvents = [...allEvents].sort((a, b) => a.ts - b.ts);
+    
+    // 1. 揽收签入超时 (SOP-1: 揽收签入及时率 - 24H 限制)
+    const labelEvent = chronoEvents.find(e => e.desc && (
+        e.desc.toLowerCase().includes('gets the order') || 
+        e.desc.toLowerCase().includes('label created') || 
+        e.desc.includes('创建面单') || 
+        e.desc.includes('获取订单信息')
+    ));
+    if (labelEvent && labelEvent.ts > 0) {
+        const firstSignIn = chronoEvents.find(e => e.ts > labelEvent.ts && e.desc && (
+            e.desc.toLowerCase().includes('signed in') || 
+            e.desc.toLowerCase().includes('arrived at gofo') || 
+            e.desc.includes('转运中心签入') || 
+            e.desc.includes('网点签入')
+        ));
+        if (firstSignIn && firstSignIn.ts > 0) {
+            const delayHours = (firstSignIn.ts - labelEvent.ts) / 3600000;
+            if (delayHours > 24) {
+                alerts.push({
+                    type: '揽收',
+                    level: 'danger',
+                    message: `🚨 揽收严重超时：从建单到首次签入用时 ${delayHours.toFixed(1)} 小时，严重超过 24 小时红线标准`,
+                    nodeIndex: allEvents.indexOf(firstSignIn)
+                });
+            }
+        } else {
+            const delayHours = (Date.now() - labelEvent.ts) / 3600000;
+            if (delayHours > 24 && !isDelivered) {
+                alerts.push({
+                    type: '揽收',
+                    level: 'danger',
+                    message: `🚨 揽收严重延误：系统建单已达 ${delayHours.toFixed(1)} 小时，仍无任何物理揽收或签入轨迹`,
+                    nodeIndex: allEvents.indexOf(labelEvent)
+                });
+            }
+        }
+    }
+
+    // 2. 卸车签入超时 (SOP-3: 卸车签入及时率 - 2H 绝对红线)
+    for (let i = 0; i < chronoEvents.length; i++) {
+        const ev = chronoEvents[i];
+        const lowerDesc = (ev.desc || '').toLowerCase();
+        const isArrival = lowerDesc.includes('vehicle arrived') || 
+                          lowerDesc.includes('vehicle has arrived') || 
+                          lowerDesc.includes('arrived at') || 
+                          ev.corto === '412' || ev.corto === '415' || 
+                          ev.operation_move === '412' || ev.operation_move === '415';
+        if (isArrival) {
+            const loc = ev.loc || '';
+            // Find next sign-in at same location
+            const signin = chronoEvents.find(e => e.ts >= ev.ts && e !== ev && e.loc === loc && (
+                e.desc.toLowerCase().includes('signed in') || 
+                e.corto === '201' || e.corto === '202' || 
+                e.operation_move === '201' || e.operation_move === '202'
+            ));
+            if (signin) {
+                const diffHours = (signin.ts - ev.ts) / 3600000;
+                if (diffHours > 2) {
+                    alerts.push({
+                        type: '卸车',
+                        level: 'danger',
+                        message: `🚨 卸车签入严重超时：干线车辆抵达 ${loc} 后，历时 ${diffHours.toFixed(1)} 小时才完成卸车物理签入（SOP规定时效限2小时，存在积压隐患）`,
+                        nodeIndex: allEvents.indexOf(signin)
+                    });
+                }
+            } else {
+                const diffHours = (Date.now() - ev.ts) / 3600000;
+                if (diffHours > 2 && !isDelivered) {
+                    alerts.push({
+                        type: '卸车',
+                        level: 'danger',
+                        message: `🚨 卸车滞留红线告警：干线车辆抵达 ${loc} 已达 ${diffHours.toFixed(1)} 小时，操作团队仍未物理激活卸车扫描！`,
+                        nodeIndex: allEvents.indexOf(ev)
+                    });
+                }
+            }
+        }
+    }
+
+    // 3. HUB分拣集包超时 (SOP-2: HUB分拣及时率 - 90~120分钟/2H 时效限制)
+    for (let i = 0; i < chronoEvents.length; i++) {
+        const ev = chronoEvents[i];
+        const lowerDesc = (ev.desc || '').toLowerCase();
+        if (lowerDesc.includes('signed in') || ev.corto === '201' || ev.corto === '202' || ev.operation_move === '201' || ev.operation_move === '202') {
+            const loc = ev.loc || '';
+            // Find subsequent bagging
+            const bagging = chronoEvents.find(e => e.ts >= ev.ts && e.loc === loc && (
+                e.desc.toLowerCase().includes('bagging') || 
+                e.corto === '217' || 
+                e.operation_move === '217'
+            ));
+            if (bagging) {
+                const diffHours = (bagging.ts - ev.ts) / 3600000;
+                if (diffHours > 2) {
+                    alerts.push({
+                        type: '分拣',
+                        level: 'warning',
+                        message: `⚠️ 分拣操作超时：在 ${loc} 转运中心从卸车签入到集包扫描历时 ${diffHours.toFixed(1)} 小时，超出分拣效率指标标准（90-120分钟）`,
+                        nodeIndex: allEvents.indexOf(bagging)
+                    });
+                }
+            } else {
+                const diffHours = (Date.now() - ev.ts) / 3600000;
+                if (diffHours > 2 && !isDelivered) {
+                    alerts.push({
+                        type: '分拣',
+                        level: 'warning',
+                        message: `⚠️ 分拣流向积压：包裹在 ${loc} 转运中心已完成签入超 ${diffHours.toFixed(1)} 小时，但尚未进行集包建包操作`,
+                        nodeIndex: allEvents.indexOf(ev)
+                    });
+                }
+            }
+        }
+    }
+
+    // 4. 转运中心/网点操作滞留 (SOP-4: HUB操作及时率 - 24H 强制清场时效)
+    for (let i = 0; i < chronoEvents.length; i++) {
+        const ev = chronoEvents[i];
+        const lowerDesc = (ev.desc || '').toLowerCase();
+        if (lowerDesc.includes('signed in') || lowerDesc.includes('arrived') || ev.corto === '201' || ev.corto === '202' || ev.operation_move === '201' || ev.operation_move === '202') {
+            const loc = ev.loc || '';
+            // Find departure / dispatch
+            const checkout = chronoEvents.find(e => e.ts >= ev.ts && e.loc === loc && (
+                e.desc.toLowerCase().includes('left') || 
+                e.desc.toLowerCase().includes('departed') || 
+                ev.corto === '200' || ev.corto === '411' || 
+                ev.operation_move === '200' || ev.operation_move === '411'
+            ));
+            if (checkout) {
+                const diffHours = (checkout.ts - ev.ts) / 3600000;
+                if (diffHours > 24) {
+                    alerts.push({
+                        type: '操作',
+                        level: 'warning',
+                        message: `⚠️ 转运停留超时：包裹在 ${loc} 操作及滞留总历时 ${diffHours.toFixed(1)} 小时，违反 24 小时操作红线`,
+                        nodeIndex: allEvents.indexOf(checkout)
+                    });
+                }
+            } else {
+                const diffHours = (Date.now() - ev.ts) / 3600000;
+                if (diffHours > 24 && !isDelivered) {
+                    alerts.push({
+                        type: '操作',
+                        level: 'warning',
+                        message: `⚠️ 场地滞留死角：包裹已在 ${loc} 滞留停留 ${diffHours.toFixed(1)} 小时，未进行发车签出或离港扫描`,
+                        nodeIndex: allEvents.indexOf(ev)
+                    });
+                }
+            }
+        }
+    }
+
+    // 5. 内部断更及丢失红线风险 (SOP-7: 内部断更+丢失率 - 120H 终极红线)
+    if (!isDelivered && allEvents[0] && allEvents[0].ts > 0) {
+        const newestEvent = allEvents[0];
+        const idleHours = (Date.now() - newestEvent.ts) / 3600000;
+        if (idleHours > 120) {
+            alerts.push({
+                type: '断更',
+                level: 'danger',
+                message: `🚨 断更灭失红线告警：包裹在 ${newestEvent.loc || '转运环节'} 连续断更超五日（达 ${idleHours.toFixed(1)} 小时），存在极高遗失、被盗或留仓死件隐患！`,
+                nodeIndex: 0
+            });
+        }
+    }
+
+    return alerts;
+}
 
 function renderResults(results) {
     currentResults = results;
@@ -483,6 +667,8 @@ function renderResults(results) {
         let timelineHtml = '<p class="last-event" style="margin-top:1rem;">暂无轨迹数据</p>';
         let totalDurationHtml = '';
         let barChartHtml = '';
+        let safetyAlertsHtml = '';
+        let safetyAlerts = [];
         let latestDesc = '暂无轨迹';
         let statusClass = 'latest-status-pending';
         
@@ -495,6 +681,25 @@ function renderResults(results) {
             const isDelivered = latestDesc.toLowerCase().includes('delivered') || status === '已送达' || status === '已签收';
             statusClass = isDelivered ? 'latest-status-delivered' : 'latest-status-pending';
             const deliveredEvent = allEvents.find(ev => ev.desc && ev.desc.toLowerCase().includes('delivered'));
+
+            // Run safety risk analysis based on hub_metrics_formulas.pdf SOP rules
+            safetyAlerts = analyzeHubSafetyRisks(allEvents, isDelivered);
+            if (safetyAlerts.length > 0) {
+                safetyAlertsHtml = `
+                    <div class="safety-alerts-wrapper" style="margin-top: 10px; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
+                        <div style="font-size: 0.85rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                            🛡️ SOP 转运运营红线隐患告警 (${safetyAlerts.length} 项)
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            ${safetyAlerts.map(alert => `
+                                <div style="font-size: 0.775rem; line-height: 1.4; color: ${alert.level === 'danger' ? '#f87171' : '#fbbf24'}; display: flex; align-items: flex-start; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 8px; border-radius: 4px; border-left: 3px solid ${alert.level === 'danger' ? '#ef4444' : '#fbbf24'};">
+                                    <span>${alert.message}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
 
             // Analyze IN and OUT pairing
             let lastUnpairedInNode = null;
@@ -722,6 +927,17 @@ function renderResults(results) {
                     </div>
                 ` : '';
 
+                // Extract node-specific SOP metrics alerts
+                const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
+                let nodeAlertsHtml = '';
+                if (nodeAlerts.length > 0) {
+                    nodeAlertsHtml = nodeAlerts.map(alert => `
+                        <div class="operation-warning" style="font-size:0.75rem; color:${alert.level === 'danger' ? '#ef4444' : '#fbbf24'}; margin-top:6px; font-weight:600; background:${alert.level === 'danger' ? 'rgba(239,68,68,0.1)' : 'rgba(251,191,36,0.1)'}; display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid ${alert.level === 'danger' ? 'rgba(239,68,68,0.3)' : 'rgba(251,191,36,0.3)'}; box-shadow: 0 0 8px ${alert.level === 'danger' ? 'rgba(239,68,68,0.15)' : 'rgba(251,191,36,0.15)'}; margin-right:8px;">
+                            ${alert.level === 'danger' ? '🚨' : '⚠️'} [SOP ${alert.type}时效红线] ${alert.message.replace(/🚨|⚠️/g, '').trim()}
+                        </div>
+                    `).join('');
+                }
+
                 return `
                     <div class="timeline-item" ${node.blockId ? `id="${node.blockId}"` : ''}>
                         <div class="timeline-dot"></div>
@@ -732,6 +948,7 @@ function renderResults(results) {
                                 ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                                 ${node.stayDuration ? `<div class="stay-duration ${node.isOver24h ? 'stay-duration-over24h' : ''}" style="font-size:0.75rem; color:${node.isOver24h ? '#ef4444' : 'var(--accent)'}; margin-top:6px; font-weight:600; background:${node.isOver24h ? 'rgba(239,68,68,0.1)' : 'rgba(244,114,182,0.1)'}; display:inline-block; padding:2px 8px; border-radius:4px; ${node.isOver24h ? 'border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.2);' : ''}">⏱️ ${node.stayLoc} ${node.stayDuration}${node.isOver24h ? ' <span style="margin-left:4px">⚠️ 滞留超时</span>' : ''}</div>` : ''}
                                 ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
+                                ${nodeAlertsHtml}
                             </div>
                             ${middleContainerHtml}
                             ${tagHtml}
@@ -754,6 +971,7 @@ function renderResults(results) {
                         <span class="status-badge">${status}</span>
                     </div>
                     ${barChartHtml}
+                    ${safetyAlertsHtml}
                 </div>
                 ${timelineHtml}
             </div>
@@ -787,8 +1005,15 @@ function showDetail(index) {
         }
     });
 
+    let safetyAlerts = [];
     if (allEvents.length > 0) {
         allEvents.forEach((ev) => ev.ts = parseDate(ev.date));
+        
+        const newestEvent = allEvents[0];
+        const latestDesc = newestEvent ? newestEvent.desc : '暂无轨迹';
+        const isDelivered = latestDesc.toLowerCase().includes('delivered') || (item.waybill && (item.waybill.exceptionStatusName === '已送达' || item.waybill.exceptionStatusName === '已签收'));
+        
+        safetyAlerts = analyzeHubSafetyRisks(allEvents, isDelivered);
         
         let lastUnpairedInNode = null;
         let deliveryIndex = -1;
@@ -829,6 +1054,34 @@ function showDetail(index) {
         if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
             lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
         }
+    }
+
+    // Modal safety alerts section
+    let safetyAlertsHtml = '';
+    if (safetyAlerts.length > 0) {
+        safetyAlertsHtml = `
+            <div class="safety-alerts-wrapper" style="margin: 0 1rem 1.5rem 1rem; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
+                <div style="font-size: 0.85rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                    🛡️ SOP 转运运营红线隐患告警 (${safetyAlerts.length} 项)
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    ${safetyAlerts.map(alert => `
+                        <div style="font-size: 0.775rem; line-height: 1.4; color: ${alert.level === 'danger' ? '#f87171' : '#fbbf24'}; display: flex; align-items: flex-start; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 8px; border-radius: 4px; border-left: 3px solid ${alert.level === 'danger' ? '#ef4444' : '#fbbf24'};">
+                            <span>${alert.message}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    // Insert safety alerts into detail modal header area
+    const modalHeader = elements.modal.querySelector('.modal-header') || elements.modal.querySelector('.card');
+    // Ensure any existing safety-alerts-wrapper inside modal is removed first
+    const existingAlerts = elements.modal.querySelector('.safety-alerts-wrapper');
+    if (existingAlerts) existingAlerts.remove();
+    if (safetyAlertsHtml && modalHeader) {
+        modalHeader.insertAdjacentHTML('afterend', safetyAlertsHtml);
     }
 
     elements.timeline.innerHTML = allEvents.map((node, i) => {
@@ -875,6 +1128,17 @@ function showDetail(index) {
             </div>
         ` : '';
 
+        // Extract node-specific SOP metrics alerts for the modal
+        const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
+        let nodeAlertsHtml = '';
+        if (nodeAlerts.length > 0) {
+            nodeAlertsHtml = nodeAlerts.map(alert => `
+                <div class="operation-warning" style="font-size:0.75rem; color:${alert.level === 'danger' ? '#ef4444' : '#fbbf24'}; margin-top:6px; font-weight:600; background:${alert.level === 'danger' ? 'rgba(239,68,68,0.1)' : 'rgba(251,191,36,0.1)'}; display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid ${alert.level === 'danger' ? 'rgba(239,68,68,0.3)' : 'rgba(251,191,36,0.3)'}; box-shadow: 0 0 8px ${alert.level === 'danger' ? 'rgba(239,68,68,0.15)' : 'rgba(251,191,36,0.15)'}; margin-right:8px;">
+                    ${alert.level === 'danger' ? '🚨' : '⚠️'} [SOP ${alert.type}时效红线] ${alert.message.replace(/🚨|⚠️/g, '').trim()}
+                </div>
+            `).join('');
+        }
+
         return `
         <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -884,6 +1148,7 @@ function showDetail(index) {
                     <div class="timeline-desc">${node.desc}</div>
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                     ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
+                    ${nodeAlertsHtml}
                 </div>
                 ${middleContainerHtml}
                 ${tagHtml}
