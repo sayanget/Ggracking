@@ -614,7 +614,7 @@ function analyzeHubSafetyRisks(allEvents, isDelivered) {
         }
     }
 
-    // 5. 内部断更及丢失红线风险 (SOP-7: 内部断更+丢失率 - 120H 终极红线)
+    // 5. 内部断更及丢失红线风险 (SOP-7: 内部断更+丢失率 - 120H 终极红线 + 渐进式断更风险提醒)
     if (!isDelivered && allEvents[0] && allEvents[0].ts > 0) {
         const newestEvent = allEvents[0];
         const idleHours = (Date.now() - newestEvent.ts) / 3600000;
@@ -622,7 +622,21 @@ function analyzeHubSafetyRisks(allEvents, isDelivered) {
             alerts.push({
                 type: '断更',
                 level: 'danger',
-                message: `🚨 断更灭失红线告警：包裹在 ${newestEvent.loc || '转运环节'} 连续断更超五日（达 ${idleHours.toFixed(1)} 小时），存在极高遗失、被盗或留仓死件隐患！`,
+                message: `🚨 【SOP-7 终极断更灭失红线】包裹已连续断更超过 5 天（达 ${idleHours.toFixed(1)} 小时），存在极高丢失、被盗或滞留死仓隐患！`,
+                nodeIndex: 0
+            });
+        } else if (idleHours > 48) {
+            alerts.push({
+                type: '断更',
+                level: 'danger',
+                message: `🚨 【重度断更风险】包裹在 [${newestEvent.loc || '转运环节'}] 已连续 ${idleHours.toFixed(1)} 小时（超 48 小时）无轨迹更新，请立即核查实物！`,
+                nodeIndex: 0
+            });
+        } else if (idleHours > 24) {
+            alerts.push({
+                type: '断更',
+                level: 'warning',
+                message: `⚠️ 【中度断更风险】包裹已连续 ${idleHours.toFixed(1)} 小时（超 24 小时）无轨迹更新，请保持关注。`,
                 nodeIndex: 0
             });
         }
@@ -669,6 +683,7 @@ function renderResults(results) {
         let barChartHtml = '';
         let safetyAlertsHtml = '';
         let safetyAlerts = [];
+        let riskBadgeHtml = '';
         let latestDesc = '暂无轨迹';
         let statusClass = 'latest-status-pending';
         
@@ -684,6 +699,18 @@ function renderResults(results) {
 
             // Run safety risk analysis based on hub_metrics_formulas.pdf SOP rules
             safetyAlerts = analyzeHubSafetyRisks(allEvents, isDelivered);
+
+            // Compute progressive inactivity (discontinuation) risk badge
+            if (!isDelivered && newestEvent && newestEvent.ts > 0) {
+                const idleHours = (Date.now() - newestEvent.ts) / 3600000;
+                if (idleHours > 120) {
+                    riskBadgeHtml = `<span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.35); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; animation: pulse 2s infinite; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">🚨 SOP-7 极高断更风险</span>`;
+                } else if (idleHours > 48) {
+                    riskBadgeHtml = `<span style="background:rgba(239,68,68,0.10); color:#f87171; border:1px solid rgba(239,68,68,0.25); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">🚨 重度断更风险</span>`;
+                } else if (idleHours > 24) {
+                    riskBadgeHtml = `<span style="background:rgba(251,191,36,0.10); color:#fbbf24; border:1px solid rgba(251,191,36,0.25); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">⚠️ 中度断更风险</span>`;
+                }
+            }
             if (safetyAlerts.length > 0) {
                 safetyAlertsHtml = `
                     <div class="safety-alerts-wrapper" style="margin-top: 10px; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
@@ -973,6 +1000,7 @@ function renderResults(results) {
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
                             <span class="waybill-no" onclick="open17TrackModal('${waybillNo}')">${waybillNo}</span>
+                            ${riskBadgeHtml}
                             <span class="badge-17track" id="badge-17track-${waybillNo}">17TRACK: 正在查询...</span>
                             ${totalDurationHtml}
                         </div>
