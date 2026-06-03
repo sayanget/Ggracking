@@ -160,6 +160,19 @@
         </div>
     </div>
 
+    <!-- Modal for Center Pack (袋牌号) Detail -->
+    <div id="pack-modal" class="modal hidden">
+        <div class="modal-content card pack-modal-content">
+            <header class="modal-header">
+                <h3 id="pack-modal-title">集包记录</h3>
+                <button class="close-modal" id="close-pack-modal" type="button">&times;</button>
+            </header>
+            <div class="modal-body pack-modal-body" id="pack-modal-body">
+                <div class="pack-loading">正在加载集包记录...</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal for Barcode/QR Code Scanner -->
     <div id="scan-modal" class="modal hidden">
         <div class="modal-content card scan-modal-content">
@@ -178,6 +191,6 @@
 
     <script type="text/javascript" src="https://unpkg.com/html5-qrcode"></script>
     <script type="text/javascript" src="https://www.17track.net/externalcall.js"></script>
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
 </body>
 </html>

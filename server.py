@@ -49,6 +49,34 @@ def save_config(token, cookie):
     with open(COOKIE_FILE, "w", encoding="utf-8") as f:
         f.write(cookie.strip())
 
+def apply_dms_headers(req, token, cookie, referer=None):
+    raw_token = token.replace("Bearer ", "").strip()
+    req.add_header("Authorization", f"Bearer {raw_token}")
+    req.add_header("Admin-Token", raw_token)
+    if cookie:
+        req.add_header("Cookie", cookie)
+    req.add_header("Content-Type", "application/json;charset=utf-8")
+    req.add_header("Accept", "application/json, text/plain, */*")
+    req.add_header("lang", "zh")
+    req.add_header("source", "WEB")
+    req.add_header("tenant-id", "us")
+    req.add_header("app-code", "gofo-base")
+    req.add_header("auth-tag-x", "unauthorized")
+    req.add_header("X-Requested-With", "XMLHttpRequest")
+    req.add_header("User-Time-Zone", "America/Los_Angeles")
+    req.add_header("Date-Time-Format", "MM/dd/yyyy HH:mm:ss")
+    req.add_header("timeZone", "GMT-0700")
+    req.add_header("Origin", "https://dms.gofoexpress.com")
+    req.add_header(
+        "Referer",
+        referer or "https://dms.gofoexpress.com/gofo-base/ops/centerPack",
+    )
+    req.add_header(
+        "User-Agent",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 Edg/148.0.0.0",
+    )
+
 async def scrape_17track(waybill):
     from playwright.async_api import async_playwright
     url = f"https://extcall.17track.net/en/track#apitype=1&nums={waybill}"
@@ -297,6 +325,39 @@ class TrackingProxyHandler(SimpleHTTPRequestHandler):
                 self._send_json(500, {"error": str(e)})
             return
 
+        if parsed.path == "/api/center-pack":
+            try:
+                token = get_saved_token()
+                cookie = get_saved_cookie()
+
+                if not token:
+                    self._send_json(401, {"error": "Token not configured"})
+                    return
+
+                target_url = (
+                    "https://dms.gofoexpress.com/prod-api/ops/centerPack/selectPageList"
+                )
+                req = urllib.request.Request(target_url, data=body_raw, method="POST")
+                apply_dms_headers(req, token, cookie)
+
+                print(f"Proxying center pack query to: {target_url}")
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    res_body = response.read()
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json; charset=utf-8")
+                    self.send_header("Content-Length", str(len(res_body)))
+                    self.send_header("Access-Control-Allow-Origin", "*")
+                    self.end_headers()
+                    self.wfile.write(res_body)
+            except urllib.error.HTTPError as e:
+                error_body = e.read().decode("utf-8") if e.fp else ""
+                print(f"Center pack HTTP Error {e.code}: {error_body}")
+                self._send_json(e.code, {"error": f"API Error {e.code}", "details": error_body})
+            except Exception as e:
+                print(f"Center pack Server Error: {str(e)}")
+                self._send_json(500, {"error": str(e)})
+            return
+
         if parsed.path == "/api/tracking":
             try:
                 token = get_saved_token()
@@ -308,34 +369,12 @@ class TrackingProxyHandler(SimpleHTTPRequestHandler):
 
                 target_url = "https://dms.gofoexpress.com/prod-api/waybill/track/private/list"
                 req = urllib.request.Request(target_url, data=body_raw, method="POST")
-                
-                # Standard headers
-                req.add_header("Content-Type", "application/json;charset=utf-8")
-                req.add_header("Accept", "application/json, text/plain, */*")
-                
-                # Auth headers
-                raw_token = token.replace("Bearer ", "").strip()
-                req.add_header("Authorization", f"Bearer {raw_token}")
-                req.add_header("Admin-Token", raw_token)
-                
-                if cookie:
-                    req.add_header("Cookie", cookie)
-
-                # RuoYi/DMS Specific headers from verified cURL
-                req.add_header("lang", "zh")
-                req.add_header("source", "WEB")
-                req.add_header("tenant-id", "us")
-                req.add_header("app-code", "gofo-base")
-                req.add_header("auth-tag-x", "unauthorized")
-                req.add_header("X-Requested-With", "XMLHttpRequest")
-                req.add_header("User-Time-Zone", "America/Los_Angeles")
-                
-                # Origin/Referer
-                req.add_header("Referer", "https://dms.gofoexpress.com/gofo-base/epss/trackManage2/Tracking")
-                req.add_header("Origin", "https://dms.gofoexpress.com")
-                
-                # User Agent matching user's cURL
-                req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 Edg/148.0.0.0")
+                apply_dms_headers(
+                    req,
+                    token,
+                    cookie,
+                    referer="https://dms.gofoexpress.com/gofo-base/epss/trackManage2/Tracking",
+                )
 
                 print(f"Proxying to: {target_url}")
                 with urllib.request.urlopen(req, timeout=15) as response:

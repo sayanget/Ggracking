@@ -102,6 +102,7 @@ async function init() {
     
     // Initialize Barcode/QR Code scanner
     initBarcodeScanner();
+    initBagPackModal();
 }
 
 let html5QrCode = null;
@@ -454,6 +455,206 @@ const parseDate = (d) => {
     const t = Date.parse(d);
     return isNaN(t) ? 0 : t;
 };
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+/** Extract 袋牌号 from bagging track description (BG… or B+digit…). */
+function extractBagLabelNo(desc) {
+    if (!desc || !/bagging/i.test(desc)) return null;
+    const m = desc.match(/\b(BG[A-Za-z0-9-]+|B\d[A-Za-z0-9-]*)\b/i);
+    return m ? m[1] : null;
+}
+
+function formatBaggingDesc(desc, eventDate) {
+    const label = extractBagLabelNo(desc);
+    if (!label) return escapeHtml(desc);
+    const idx = desc.indexOf(label);
+    if (idx === -1) return escapeHtml(desc);
+    const before = escapeHtml(desc.slice(0, idx));
+    const after = escapeHtml(desc.slice(idx + label.length));
+    const safeLabel = escapeHtml(label);
+    const safeDate = escapeHtml(eventDate || '');
+    const link = `<a href="#" class="bag-label-link" data-package-no="${safeLabel}" data-event-date="${safeDate}" title="查看 DMS 集包记录">${safeLabel}</a>`;
+    return before + link + after;
+}
+
+function formatPackDateYmd(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+}
+
+function buildPackQueryRanges(eventDate) {
+    const ts = parseDate(eventDate);
+    const base = ts > 0 ? new Date(ts) : new Date();
+    const dayStart = new Date(base.getFullYear(), base.getMonth(), base.getDate());
+    const sameDay = formatPackDateYmd(dayStart);
+    const ranges = [{
+        beginTime: `${sameDay} 00:00:00`,
+        endTime: `${sameDay} 23:59:59`
+    }];
+    const wideStart = new Date(dayStart);
+    wideStart.setDate(wideStart.getDate() - 30);
+    const wideEnd = new Date(dayStart);
+    wideEnd.setDate(wideEnd.getDate() + 1);
+    ranges.push({
+        beginTime: `${formatPackDateYmd(wideStart)} 00:00:00`,
+        endTime: `${formatPackDateYmd(wideEnd)} 23:59:59`
+    });
+    return ranges;
+}
+
+function getPackRows(apiData) {
+    if (!apiData) return [];
+    if (Array.isArray(apiData.rows)) return apiData.rows;
+    if (apiData.data) {
+        if (Array.isArray(apiData.data)) return apiData.data;
+        if (Array.isArray(apiData.data.rows)) return apiData.data.rows;
+        if (Array.isArray(apiData.data.list)) return apiData.data.list;
+    }
+    return [];
+}
+
+function mapPackRecord(row) {
+    if (!row) return null;
+    const pick = (...keys) => {
+        for (const k of keys) {
+            const v = row[k];
+            if (v !== undefined && v !== null && String(v).trim() !== '') return v;
+        }
+        return '';
+    };
+    return {
+        packageNo: pick('packageNo', 'hubPackageNo', 'bagNo', 'package_no'),
+        originOrg: pick(
+            'startOrgName', 'startCenterName', 'sendOrgName', 'originOrgName',
+            'departOrgName', 'startDeptName', 'sendCenterName', 'originCenterName',
+            'departCenterName', 'sendCenter', 'startOrganization', 'originOrganization'
+        ),
+        destOrg: pick(
+            'endOrgName', 'endCenterName', 'targetOrgName', 'destOrgName',
+            'arriveOrgName', 'endDeptName', 'receiveOrgName', 'destCenterName',
+            'arriveCenterName', 'receiveCenterName', 'targetCenterName', 'endOrganization'
+        ),
+        signInTime: pick(
+            'signInTime', 'checkInTime', 'signTime', 'checkinTime',
+            'createTime', 'updateTime', 'operationTime'
+        ),
+        status: pick(
+            'statusName', 'packageStatusName', 'statusStr', 'packageStatus',
+            'status', 'departedStatusName', 'departedStatus'
+        ),
+        operator: pick(
+            'createByName', 'operatorName', 'createBy', 'updateByName', 'operator'
+        )
+    };
+}
+
+async function fetchCenterPackList(packageNo, eventDate) {
+    const ranges = buildPackQueryRanges(eventDate);
+    let lastPayload = null;
+    for (const range of ranges) {
+        const res = await fetch(getApiBase() + '/api/center-pack', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                pageNum: 1,
+                pageSize: 20,
+                packageNoList: [packageNo],
+                departedList: [],
+                beginTime: range.beginTime,
+                endTime: range.endTime
+            })
+        });
+        const data = await res.json();
+        lastPayload = data;
+        if (!res.ok) {
+            throw new Error(data.msg || data.error || `HTTP ${res.status}`);
+        }
+        if (data.code !== undefined && data.code !== 200) {
+            throw new Error(data.msg || '集包查询失败');
+        }
+        const rows = getPackRows(data);
+        const exact = rows.filter(r => {
+            const no = (r.packageNo || r.hubPackageNo || '').toString();
+            return no.toUpperCase() === packageNo.toUpperCase();
+        });
+        if (exact.length > 0) return exact;
+        if (rows.length > 0) return rows;
+    }
+    return getPackRows(lastPayload);
+}
+
+function renderPackDetailHtml(packageNo, rows) {
+    if (!rows || rows.length === 0) {
+        return `<div class="pack-empty">未在 DMS 中找到袋牌号 <strong>${escapeHtml(packageNo)}</strong> 的集包记录</div>`;
+    }
+    return rows.map((row, i) => {
+        const m = mapPackRecord(row);
+        const title = rows.length > 1 ? `记录 ${i + 1}` : '集包信息';
+        return `
+            <section class="pack-detail-section" style="${i > 0 ? 'margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);' : ''}">
+                ${rows.length > 1 ? `<h4 style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem;">${title}</h4>` : ''}
+                <dl class="pack-detail-grid">
+                    <dt>袋牌号</dt><dd>${escapeHtml(m.packageNo || packageNo)}</dd>
+                    <dt>始发组织</dt><dd>${escapeHtml(m.originOrg || '—')}</dd>
+                    <dt>目的组织</dt><dd>${escapeHtml(m.destOrg || '—')}</dd>
+                    <dt>签入时间</dt><dd>${escapeHtml(m.signInTime || '—')}</dd>
+                    <dt>状态</dt><dd>${escapeHtml(String(m.status || '—'))}</dd>
+                    <dt>操作人</dt><dd>${escapeHtml(m.operator || '—')}</dd>
+                </dl>
+            </section>
+        `;
+    }).join('');
+}
+
+async function openBagPackModal(packageNo, eventDate) {
+    const modal = document.getElementById('pack-modal');
+    const body = document.getElementById('pack-modal-body');
+    const title = document.getElementById('pack-modal-title');
+    if (!modal || !body) return;
+
+    title.textContent = `集包记录 · ${packageNo}`;
+    body.innerHTML = '<div class="pack-loading"><span class="loader" style="display:inline-block;width:28px;height:28px;margin-bottom:0.75rem;"></span><br>正在查询 DMS 集包记录...</div>';
+    modal.classList.remove('hidden');
+
+    try {
+        const rows = await fetchCenterPackList(packageNo, eventDate);
+        body.innerHTML = renderPackDetailHtml(packageNo, rows);
+    } catch (e) {
+        console.error('Center pack query failed:', e);
+        body.innerHTML = `<div class="pack-error">查询失败：${escapeHtml(e.message || String(e))}<br><span style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;display:block;">请确认已登录 DMS 并保存 Token</span></div>`;
+    }
+}
+
+function initBagPackModal() {
+    const modal = document.getElementById('pack-modal');
+    const closeBtn = document.getElementById('close-pack-modal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    }
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
+        });
+    }
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.bag-label-link');
+        if (!link) return;
+        e.preventDefault();
+        const packageNo = link.getAttribute('data-package-no');
+        const eventDate = link.getAttribute('data-event-date') || '';
+        if (packageNo) openBagPackModal(packageNo, eventDate);
+    });
+}
 
 // SOP 转运核心指标及安全/运营隐患分析引擎 (Based on hub_metrics_formulas.pdf)
 function analyzeHubSafetyRisks(allEvents, isDelivered) {
@@ -980,7 +1181,7 @@ function renderResults(results) {
                         <div class="timeline-content" style="position: relative; background: ${node.bgColor}; transition: transform 0.3s ease; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
                             <div class="timeline-info" style="flex: 1; min-width: 0;">
                                 <div class="timeline-time">${node.date}</div>
-                                <div class="timeline-desc">${node.desc}</div>
+                                <div class="timeline-desc">${formatBaggingDesc(node.desc, node.date)}</div>
                                 ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                                 ${node.stayDuration ? `<div class="stay-duration ${node.isOver24h ? 'stay-duration-over24h' : ''}" style="font-size:0.75rem; color:${node.isOver24h ? '#ef4444' : 'var(--accent)'}; margin-top:6px; font-weight:600; background:${node.isOver24h ? 'rgba(239,68,68,0.1)' : 'rgba(244,114,182,0.1)'}; display:inline-block; padding:2px 8px; border-radius:4px; ${node.isOver24h ? 'border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.2);' : ''}">⏱️ ${node.stayLoc} ${node.stayDuration}${node.isOver24h ? ' <span style="margin-left:4px">⚠️ 滞留超时</span>' : ''}</div>` : ''}
                                 ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
@@ -1190,7 +1391,7 @@ function showDetail(index) {
             <div class="timeline-content" style="position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
                 <div class="timeline-info" style="flex: 1; min-width: 0;">
                     <div class="timeline-time">${node.date}</div>
-                    <div class="timeline-desc">${node.desc}</div>
+                    <div class="timeline-desc">${formatBaggingDesc(node.desc, node.date)}</div>
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
                     ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
                     ${nodeAlertsHtml}
@@ -1225,6 +1426,8 @@ if (closeYqModal) {
 window.onclick = (event) => {
     if (event.target === elements.modal) elements.modal.classList.add('hidden');
     if (event.target === yqModal) yqModal.classList.add('hidden');
+    const packModal = document.getElementById('pack-modal');
+    if (packModal && event.target === packModal) packModal.classList.add('hidden');
 };
 
 function open17TrackModal(waybillNo) {
@@ -1275,7 +1478,7 @@ async function fetch17TrackStatus(waybillNo) {
     if (!badge) return;
     
     try {
-        const res = await fetch(`/api/17track?waybill=${encodeURIComponent(waybillNo)}`);
+        const res = await fetch(`${getApiBase()}/api/17track?waybill=${encodeURIComponent(waybillNo)}`);
         const data = await res.json();
         
         if (data.success) {

@@ -449,6 +449,65 @@ input:focus, select:focus, textarea:focus {
     border: 1px solid rgba(248, 113, 113, 0.2);
 }
 
+/* Bag label link in bagging timeline nodes */
+.bag-label-link {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.bag-label-link:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--primary-glow);
+}
+
+.pack-modal-content {
+    max-width: 520px;
+    width: 92vw;
+}
+
+.pack-modal-body {
+    padding: 1.25rem 1.5rem 1.5rem !important;
+}
+
+.pack-detail-grid {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 0.65rem 1rem;
+    font-size: 0.9rem;
+}
+
+.pack-detail-grid dt {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.pack-detail-grid dd {
+    margin: 0;
+    color: var(--text-main);
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.pack-loading,
+.pack-error,
+.pack-empty {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+}
+
+.pack-error {
+    color: var(--error);
+}
+
+[data-theme="light"] .bag-label-link {
+    color: var(--primary);
+}
+
 /* Light Theme Variables and Overrides */
 [data-theme="light"] {
     --bg-color: #f8fafc;
