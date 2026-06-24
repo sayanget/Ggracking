@@ -398,23 +398,33 @@ elements.searchBtn.addEventListener('click', async () => {
 
     try {
         const queryType = elements.queryTypeSelect.value || '1';
+        let combinedData = [];
+        const BATCH_SIZE = 50;
 
-        const res = await fetch(getApiBase() + '/api/tracking', {
-            method: 'POST',
-            body: JSON.stringify({
-                orderNos: orderNos,
-                queryType: queryType,
-                delStatus: "0"
-            })
-        });
+        for (let i = 0; i < orderNos.length; i += BATCH_SIZE) {
+            const batchNos = orderNos.slice(i, i + BATCH_SIZE);
+            const res = await fetch(getApiBase() + '/api/tracking', {
+                method: 'POST',
+                body: JSON.stringify({
+                    orderNos: batchNos,
+                    queryType: queryType,
+                    delStatus: "0"
+                })
+            });
 
-        const data = await res.json();
+            const data = await res.json();
+            if (data.code === 200 && data.data) {
+                combinedData = combinedData.concat(data.data);
+            } else {
+                console.error("Batch query failed or empty:", data);
+            }
+        }
         
-        if (data.code === 200 && data.data) {
+        if (combinedData.length > 0) {
             updateTodayQueries(true);
-            renderResults(data.data);
+            renderResults(combinedData);
         } else {
-            showError(data.msg || data.error || '查询失败');
+            showError('查询失败，接口无有效返回');
         }
     } catch (e) {
         showError('无法连接到代理服务器。如果您在 Netlify/静态部署上运行，请在左侧“手动配置”中填写您的“代理服务器地址”（例如 http://您的服务器IP:7000），并确保您的 server.py 代理服务已启动。');
@@ -523,6 +533,25 @@ function getPackRows(apiData) {
     return [];
 }
 
+function pickPackStatus(row, pick) {
+    const label = pick(
+        'departedName',
+        'siteStatus',
+        'packageTypeName',
+        'typeName',
+        'statusName',
+        'packageStatusName',
+        'statusStr',
+        'departedStatusName'
+    );
+    if (label) return label;
+    const code = row.departed ?? row.departedStatus ?? row.status;
+    if (code !== undefined && code !== null && String(code).trim() !== '') {
+        return String(code);
+    }
+    return '';
+}
+
 function mapPackRecord(row) {
     if (!row) return null;
     const pick = (...keys) => {
@@ -535,23 +564,22 @@ function mapPackRecord(row) {
     return {
         packageNo: pick('packageNo', 'hubPackageNo', 'bagNo', 'package_no'),
         originOrg: pick(
-            'startOrgName', 'startCenterName', 'sendOrgName', 'originOrgName',
+            'startCenterName', 'deptName', 'currentCenterName',
+            'startOrgName', 'sendOrgName', 'originOrgName',
             'departOrgName', 'startDeptName', 'sendCenterName', 'originCenterName',
             'departCenterName', 'sendCenter', 'startOrganization', 'originOrganization'
         ),
         destOrg: pick(
+            'destinCenterName', 'destinName', 'destinCenterId',
             'endOrgName', 'endCenterName', 'targetOrgName', 'destOrgName',
             'arriveOrgName', 'endDeptName', 'receiveOrgName', 'destCenterName',
             'arriveCenterName', 'receiveCenterName', 'targetCenterName', 'endOrganization'
         ),
         signInTime: pick(
-            'signInTime', 'checkInTime', 'signTime', 'checkinTime',
-            'createTime', 'updateTime', 'operationTime'
+            'checkInTime', 'optCheckInTime', 'signInTime', 'checkTime',
+            'signTime', 'checkinTime', 'createTime', 'updateTime', 'operationTime'
         ),
-        status: pick(
-            'statusName', 'packageStatusName', 'statusStr', 'packageStatus',
-            'status', 'departedStatusName', 'departedStatus'
-        ),
+        status: pickPackStatus(row, pick),
         operator: pick(
             'createByName', 'operatorName', 'createBy', 'updateByName', 'operator'
         )
@@ -656,194 +684,455 @@ function initBagPackModal() {
     });
 }
 
+function isOrderLabelEvent(ev) {
+    if (!ev || !ev.desc) return false;
+    const d = ev.desc.toLowerCase();
+    return d.includes('gets the order') ||
+        d.includes('label created') ||
+        ev.desc.includes('创建面单') ||
+        ev.desc.includes('获取订单信息');
+}
+
+function isSignInEvent(ev) {
+    if (!ev || !ev.desc) return false;
+    const d = ev.desc.toLowerCase();
+    return d.includes('signed in') ||
+        d.includes('arrived at gofo') ||
+        ev.desc.includes('转运中心签入') ||
+        ev.desc.includes('网点签入') ||
+        ev.corto === '201' || ev.corto === '202' ||
+        ev.operation_move === '201' || ev.operation_move === '202';
+}
+
+/** 末端站点签入（Signed in at station），不参与无签出提醒 */
+function isStationSignInEvent(ev) {
+    if (!ev || !ev.desc) return false;
+    return ev.desc.toLowerCase().includes('signed in at station');
+}
+
+/** 分段审计起点：GOFO gets the order 之后的首次 sign in */
+function getSegmentAuditStartEvent(events) {
+    if (!events || events.length === 0) return null;
+    const chrono = [...events].sort((a, b) => a.ts - b.ts);
+    const labelEvent = chrono.find(isOrderLabelEvent);
+    const afterLabelTs = labelEvent && labelEvent.ts > 0 ? labelEvent.ts : -1;
+    const firstSignInAfterLabel = chrono.find(
+        e => isSignInEvent(e) && e.ts > 0 && (afterLabelTs < 0 || e.ts > afterLabelTs)
+    );
+    if (firstSignInAfterLabel) return firstSignInAfterLabel;
+    return chrono.find(e => isSignInEvent(e) && e.ts > 0) || null;
+}
+
+function effectiveSegmentStartTs(firstNodeTs, lastNodeTs, auditStartTs) {
+    if (!auditStartTs || auditStartTs <= 0) return firstNodeTs;
+    if (!lastNodeTs || lastNodeTs < auditStartTs) return null;
+    if (!firstNodeTs || firstNodeTs < auditStartTs) return auditStartTs;
+    return firstNodeTs;
+}
+
+function formatDurationMs(ms) {
+    if (!ms || ms <= 0) return '';
+    const diffHours = ms / (1000 * 60 * 60);
+    const days = Math.floor(diffHours / 24);
+    const hours = (diffHours % 24).toFixed(1);
+    return days > 0 ? `${days}天 ${hours}小时` : `${diffHours.toFixed(1)}小时`;
+}
+
+/** 相邻节点时间间隔（首次 sign in 之前的区间不显示） */
+function buildTimelineIntervalHtml(node, nextNode, firstSignInTs) {
+    if (!node || !nextNode) return '';
+    if (firstSignInTs > 0) {
+        if (nextNode.ts > 0 && nextNode.ts < firstSignInTs) return '';
+        if (node.ts > 0 && node.ts < firstSignInTs) return '';
+    }
+    if (!(node.ts > 0 && nextNode.ts > 0)) return '';
+    const diffMs = Math.abs(node.ts - nextNode.ts);
+    const hoursVal = diffMs / (1000 * 60 * 60);
+    const diffHours = hoursVal.toFixed(1);
+    if (hoursVal > 24) {
+        return `<div class="timeline-interval" style="color: #f87171; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 0 8px rgba(248, 113, 113, 0.15); font-weight: 700;">⚠️ 间隔 ${diffHours} 小时 (操作超时)</div>`;
+    }
+    return `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
+}
+
+const ALERT_LEVEL_RANK = { danger: 3, warning: 2, info: 1 };
+
+/** 同规则同站点仅保留最高级别告警 */
+function dedupeSafetyAlerts(alerts) {
+    if (!alerts || alerts.length === 0) return [];
+    const best = new Map();
+    for (const alert of alerts) {
+        const key = `${alert.type}|${alert.loc || ''}`;
+        const existing = best.get(key);
+        if (!existing || (ALERT_LEVEL_RANK[alert.level] || 0) > (ALERT_LEVEL_RANK[existing.level] || 0)) {
+            best.set(key, alert);
+        }
+    }
+    return [...best.values()];
+}
+
+function sortSafetyAlerts(alerts) {
+    const typeOrder = { '断更': 0, '卸车': 1, '操作': 2, '分拣': 3, '漏操作': 4, '间隔': 5 };
+    return [...alerts].sort((a, b) => {
+        const levelDiff = (ALERT_LEVEL_RANK[b.level] || 0) - (ALERT_LEVEL_RANK[a.level] || 0);
+        if (levelDiff !== 0) return levelDiff;
+        return (typeOrder[a.type] ?? 99) - (typeOrder[b.type] ?? 99);
+    });
+}
+
+function eventSiteMatches(ev, loc) {
+    if (!loc) return true;
+    const site = getEventSiteKey(ev) || (ev.loc || '').trim();
+    return site === loc;
+}
+
+function renderSafetyAlertsHtml(alerts, marginStyle) {
+    if (!alerts || alerts.length === 0) return '';
+    const wrapperMargin = marginStyle || 'margin-top: 10px';
+    const dangerCount = alerts.filter(a => a.level === 'danger').length;
+    const summaryHint = dangerCount > 0
+        ? `<span style="font-size:0.7rem;color:#f87171;font-weight:600;margin-left:4px;">含 ${dangerCount} 项红线</span>`
+        : '';
+    return `
+        <div class="safety-alerts-wrapper" style="${wrapperMargin}; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap;">
+                🛡️ 风险提醒告警 (${alerts.length} 项)${summaryHint}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+                ${alerts.map(alert => `
+                    <div style="font-size: 0.775rem; line-height: 1.4; color: ${alert.level === 'danger' ? '#f87171' : '#fbbf24'}; display: flex; align-items: flex-start; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 8px; border-radius: 4px; border-left: 3px solid ${alert.level === 'danger' ? '#ef4444' : '#fbbf24'};">
+                        <span>${alert.message}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function isSignOutEvent(ev) {
+    if (!ev || !ev.desc) return false;
+    const d = ev.desc.toLowerCase();
+    return d.includes('left sorting center') ||
+        ev.corto === '200' || ev.operation_move === '200';
+}
+
+/** 从 location 或轨迹描述解析站点编码（如 MIA.H、SJU01） */
+function getEventSiteKey(node) {
+    const loc = (node.loc || '').trim();
+    if (loc && loc !== 'EMPTY') return loc;
+    const d = node.desc || '';
+    const patterns = [
+        /signed in at sorting center\s+([A-Za-z0-9.-]+)/i,
+        /signed in at station\s+([A-Za-z0-9.-]+)/i,
+        /left sorting center\s+([A-Za-z0-9.-]+)/i,
+        /signed in at\s+([A-Za-z0-9.-]+)/i
+    ];
+    for (const re of patterns) {
+        const m = d.match(re);
+        if (m && m[1]) return m[1].trim();
+    }
+    return loc;
+}
+
+function isDeliveryEvent(ev) {
+    if (!ev || !ev.desc) return false;
+    const d = ev.desc.toLowerCase();
+    return d.includes('delivered') ||
+        d.includes('已签收') ||
+        d.includes('已送达');
+}
+
+/** 按站点配对签入/签出：同站可多次签入，只要该站有过一次签出则不再提示无签出 */
+function markSignInOutPairingBySite(allEvents) {
+    if (!allEvents || allEvents.length === 0) return;
+    const chrono = [...allEvents].sort((a, b) => (a.ts || 0) - (b.ts || 0));
+    const siteSignIns = new Map();
+    const siteHasSignOut = new Set();
+
+    for (const node of chrono) {
+        const loc = getEventSiteKey(node);
+        if (!loc || loc === 'EMPTY') continue;
+
+        if (isSignInEvent(node) && !isStationSignInEvent(node)) {
+            if (!siteSignIns.has(loc)) siteSignIns.set(loc, []);
+            siteSignIns.get(loc).push(node);
+        } else if (isSignOutEvent(node)) {
+            siteHasSignOut.add(getEventSiteKey(node) || loc);
+        }
+    }
+
+    for (const node of chrono) {
+        const loc = getEventSiteKey(node);
+        if (!loc || loc === 'EMPTY' || !isSignOutEvent(node)) continue;
+        const outLoc = getEventSiteKey(node) || loc;
+        const signIns = siteSignIns.get(outLoc);
+        if (!signIns || signIns.length === 0) {
+            node.warning = node.warning || '漏操作风险：本站点签出前无对应签入';
+        }
+    }
+
+    for (const [loc, signIns] of siteSignIns) {
+        if (siteHasSignOut.has(loc)) continue;
+        for (const node of signIns) {
+            node.missingSignOutAtSite = true;
+            node.warning = node.warning || '漏操作风险：本站点签入后无对应签出';
+        }
+    }
+}
+
+function renderSignInTag(node) {
+    const signInBadge = '<span style="background:rgba(167,139,250,0.15);color:#8b5cf6;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(139,92,246,0.15);">签入</span>';
+    if (!node.missingSignOutAtSite) return signInBadge;
+    const locTitle = node.loc ? `站点 ${node.loc}：` : '';
+    return `<div class="signin-tag-row" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
+        ${signInBadge}
+        <span class="signin-missing-out-badge" title="${locTitle}签入后未见签出扫描">⚠️ 无签出</span>
+    </div>`;
+}
+
+function buildTimelineActionTags(node) {
+    const tags = [];
+    const lowerDesc = (node.desc || '').toLowerCase();
+    if (isSignInEvent(node) || lowerDesc.includes('signed in')) {
+        tags.push(renderSignInTag(node));
+    }
+    if (isSignOutEvent(node) || lowerDesc.includes('left sorting center')) {
+        tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
+    }
+    if (lowerDesc.includes('bagging the parcel')) {
+        tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
+    }
+    if (lowerDesc.includes('left from')) {
+        tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
+    }
+    return tags;
+}
+
 // SOP 转运核心指标及安全/运营隐患分析引擎 (Based on hub_metrics_formulas.pdf)
 function analyzeHubSafetyRisks(allEvents, isDelivered) {
     const alerts = [];
     if (!allEvents || allEvents.length === 0) return alerts;
 
-    // Chronological order for sequence analysis
     const chronoEvents = [...allEvents].sort((a, b) => a.ts - b.ts);
-    
-    // 1. 揽收签入超时 (SOP-1: 揽收签入及时率 - 24H 限制)
-    const labelEvent = chronoEvents.find(e => e.desc && (
-        e.desc.toLowerCase().includes('gets the order') || 
-        e.desc.toLowerCase().includes('label created') || 
-        e.desc.includes('创建面单') || 
-        e.desc.includes('获取订单信息')
-    ));
-    if (labelEvent && labelEvent.ts > 0) {
-        const firstSignIn = chronoEvents.find(e => e.ts > labelEvent.ts && e.desc && (
-            e.desc.toLowerCase().includes('signed in') || 
-            e.desc.toLowerCase().includes('arrived at gofo') || 
-            e.desc.includes('转运中心签入') || 
-            e.desc.includes('网点签入')
+
+    // SOP-3: 卸车签入及时率 — 车辆抵达后 2H 内须完成物理签入
+    for (const ev of chronoEvents) {
+        const lowerDesc = (ev.desc || '').toLowerCase();
+        const isArrival = lowerDesc.includes('vehicle arrived') ||
+            lowerDesc.includes('vehicle has arrived') ||
+            lowerDesc.includes('arrived at') ||
+            ev.corto === '412' || ev.corto === '415' ||
+            ev.operation_move === '412' || ev.operation_move === '415';
+        if (!isArrival) continue;
+
+        const loc = getEventSiteKey(ev) || ev.loc || '未知站点';
+        const signin = chronoEvents.find(e => e.ts >= ev.ts && e !== ev && eventSiteMatches(e, loc) && isSignInEvent(e));
+        if (signin) {
+            const diffHours = (signin.ts - ev.ts) / 3600000;
+            if (diffHours > 2) {
+                alerts.push({
+                    type: '卸车',
+                    level: 'danger',
+                    loc,
+                    message: `🚨 [SOP-3 卸车签入] ${loc}：车辆抵达后 ${diffHours.toFixed(1)} 小时才完成签入（红线 2 小时）`
+                });
+            }
+        } else if (!isDelivered && ev.ts > 0) {
+            const diffHours = (Date.now() - ev.ts) / 3600000;
+            if (diffHours > 2) {
+                alerts.push({
+                    type: '卸车',
+                    level: 'danger',
+                    loc,
+                    message: `🚨 [SOP-3 卸车签入] ${loc}：车辆抵达已 ${diffHours.toFixed(1)} 小时，仍未完成卸车签入`
+                });
+            }
+        }
+    }
+
+    // SOP-2: HUB 分拣及时率 — 签入后 2H 内须完成集包
+    for (const ev of chronoEvents) {
+        if (!isSignInEvent(ev) || isStationSignInEvent(ev)) continue;
+        const loc = getEventSiteKey(ev) || ev.loc || '未知站点';
+        const bagging = chronoEvents.find(e => e.ts >= ev.ts && eventSiteMatches(e, loc) && (
+            (e.desc || '').toLowerCase().includes('bagging') ||
+            e.corto === '217' || e.operation_move === '217'
         ));
-        if (firstSignIn && firstSignIn.ts > 0) {
-            const delayHours = (firstSignIn.ts - labelEvent.ts) / 3600000;
-            if (delayHours > 24) {
+        if (bagging) {
+            const diffHours = (bagging.ts - ev.ts) / 3600000;
+            if (diffHours > 2) {
                 alerts.push({
-                    type: '揽收',
-                    level: 'danger',
-                    message: `🚨 揽收严重超时：从建单到首次签入用时 ${delayHours.toFixed(1)} 小时，严重超过 24 小时红线标准`,
-                    nodeIndex: allEvents.indexOf(firstSignIn)
+                    type: '分拣',
+                    level: 'warning',
+                    loc,
+                    message: `⚠️ [SOP-2 分拣集包] ${loc}：签入到集包历时 ${diffHours.toFixed(1)} 小时（标准 90–120 分钟）`
                 });
             }
-        } else {
-            const delayHours = (Date.now() - labelEvent.ts) / 3600000;
-            if (delayHours > 24 && !isDelivered) {
+        } else if (!isDelivered && ev.ts > 0) {
+            const diffHours = (Date.now() - ev.ts) / 3600000;
+            if (diffHours > 2) {
                 alerts.push({
-                    type: '揽收',
-                    level: 'danger',
-                    message: `🚨 揽收严重延误：系统建单已达 ${delayHours.toFixed(1)} 小时，仍无任何物理揽收或签入轨迹`,
-                    nodeIndex: allEvents.indexOf(labelEvent)
+                    type: '分拣',
+                    level: 'warning',
+                    loc,
+                    message: `⚠️ [SOP-2 分拣集包] ${loc}：已签入 ${diffHours.toFixed(1)} 小时，尚未集包建包`
                 });
             }
         }
     }
 
-    // 2. 卸车签入超时 (SOP-3: 卸车签入及时率 - 2H 绝对红线)
-    for (let i = 0; i < chronoEvents.length; i++) {
-        const ev = chronoEvents[i];
+    // SOP-4: HUB 操作及时率 — 场地停留不得超过 24H
+    for (const ev of chronoEvents) {
         const lowerDesc = (ev.desc || '').toLowerCase();
-        const isArrival = lowerDesc.includes('vehicle arrived') || 
-                          lowerDesc.includes('vehicle has arrived') || 
-                          lowerDesc.includes('arrived at') || 
-                          ev.corto === '412' || ev.corto === '415' || 
-                          ev.operation_move === '412' || ev.operation_move === '415';
-        if (isArrival) {
-            const loc = ev.loc || '';
-            // Find next sign-in at same location
-            const signin = chronoEvents.find(e => e.ts >= ev.ts && e !== ev && e.loc === loc && (
-                e.desc.toLowerCase().includes('signed in') || 
-                e.corto === '201' || e.corto === '202' || 
-                e.operation_move === '201' || e.operation_move === '202'
-            ));
-            if (signin) {
-                const diffHours = (signin.ts - ev.ts) / 3600000;
-                if (diffHours > 2) {
-                    alerts.push({
-                        type: '卸车',
-                        level: 'danger',
-                        message: `🚨 卸车签入严重超时：干线车辆抵达 ${loc} 后，历时 ${diffHours.toFixed(1)} 小时才完成卸车物理签入（SOP规定时效限2小时，存在积压隐患）`,
-                        nodeIndex: allEvents.indexOf(signin)
-                    });
-                }
-            } else {
-                const diffHours = (Date.now() - ev.ts) / 3600000;
-                if (diffHours > 2 && !isDelivered) {
-                    alerts.push({
-                        type: '卸车',
-                        level: 'danger',
-                        message: `🚨 卸车滞留红线告警：干线车辆抵达 ${loc} 已达 ${diffHours.toFixed(1)} 小时，操作团队仍未物理激活卸车扫描！`,
-                        nodeIndex: allEvents.indexOf(ev)
-                    });
-                }
+        if (!isSignInEvent(ev) && !lowerDesc.includes('arrived')) continue;
+        const loc = getEventSiteKey(ev) || ev.loc || '未知站点';
+        const checkout = chronoEvents.find(e => e.ts >= ev.ts && eventSiteMatches(e, loc) && (
+            (e.desc || '').toLowerCase().includes('left') ||
+            (e.desc || '').toLowerCase().includes('departed') ||
+            e.corto === '200' || e.corto === '411' ||
+            e.operation_move === '200' || e.operation_move === '411'
+        ));
+        if (checkout) {
+            const diffHours = (checkout.ts - ev.ts) / 3600000;
+            if (diffHours > 24) {
+                alerts.push({
+                    type: '操作',
+                    level: 'warning',
+                    loc,
+                    message: `⚠️ [SOP-4 场地滞留] ${loc}：停留 ${diffHours.toFixed(1)} 小时才离港（红线 24 小时）`
+                });
+            }
+        } else if (!isDelivered && ev.ts > 0) {
+            const diffHours = (Date.now() - ev.ts) / 3600000;
+            if (diffHours > 24) {
+                alerts.push({
+                    type: '操作',
+                    level: 'warning',
+                    loc,
+                    message: `⚠️ [SOP-4 场地滞留] ${loc}：已滞留 ${diffHours.toFixed(1)} 小时，未见发车/离港扫描`
+                });
             }
         }
     }
 
-    // 3. HUB分拣集包超时 (SOP-2: HUB分拣及时率 - 90~120分钟/2H 时效限制)
-    for (let i = 0; i < chronoEvents.length; i++) {
-        const ev = chronoEvents[i];
-        const lowerDesc = (ev.desc || '').toLowerCase();
-        if (lowerDesc.includes('signed in') || ev.corto === '201' || ev.corto === '202' || ev.operation_move === '201' || ev.operation_move === '202') {
-            const loc = ev.loc || '';
-            // Find subsequent bagging
-            const bagging = chronoEvents.find(e => e.ts >= ev.ts && e.loc === loc && (
-                e.desc.toLowerCase().includes('bagging') || 
-                e.corto === '217' || 
-                e.operation_move === '217'
-            ));
-            if (bagging) {
-                const diffHours = (bagging.ts - ev.ts) / 3600000;
-                if (diffHours > 2) {
-                    alerts.push({
-                        type: '分拣',
-                        level: 'warning',
-                        message: `⚠️ 分拣操作超时：在 ${loc} 转运中心从卸车签入到集包扫描历时 ${diffHours.toFixed(1)} 小时，超出分拣效率指标标准（90-120分钟）`,
-                        nodeIndex: allEvents.indexOf(bagging)
-                    });
-                }
-            } else {
-                const diffHours = (Date.now() - ev.ts) / 3600000;
-                if (diffHours > 2 && !isDelivered) {
-                    alerts.push({
-                        type: '分拣',
-                        level: 'warning',
-                        message: `⚠️ 分拣流向积压：包裹在 ${loc} 转运中心已完成签入超 ${diffHours.toFixed(1)} 小时，但尚未进行集包建包操作`,
-                        nodeIndex: allEvents.indexOf(ev)
-                    });
-                }
-            }
-        }
-    }
-
-    // 4. 转运中心/网点操作滞留 (SOP-4: HUB操作及时率 - 24H 强制清场时效)
-    for (let i = 0; i < chronoEvents.length; i++) {
-        const ev = chronoEvents[i];
-        const lowerDesc = (ev.desc || '').toLowerCase();
-        if (lowerDesc.includes('signed in') || lowerDesc.includes('arrived') || ev.corto === '201' || ev.corto === '202' || ev.operation_move === '201' || ev.operation_move === '202') {
-            const loc = ev.loc || '';
-            // Find departure / dispatch
-            const checkout = chronoEvents.find(e => e.ts >= ev.ts && e.loc === loc && (
-                e.desc.toLowerCase().includes('left') || 
-                e.desc.toLowerCase().includes('departed') || 
-                ev.corto === '200' || ev.corto === '411' || 
-                ev.operation_move === '200' || ev.operation_move === '411'
-            ));
-            if (checkout) {
-                const diffHours = (checkout.ts - ev.ts) / 3600000;
-                if (diffHours > 24) {
-                    alerts.push({
-                        type: '操作',
-                        level: 'warning',
-                        message: `⚠️ 转运停留超时：包裹在 ${loc} 操作及滞留总历时 ${diffHours.toFixed(1)} 小时，违反 24 小时操作红线`,
-                        nodeIndex: allEvents.indexOf(checkout)
-                    });
-                }
-            } else {
-                const diffHours = (Date.now() - ev.ts) / 3600000;
-                if (diffHours > 24 && !isDelivered) {
-                    alerts.push({
-                        type: '操作',
-                        level: 'warning',
-                        message: `⚠️ 场地滞留死角：包裹已在 ${loc} 滞留停留 ${diffHours.toFixed(1)} 小时，未进行发车签出或离港扫描`,
-                        nodeIndex: allEvents.indexOf(ev)
-                    });
-                }
-            }
-        }
-    }
-
-    // 5. 内部断更及丢失红线风险 (SOP-7: 内部断更+丢失率 - 120H 终极红线 + 渐进式断更风险提醒)
+    // SOP-7: 内部断更 — 24H / 48H / 120H 渐进告警
     if (!isDelivered && allEvents[0] && allEvents[0].ts > 0) {
         const newestEvent = allEvents[0];
+        const idleLoc = getEventSiteKey(newestEvent) || newestEvent.loc || '转运环节';
         const idleHours = (Date.now() - newestEvent.ts) / 3600000;
         if (idleHours > 120) {
             alerts.push({
                 type: '断更',
                 level: 'danger',
-                message: `🚨 【SOP-7 终极断更灭失红线】包裹已连续断更超过 5 天（达 ${idleHours.toFixed(1)} 小时），存在极高丢失、被盗或滞留死仓隐患！`,
-                nodeIndex: 0
+                loc: idleLoc,
+                message: `🚨 [SOP-7 断更红线] 已连续断更 ${idleHours.toFixed(1)} 小时（超 5 天），存在丢失或死仓隐患`
             });
         } else if (idleHours > 48) {
             alerts.push({
                 type: '断更',
                 level: 'danger',
-                message: `🚨 【重度断更风险】包裹在 [${newestEvent.loc || '转运环节'}] 已连续 ${idleHours.toFixed(1)} 小时（超 48 小时）无轨迹更新，请立即核查实物！`,
-                nodeIndex: 0
+                loc: idleLoc,
+                message: `🚨 [SOP-7 重度断更] 在 ${idleLoc} 已连续 ${idleHours.toFixed(1)} 小时无更新，请立即核查实物`
             });
         } else if (idleHours > 24) {
             alerts.push({
                 type: '断更',
                 level: 'warning',
-                message: `⚠️ 【中度断更风险】包裹已连续 ${idleHours.toFixed(1)} 小时（超 24 小时）无轨迹更新，请保持关注。`,
-                nodeIndex: 0
+                loc: idleLoc,
+                message: `⚠️ [SOP-7 中度断更] 已连续 ${idleHours.toFixed(1)} 小时无轨迹更新，请保持关注`
             });
         }
     }
 
     return alerts;
+}
+
+/** 签入/签出漏操作风险（按站点汇总） */
+function analyzeSignInOutRisks(allEvents) {
+    const alerts = [];
+    if (!allEvents || allEvents.length === 0) return alerts;
+
+    const chrono = [...allEvents].sort((a, b) => (a.ts || 0) - (b.ts || 0));
+    const siteSignIns = new Map();
+    const siteHasSignOut = new Set();
+
+    for (const node of chrono) {
+        const loc = getEventSiteKey(node);
+        if (!loc || loc === 'EMPTY') continue;
+        if (isSignInEvent(node) && !isStationSignInEvent(node)) {
+            if (!siteSignIns.has(loc)) siteSignIns.set(loc, []);
+            siteSignIns.get(loc).push(node);
+        } else if (isSignOutEvent(node)) {
+            siteHasSignOut.add(getEventSiteKey(node) || loc);
+        }
+    }
+
+    for (const [loc, signIns] of siteSignIns) {
+        if (siteHasSignOut.has(loc)) continue;
+        alerts.push({
+            type: '漏操作',
+            level: 'warning',
+            loc,
+            message: `⚠️ [漏操作] ${loc}：分拣中心签入后未见签出扫描`
+        });
+    }
+
+    for (const node of chrono) {
+        const loc = getEventSiteKey(node);
+        if (!loc || loc === 'EMPTY' || !isSignOutEvent(node)) continue;
+        const signIns = siteSignIns.get(getEventSiteKey(node) || loc);
+        if (!signIns || signIns.length === 0) {
+            alerts.push({
+                type: '漏操作',
+                level: 'warning',
+                loc,
+                message: `⚠️ [漏操作] ${loc}：签出前无对应分拣中心签入记录`
+            });
+        }
+    }
+
+    return alerts;
+}
+
+/** 相邻节点间隔超时（>24H，汇总展示） */
+function analyzeIntervalRisks(allEvents, auditStartTs) {
+    if (!allEvents || allEvents.length < 2) return [];
+
+    const over24 = [];
+    for (let i = 0; i < allEvents.length - 1; i++) {
+        const node = allEvents[i];
+        const nextNode = allEvents[i + 1];
+        if (auditStartTs > 0) {
+            if (nextNode.ts > 0 && nextNode.ts < auditStartTs) continue;
+            if (node.ts > 0 && node.ts < auditStartTs) continue;
+        }
+        if (!(node.ts > 0 && nextNode.ts > 0)) continue;
+        const hoursVal = Math.abs(node.ts - nextNode.ts) / 3600000;
+        if (hoursVal > 24) over24.push(hoursVal);
+    }
+
+    if (over24.length === 0) return [];
+    const maxHours = Math.max(...over24);
+    return [{
+        type: '间隔',
+        level: maxHours > 48 ? 'danger' : 'warning',
+        loc: '',
+        message: `⚠️ [操作间隔] 轨迹中有 ${over24.length} 处相邻节点间隔超过 24 小时（最长 ${maxHours.toFixed(1)} 小时）`
+    }];
+}
+
+/** 汇总全部风险规则告警（卡片级展示） */
+function collectRiskAlerts(allEvents, isDelivered) {
+    if (!allEvents || allEvents.length === 0) return [];
+    markSignInOutPairingBySite(allEvents);
+    const auditStartEvent = getSegmentAuditStartEvent(allEvents);
+    const auditStartTs = auditStartEvent && auditStartEvent.ts > 0 ? auditStartEvent.ts : 0;
+    const alerts = [
+        ...analyzeHubSafetyRisks(allEvents, isDelivered),
+        ...analyzeSignInOutRisks(allEvents),
+        ...analyzeIntervalRisks(allEvents, auditStartTs)
+    ];
+    return sortSafetyAlerts(dedupeSafetyAlerts(alerts));
 }
 
 function renderResults(results) {
@@ -872,7 +1161,9 @@ function renderResults(results) {
                             date: group.operationTime + ' ' + node.operationTime,
                             desc: node.es_context || node.pub_es_context || '',
                             loc: node.location || '',
-                            operator: node.create_by_name || node.createByName || ''
+                            operator: node.create_by_name || node.createByName || '',
+                            corto: String(node.corto || node.operation_move || ''),
+                            operation_move: String(node.operation_move || '')
                         });
                     });
                 }
@@ -884,7 +1175,6 @@ function renderResults(results) {
         let barChartHtml = '';
         let safetyAlertsHtml = '';
         let safetyAlerts = [];
-        let riskBadgeHtml = '';
         let latestDesc = '暂无轨迹';
         let statusClass = 'latest-status-pending';
         
@@ -893,101 +1183,33 @@ function renderResults(results) {
             
             const oldestEvent = allEvents[allEvents.length - 1];
             const newestEvent = allEvents[0];
+            const auditStartEvent = getSegmentAuditStartEvent(allEvents);
+            const auditStartTs = auditStartEvent && auditStartEvent.ts > 0 ? auditStartEvent.ts : 0;
             latestDesc = newestEvent ? newestEvent.desc : '暂无轨迹';
             const isDelivered = latestDesc.toLowerCase().includes('delivered') || status === '已送达' || status === '已签收';
             statusClass = isDelivered ? 'latest-status-delivered' : 'latest-status-pending';
             const deliveredEvent = allEvents.find(ev => ev.desc && ev.desc.toLowerCase().includes('delivered'));
 
-            // Run safety risk analysis based on hub_metrics_formulas.pdf SOP rules
-            safetyAlerts = analyzeHubSafetyRisks(allEvents, isDelivered);
-
-            // Compute progressive inactivity (discontinuation) risk badge
-            if (!isDelivered && newestEvent && newestEvent.ts > 0) {
-                const idleHours = (Date.now() - newestEvent.ts) / 3600000;
-                if (idleHours > 120) {
-                    riskBadgeHtml = `<span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.35); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; animation: pulse 2s infinite; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">🚨 SOP-7 极高断更风险</span>`;
-                } else if (idleHours > 48) {
-                    riskBadgeHtml = `<span style="background:rgba(239,68,68,0.10); color:#f87171; border:1px solid rgba(239,68,68,0.25); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">🚨 重度断更风险</span>`;
-                } else if (idleHours > 24) {
-                    riskBadgeHtml = `<span style="background:rgba(251,191,36,0.10); color:#fbbf24; border:1px solid rgba(251,191,36,0.25); padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:800; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">⚠️ 中度断更风险</span>`;
-                }
-            }
-            if (safetyAlerts.length > 0) {
-                safetyAlertsHtml = `
-                    <div class="safety-alerts-wrapper" style="margin-top: 10px; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
-                        <div style="font-size: 0.85rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
-                            🛡️ SOP 转运运营红线隐患告警 (${safetyAlerts.length} 项)
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 6px;">
-                            ${safetyAlerts.map(alert => `
-                                <div style="font-size: 0.775rem; line-height: 1.4; color: ${alert.level === 'danger' ? '#f87171' : '#fbbf24'}; display: flex; align-items: flex-start; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 8px; border-radius: 4px; border-left: 3px solid ${alert.level === 'danger' ? '#ef4444' : '#fbbf24'};">
-                                    <span>${alert.message}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Analyze IN and OUT pairing
-            let lastUnpairedInNode = null;
-            let deliveryIndex = -1;
-            for (let i = 0; i < allEvents.length; i++) {
-                const ev = allEvents[i];
-                const desc = (ev.desc || '').toLowerCase();
-                if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
-                    deliveryIndex = i;
-                    break;
-                }
-            }
-
-            for (let i = allEvents.length - 1; i >= 0; i--) {
-                const node = allEvents[i];
-                const lowerDesc = (node.desc || '').toLowerCase();
-                const isIn = lowerDesc.includes('signed in');
-                const isOut = lowerDesc.includes('left sorting center');
-                
-                if (isIn) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-                    }
-                    lastUnpairedInNode = node;
-                } else if (isOut) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode = null;
-                    } else {
-                        node.warning = '漏操作风险：签出前无对应签入';
-                    }
-                }
-                
-                if (i === deliveryIndex) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode = null;
-                    }
-                }
-            }
-            if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
-                lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-            }
+            safetyAlerts = collectRiskAlerts(allEvents, isDelivered);
+            safetyAlertsHtml = renderSafetyAlertsHtml(safetyAlerts);
             
             let globalDiffMs = 0;
+            const segmentStartTs = auditStartTs;
             if (deliveredEvent) {
                 status = '已送达';
-                globalDiffMs = deliveredEvent.ts > 0 && oldestEvent.ts > 0 ? deliveredEvent.ts - oldestEvent.ts : 0;
-            } else {
-                globalDiffMs = oldestEvent.ts > 0 ? Date.now() - oldestEvent.ts : 0;
+                globalDiffMs = deliveredEvent.ts > 0 && segmentStartTs > 0 ? deliveredEvent.ts - segmentStartTs : 0;
+            } else if (segmentStartTs > 0) {
+                globalDiffMs = Date.now() - segmentStartTs;
             }
 
             if (globalDiffMs > 0) {
-                const diffHours = globalDiffMs / (1000 * 60 * 60);
-                const days = Math.floor(diffHours / 24);
-                const hours = (diffHours % 24).toFixed(1);
-                const durationStr = days > 0 ? `${days}天 ${hours}小时` : `${diffHours.toFixed(1)}小时`;
+                const durationStr = formatDurationMs(globalDiffMs);
+                const auditHint = auditStartTs > 0 ? ' (自首次签入)' : '';
                 
                 if (deliveredEvent) {
-                    totalDurationHtml = `<span class="status-badge" style="background: rgba(74, 222, 128, 0.15); color: var(--success); margin-left: 0.5rem;">总历时: ${durationStr}</span>`;
+                    totalDurationHtml = `<span class="status-badge" style="background: rgba(74, 222, 128, 0.15); color: var(--success); margin-left: 0.5rem;">总历时: ${durationStr}${auditHint}</span>`;
                 } else {
-                    totalDurationHtml = `<span class="status-badge" style="background: rgba(251, 191, 36, 0.15); color: var(--warning); margin-left: 0.5rem;">已历时: ${durationStr}</span>`;
+                    totalDurationHtml = `<span class="status-badge" style="background: rgba(251, 191, 36, 0.15); color: var(--warning); margin-left: 0.5rem;">已历时: ${durationStr}${auditHint}</span>`;
                 }
             }
 
@@ -1024,36 +1246,8 @@ function renderResults(results) {
 
             blocks.forEach((block, i) => {
                 const blockId = `block-${waybillNo.replace(/[^a-zA-Z0-9]/g, '')}-${i}`;
-                
                 if (block.length > 0) {
-                    // Visually the newest node is the top of the block
                     block[block.length - 1].blockId = blockId;
-                }
-
-                if (block.length > 0) {
-                    const firstNode = block[0]; // oldest
-                    const lastNode = block[block.length - 1]; // newest
-                    
-                    let diffMs = 0;
-                    if (i === blocks.length - 1 && !deliveredEvent) {
-                        if (firstNode.ts > 0) diffMs = Date.now() - firstNode.ts;
-                    } else if (lastNode.ts > 0 && firstNode.ts > 0) {
-                        diffMs = lastNode.ts - firstNode.ts;
-                    }
-
-                    if (diffMs > 0) {
-                        const diffHours = diffMs / (1000 * 60 * 60);
-                        const days = Math.floor(diffHours / 24);
-                        const hours = (diffHours % 24).toFixed(1);
-                        const durationStr = days > 0 ? `${days}天 ${hours}小时` : `${diffHours.toFixed(1)}小时`;
-                        
-                        const validLocNode = block.find(n => n.loc);
-                        const locName = validLocNode ? validLocNode.loc : '该地';
-                        
-                        lastNode.stayDuration = `停留 ${durationStr}`;
-                        lastNode.stayLoc = locName;
-                        lastNode.isOver24h = diffHours > 24;
-                    }
                 }
             });
 
@@ -1067,9 +1261,11 @@ function renderResults(results) {
                     
                     let stayDuration = 0;
                     if (i === blocks.length - 1 && !deliveredEvent && firstNode.ts > 0) {
-                        stayDuration = Date.now() - firstNode.ts;
+                        const startTs = effectiveSegmentStartTs(firstNode.ts, Date.now(), auditStartTs);
+                        if (startTs) stayDuration = Date.now() - startTs;
                     } else if (lastNode.ts > 0 && firstNode.ts > 0 && lastNode.ts >= firstNode.ts) {
-                        stayDuration = lastNode.ts - firstNode.ts;
+                        const startTs = effectiveSegmentStartTs(firstNode.ts, lastNode.ts, auditStartTs);
+                        if (startTs) stayDuration = lastNode.ts - startTs;
                     }
 
                     if (stayDuration > 0) {
@@ -1112,26 +1308,11 @@ function renderResults(results) {
             }
 
             timelineHtml = '<div class="timeline" style="margin-top: 1.5rem;">' + allEvents.map((node, i) => {
-                let intervalHtml = '';
-                if (i < allEvents.length - 1) {
-                    const nextNode = allEvents[i + 1];
-                    if (node.ts > 0 && nextNode.ts > 0) {
-                        let diffMs = Math.abs(node.ts - nextNode.ts);
-                        const hoursVal = diffMs / (1000 * 60 * 60);
-                        let diffHours = hoursVal.toFixed(1);
-                        if (hoursVal > 24) {
-                            intervalHtml = `<div class="timeline-interval" style="color: #f87171; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 0 8px rgba(248, 113, 113, 0.15); font-weight: 700;">⚠️ 间隔 ${diffHours} 小时 (操作超时)</div>`;
-                        } else {
-                            intervalHtml = `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
-                        }
-                    }
-                }
-                const tags = [];
+                const intervalHtml = i < allEvents.length - 1
+                    ? buildTimelineIntervalHtml(node, allEvents[i + 1], auditStartTs)
+                    : '';
                 const lowerDesc = (node.desc || '').toLowerCase();
-                if (lowerDesc.includes('signed in')) tags.push('<span style="background:rgba(167,139,250,0.15);color:#8b5cf6;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(139,92,246,0.15);">签入</span>');
-                if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
-                if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
-                if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
+                const tags = buildTimelineActionTags(node);
                 const tagHtml = tags.length > 0 ? `<div class="timeline-tags" style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
                 let shiftTagHtml = '';
@@ -1146,17 +1327,6 @@ function renderResults(results) {
                             shiftTagHtml = `<span style="background:rgba(99,102,241,0.12); color:#818cf8; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(99,102,241,0.25); display:inline-flex; align-items:center; gap:2px;">🌙 晚班</span>`;
                         }
                     }
-                }
-
-                // Extract node-specific SOP metrics alerts
-                const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
-                let nodeAlertsHtml = '';
-                if (nodeAlerts.length > 0) {
-                    nodeAlertsHtml = nodeAlerts.map(alert => `
-                        <div class="operation-warning" style="font-size:0.75rem; color:${alert.level === 'danger' ? '#ef4444' : '#fbbf24'}; margin-top:6px; font-weight:600; background:${alert.level === 'danger' ? 'rgba(239,68,68,0.1)' : 'rgba(251,191,36,0.1)'}; display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid ${alert.level === 'danger' ? 'rgba(239,68,68,0.3)' : 'rgba(251,191,36,0.3)'}; box-shadow: 0 0 8px ${alert.level === 'danger' ? 'rgba(239,68,68,0.15)' : 'rgba(251,191,36,0.15)'}; margin-right:8px;">
-                            ${alert.level === 'danger' ? '🚨' : '⚠️'} [SOP ${alert.type}时效红线] ${alert.message.replace(/🚨|⚠️/g, '').trim()}
-                        </div>
-                    `).join('');
                 }
 
                 // Group action tags and operator/shift tags together on the right side
@@ -1183,9 +1353,8 @@ function renderResults(results) {
                                 <div class="timeline-time">${node.date}</div>
                                 <div class="timeline-desc">${formatBaggingDesc(node.desc, node.date)}</div>
                                 ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
-                                ${node.stayDuration ? `<div class="stay-duration ${node.isOver24h ? 'stay-duration-over24h' : ''}" style="font-size:0.75rem; color:${node.isOver24h ? '#ef4444' : 'var(--accent)'}; margin-top:6px; font-weight:600; background:${node.isOver24h ? 'rgba(239,68,68,0.1)' : 'rgba(244,114,182,0.1)'}; display:inline-block; padding:2px 8px; border-radius:4px; ${node.isOver24h ? 'border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.2);' : ''}">⏱️ ${node.stayLoc} ${node.stayDuration}${node.isOver24h ? ' <span style="margin-left:4px">⚠️ 滞留超时</span>' : ''}</div>` : ''}
-                                ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
-                                ${nodeAlertsHtml}
+                                ${node.missingSignOutAtSite ? `<div class="signin-missing-out-inline">⚠️ ${getEventSiteKey(node) || node.loc || '本站点'}：签入后无签出</div>` : ''}
+                                ${node.warning && !node.missingSignOutAtSite ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15); margin-right:8px;">⚠️ ${node.warning}</div>` : ''}
                             </div>
                             ${rightContainerHtml}
                         </div>
@@ -1201,7 +1370,6 @@ function renderResults(results) {
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
                             <span class="waybill-no" onclick="open17TrackModal('${waybillNo}')">${waybillNo}</span>
-                            ${riskBadgeHtml}
                             <span class="badge-17track" id="badge-17track-${waybillNo}">17TRACK: 正在查询...</span>
                             ${totalDurationHtml}
                         </div>
@@ -1236,81 +1404,29 @@ function showDetail(index) {
                     date: group.operationTime + ' ' + node.operationTime,
                     desc: node.es_context || node.pub_es_context || '',
                     loc: node.location || '',
-                    operator: node.create_by_name || node.createByName || ''
+                    operator: node.create_by_name || node.createByName || '',
+                    corto: String(node.corto || node.operation_move || ''),
+                    operation_move: String(node.operation_move || '')
                 });
             });
         }
     });
 
     let safetyAlerts = [];
+    let auditStartTs = 0;
     if (allEvents.length > 0) {
         allEvents.forEach((ev) => ev.ts = parseDate(ev.date));
         
         const newestEvent = allEvents[0];
         const latestDesc = newestEvent ? newestEvent.desc : '暂无轨迹';
         const isDelivered = latestDesc.toLowerCase().includes('delivered') || (item.waybill && (item.waybill.exceptionStatusName === '已送达' || item.waybill.exceptionStatusName === '已签收'));
+        const auditStartEvent = getSegmentAuditStartEvent(allEvents);
+        auditStartTs = auditStartEvent && auditStartEvent.ts > 0 ? auditStartEvent.ts : 0;
         
-        safetyAlerts = analyzeHubSafetyRisks(allEvents, isDelivered);
-        
-        let lastUnpairedInNode = null;
-        let deliveryIndex = -1;
-        for (let i = 0; i < allEvents.length; i++) {
-            const ev = allEvents[i];
-            const desc = (ev.desc || '').toLowerCase();
-            if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
-                deliveryIndex = i;
-                break;
-            }
-        }
-
-        for (let i = allEvents.length - 1; i >= 0; i--) {
-            const node = allEvents[i];
-            const lowerDesc = (node.desc || '').toLowerCase();
-            const isIn = lowerDesc.includes('signed in');
-            const isOut = lowerDesc.includes('left sorting center');
-            
-            if (isIn) {
-                if (lastUnpairedInNode) {
-                    lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-                }
-                lastUnpairedInNode = node;
-            } else if (isOut) {
-                if (lastUnpairedInNode) {
-                    lastUnpairedInNode = null;
-                } else {
-                    node.warning = '漏操作风险：签出前无对应签入';
-                }
-            }
-            
-            if (i === deliveryIndex) {
-                if (lastUnpairedInNode) {
-                    lastUnpairedInNode = null;
-                }
-            }
-        }
-        if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
-            lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-        }
+        safetyAlerts = collectRiskAlerts(allEvents, isDelivered);
     }
 
-    // Modal safety alerts section
-    let safetyAlertsHtml = '';
-    if (safetyAlerts.length > 0) {
-        safetyAlertsHtml = `
-            <div class="safety-alerts-wrapper" style="margin: 0 1rem 1.5rem 1rem; padding: 12px; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05); text-align: left;">
-                <div style="font-size: 0.85rem; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
-                    🛡️ SOP 转运运营红线隐患告警 (${safetyAlerts.length} 项)
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    ${safetyAlerts.map(alert => `
-                        <div style="font-size: 0.775rem; line-height: 1.4; color: ${alert.level === 'danger' ? '#f87171' : '#fbbf24'}; display: flex; align-items: flex-start; gap: 6px; background: rgba(255,255,255,0.02); padding: 4px 8px; border-radius: 4px; border-left: 3px solid ${alert.level === 'danger' ? '#ef4444' : '#fbbf24'};">
-                            <span>${alert.message}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-    }
+    const safetyAlertsHtml = renderSafetyAlertsHtml(safetyAlerts, 'margin: 0 1rem 1.5rem 1rem');
 
     // Insert safety alerts into detail modal header area
     const modalHeader = elements.modal.querySelector('.modal-header') || elements.modal.querySelector('.card');
@@ -1322,26 +1438,11 @@ function showDetail(index) {
     }
 
     elements.timeline.innerHTML = allEvents.map((node, i) => {
-        let intervalHtml = '';
-        if (i < allEvents.length - 1) {
-            const nextNode = allEvents[i + 1];
-            if (node.ts > 0 && nextNode.ts > 0) {
-                let diffMs = Math.abs(node.ts - nextNode.ts);
-                const hoursVal = diffMs / (1000 * 60 * 60);
-                let diffHours = hoursVal.toFixed(1);
-                if (hoursVal > 24) {
-                    intervalHtml = `<div class="timeline-interval" style="color: #f87171; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 0 8px rgba(248, 113, 113, 0.15); font-weight: 700;">⚠️ 间隔 ${diffHours} 小时 (操作超时)</div>`;
-                } else {
-                    intervalHtml = `<div class="timeline-interval">↑ 间隔 ${diffHours} 小时</div>`;
-                }
-            }
-        }
-        const tags = [];
+        const intervalHtml = i < allEvents.length - 1
+            ? buildTimelineIntervalHtml(node, allEvents[i + 1], auditStartTs)
+            : '';
         const lowerDesc = (node.desc || '').toLowerCase();
-        if (lowerDesc.includes('signed in')) tags.push('<span style="background:rgba(167,139,250,0.15);color:#8b5cf6;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(139,92,246,0.15);">签入</span>');
-        if (lowerDesc.includes('left sorting center')) tags.push('<span style="background:rgba(251,146,60,0.15);color:#ea580c;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(234,88,12,0.15);">签出</span>');
-        if (lowerDesc.includes('bagging the parcel')) tags.push('<span style="background:rgba(56,189,248,0.15);color:#0ea5e9;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(14,165,233,0.15);">集包</span>');
-        if (lowerDesc.includes('left from')) tags.push('<span style="background:rgba(251,191,36,0.15);color:#d97706;padding:4px 10px;border-radius:6px;font-size:1rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.15);">离站</span>');
+        const tags = buildTimelineActionTags(node);
         const tagHtml = tags.length > 0 ? `<div class="timeline-tags" style="display:flex; flex-direction:column; gap:6px;">${tags.join('')}</div>` : '';
 
         let shiftTagHtml = '';
@@ -1356,17 +1457,6 @@ function showDetail(index) {
                     shiftTagHtml = `<span style="background:rgba(99,102,241,0.12); color:#818cf8; padding:4px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; border:1px solid rgba(99,102,241,0.25); display:inline-flex; align-items:center; gap:2px;">🌙 晚班</span>`;
                 }
             }
-        }
-
-        // Extract node-specific SOP metrics alerts for the modal
-        const nodeAlerts = safetyAlerts.filter(a => a.nodeIndex === i);
-        let nodeAlertsHtml = '';
-        if (nodeAlerts.length > 0) {
-            nodeAlertsHtml = nodeAlerts.map(alert => `
-                <div class="operation-warning" style="font-size:0.75rem; color:${alert.level === 'danger' ? '#ef4444' : '#fbbf24'}; margin-top:6px; font-weight:600; background:${alert.level === 'danger' ? 'rgba(239,68,68,0.1)' : 'rgba(251,191,36,0.1)'}; display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid ${alert.level === 'danger' ? 'rgba(239,68,68,0.3)' : 'rgba(251,191,36,0.3)'}; box-shadow: 0 0 8px ${alert.level === 'danger' ? 'rgba(239,68,68,0.15)' : 'rgba(251,191,36,0.15)'}; margin-right:8px;">
-                    ${alert.level === 'danger' ? '🚨' : '⚠️'} [SOP ${alert.type}时效红线] ${alert.message.replace(/🚨|⚠️/g, '').trim()}
-                </div>
-            `).join('');
         }
 
         // Group action tags and operator/shift tags together on the right side for modal
@@ -1393,8 +1483,8 @@ function showDetail(index) {
                     <div class="timeline-time">${node.date}</div>
                     <div class="timeline-desc">${formatBaggingDesc(node.desc, node.date)}</div>
                     ${node.loc ? `<div class="timeline-loc" style="font-size:0.75rem; color:var(--primary); margin-top:4px;">📍 ${node.loc}</div>` : ''}
-                    ${node.warning ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
-                    ${nodeAlertsHtml}
+                    ${node.missingSignOutAtSite ? `<div class="signin-missing-out-inline">⚠️ ${getEventSiteKey(node) || node.loc || '本站点'}：签入后无签出</div>` : ''}
+                    ${node.warning && !node.missingSignOutAtSite ? `<div class="operation-warning" style="font-size:0.75rem; color:#ef4444; margin-top:6px; font-weight:600; background:rgba(239,68,68,0.1); display:inline-block; padding:4px 10px; border-radius:6px; border: 1px solid rgba(239,68,68,0.3); box-shadow: 0 0 8px rgba(239,68,68,0.15);">⚠️ ${node.warning}</div>` : ''}
                 </div>
                 ${rightContainerHtml}
             </div>
@@ -1556,55 +1646,21 @@ function exportToCSV() {
                             date: group.operationTime + ' ' + node.operationTime,
                             desc: node.es_context || node.pub_es_context || '',
                             loc: node.location || '',
-                            operator: node.create_by_name || node.createByName || ''
+                            operator: node.create_by_name || node.createByName || '',
+                            corto: String(node.corto || node.operation_move || ''),
+                            operation_move: String(node.operation_move || '')
                         });
                     });
                 }
             });
         }
 
+        let exportAuditStartTs = 0;
         if (allEvents.length > 0) {
             allEvents.forEach((ev) => ev.ts = parseDate(ev.date));
-            
-            let lastUnpairedInNode = null;
-            let deliveryIndex = -1;
-            for (let i = 0; i < allEvents.length; i++) {
-                const ev = allEvents[i];
-                const desc = (ev.desc || '').toLowerCase();
-                if (desc.includes('delivered') || desc.includes('signed') || desc.includes('已签收') || desc.includes('已送达')) {
-                    deliveryIndex = i;
-                    break;
-                }
-            }
-
-            for (let i = allEvents.length - 1; i >= 0; i--) {
-                const node = allEvents[i];
-                const lowerDesc = (node.desc || '').toLowerCase();
-                const isIn = lowerDesc.includes('signed in');
-                const isOut = lowerDesc.includes('left sorting center');
-                
-                if (isIn) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-                    }
-                    lastUnpairedInNode = node;
-                } else if (isOut) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode = null;
-                    } else {
-                        node.warning = '漏操作风险：签出前无对应签入';
-                    }
-                }
-                
-                if (i === deliveryIndex) {
-                    if (lastUnpairedInNode) {
-                        lastUnpairedInNode = null;
-                    }
-                }
-            }
-            if (lastUnpairedInNode && lastUnpairedInNode !== allEvents[0]) {
-                lastUnpairedInNode.warning = '漏操作风险：签入后无对应签出';
-            }
+            const auditStartEvent = getSegmentAuditStartEvent(allEvents);
+            exportAuditStartTs = auditStartEvent && auditStartEvent.ts > 0 ? auditStartEvent.ts : 0;
+            markSignInOutPairingBySite(allEvents);
         }
 
         if (allEvents.length === 0) {
@@ -1614,10 +1670,9 @@ function exportToCSV() {
                 let intervalStr = '';
                 if (i < allEvents.length - 1) {
                     const nextNode = allEvents[i + 1];
-                    if (node.ts > 0 && nextNode.ts > 0) {
-                        let diffMs = Math.abs(node.ts - nextNode.ts);
-                        const hoursVal = diffMs / (1000 * 60 * 60);
-                        intervalStr = hoursVal.toFixed(1);
+                    const intervalHtml = buildTimelineIntervalHtml(node, nextNode, exportAuditStartTs);
+                    if (intervalHtml && node.ts > 0 && nextNode.ts > 0) {
+                        intervalStr = (Math.abs(node.ts - nextNode.ts) / (1000 * 60 * 60)).toFixed(1);
                     }
                 }
                 rows.push([
@@ -1629,7 +1684,7 @@ function exportToCSV() {
                     node.loc,
                     node.operator || '',
                     intervalStr,
-                    node.warning || ''
+                    node.warning || (node.missingSignOutAtSite ? '本站点签入后无签出' : '')
                 ]);
             });
         }

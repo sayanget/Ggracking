@@ -67,6 +67,44 @@ body {
     font-weight: 600;
 }
 
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+}
+
+.nav-item.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+}
+
+[data-theme="light"] .nav-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .nav-item.active {
+    background: rgba(2, 132, 199, 0.1);
+}
+
 .config-panel h3 {
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -506,6 +544,41 @@ input:focus, select:focus, textarea:focus {
 
 [data-theme="light"] .bag-label-link {
     color: var(--primary);
+}
+
+.signin-missing-out-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.12);
+}
+
+.signin-missing-out-inline {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="light"] .signin-missing-out-badge {
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.08);
+}
+
+[data-theme="light"] .signin-missing-out-inline {
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.08);
 }
 
 /* Light Theme Variables and Overrides */

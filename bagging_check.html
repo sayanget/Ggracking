@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gtracking - 错分检查</title>
+    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .table-wrapper {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        [data-theme="light"] th {
+            background: rgba(0, 0, 0, 0.03);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .status-found {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+        .status-not-found {
+            background: rgba(248, 113, 113, 0.15);
+            color: var(--error);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Config -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">G</span>
+                <h1>Gtracking</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">🏠 轨迹查询</a>
+                <a href="bagging_check.html" class="nav-item active">📦 错分检查</a>
+            </nav>
+
+            <div class="config-panel">
+                <div class="config-section manual-config-section">
+                    <h3>
+                        <span>⚙️</span> 全局配置
+                    </h3>
+                    <div class="input-group">
+                        <label for="proxy-url">代理服务器地址</label>
+                        <input type="text" id="proxy-url" placeholder="例如 http://localhost:7000">
+                    </div>
+                    <div class="input-group">
+                        <label for="token">Admin-Token</label>
+                        <input type="password" id="token" placeholder="输入您的 Token...">
+                    </div>
+                    <button id="save-config" class="btn-secondary">保存配置</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>错分操作人检查 (Bagging Check)</h2>
+                <div class="top-bar-right">
+                    <button id="theme-toggle" class="theme-toggle-btn" title="切换主题">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </header>
+
+             <section class="search-section">
+                <div class="search-card card">
+                    <div class="search-inputs">
+                        <div class="textarea-wrapper">
+                            <textarea id="order-nos" placeholder="输入单号，多个请换行..." style="min-height: 150px;"></textarea>
+                        </div>
+                        <div class="search-actions">
+                            <select id="query-type" title="查询类型">
+                                <option value="1">面单号</option>
+                                <option value="2">第三方订单号</option>
+                                <option value="3">第三方单号</option>
+                            </select>
+                            <input type="text" id="loc-filter" value="CNO.H" title="网点/位置筛选" placeholder="网点 (如CNO.H)" style="width: 130px;">
+                            <button id="search-btn" class="btn-primary">
+                                <span class="btn-text">开始查询</span>
+                                <span class="loader hidden"></span>
+                            </button>
+                            <button id="export-btn" class="btn-secondary hidden" title="导出查询结果为 CSV">
+                                <span>📤</span> 批量导出
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div class="table-wrapper hidden" id="table-wrapper">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>运单号</th>
+                                <th>状态</th>
+                                <th>首个 Bagging 时间</th>
+                                <th>操作人</th>
+                                <th>网点 / 位置</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody">
+                            <!-- Rows go here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="empty-state" class="empty-state">
+                    <img src="https://img.icons8.com/fluency/96/delivery.png" alt="box">
+                    <p>等待查询，请输入运单号开始检查 Bagging 操作人</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="bagging_check.js"></script>
+</body>
+</html>
