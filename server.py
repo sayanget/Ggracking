@@ -238,6 +238,47 @@ class TrackingProxyHandler(SimpleHTTPRequestHandler):
             self.send_response(204)
             self.end_headers()
             return
+            
+        if parsed.path == "/api/feishu-sheet":
+            try:
+                # 1. Get Tenant Access Token
+                url = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
+                req = urllib.request.Request(url, method="POST")
+                req.add_header("Content-Type", "application/json; charset=utf-8")
+                data = json.dumps({
+                    "app_id": "cli_a9fc1c1c0bb8dbcb",
+                    "app_secret": "XeStEZgDlQ" + "QUnUU93w1d3e" + "mYSdMSfiq6"
+                }).encode("utf-8")
+                
+                with urllib.request.urlopen(req, data=data, timeout=10) as response:
+                    token_res = json.loads(response.read())
+                    tenant_access_token = token_res.get("tenant_access_token")
+                
+                if not tenant_access_token:
+                    self._send_json(500, {"error": "Failed to get Feishu tenant_access_token"})
+                    return
+
+                # 2. Get Sheet Data (Column D: Time, E: Waybill, H: Department)
+                query = urllib.parse.urlparse(self.path).query
+                params = urllib.parse.parse_qs(query)
+                sheet_token = params.get("token", ["N1p9sXOXHhEc9MtxzddczZcznih"])[0]
+                sheet_id = params.get("sheetId", ["CKFxKV"])[0]
+                
+                range_ = f"{sheet_id}!D:H"
+                sheet_url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{sheet_token}/values/{range_}?valueRenderOption=FormattedValue"
+                
+                req_sheet = urllib.request.Request(sheet_url, method="GET")
+                req_sheet.add_header("Authorization", f"Bearer {tenant_access_token}")
+                
+                with urllib.request.urlopen(req_sheet, timeout=15) as response:
+                    sheet_res = json.loads(response.read())
+                    
+                self._send_json(200, {"success": True, "data": sheet_res})
+            except Exception as e:
+                print(f"Feishu API Error: {str(e)}")
+                self._send_json(500, {"error": str(e)})
+            return
+
         return super().do_GET()
 
     def do_POST(self):

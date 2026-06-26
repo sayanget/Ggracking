@@ -88,7 +88,12 @@
         <!-- Main Content -->
         <main class="main-content">
             <header class="top-bar">
-                <h2>错分操作人检查 (Bagging Check)</h2>
+                <div>
+                    <h2>错分操作人检查 (Bagging Check)</h2>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; margin-bottom: 0;">
+                        📌 错分操作KPI 考核标准：保底值为 ≤0.08%，目标值为 ≤0.05%，考核周期为月度
+                    </p>
+                </div>
                 <div class="top-bar-right">
                     <button id="theme-toggle" class="theme-toggle-btn" title="切换主题">
                         <span class="theme-icon">🌙</span>
@@ -113,15 +118,51 @@
                                 <span class="btn-text">开始查询</span>
                                 <span class="loader hidden"></span>
                             </button>
-                            <button id="export-btn" class="btn-secondary hidden" title="导出查询结果为 CSV">
-                                <span>📤</span> 批量导出
+                            <button id="export-btn" class="btn-secondary hidden" title="导出明细结果为 CSV">
+                                <span>📤</span> 导出明细
                             </button>
+                            <button id="export-stats-btn" class="btn-secondary hidden" title="导出统计结果为 CSV">
+                                <span>📊</span> 导出统计
+                            </button>
+                        </div>
+                        <div class="search-actions" style="margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted); margin-right: 8px;">数据源表:</span>
+                            <input type="text" id="feishu-url-input" class="input-field" value="https://acnjh1thgeif.feishu.cn/sheets/N1p9sXOXHhEc9MtxzddczZcznih?sheet=CKFxKV" placeholder="飞书表格链接" style="flex: 1; min-width: 200px;">
+                            <a href="https://acnjh1thgeif.feishu.cn/sheets/N1p9sXOXHhEc9MtxzddczZcznih?sheet=CKFxKV" id="feishu-open-link" target="_blank" class="btn-secondary" style="text-decoration: none; padding: 4px 8px; margin-left: 8px;" title="在新标签页打开">
+                                <span>↗️</span>
+                            </a>
+                        </div>
+                        <div class="search-actions" style="margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted); margin-right: 8px;">远程拉取运单:</span>
+                            <input type="datetime-local" id="fetch-start-time" title="开始时间" class="input-field" style="width: 180px;">
+                            <span style="color: var(--text-muted);">至</span>
+                            <input type="datetime-local" id="fetch-end-time" title="结束时间" class="input-field" style="width: 180px;">
+                            <button id="fetch-waybills-btn" class="btn-secondary">
+                                <span class="btn-text">拉取并查询</span>
+                                <span class="loader hidden"></span>
+                            </button>
+                            <span id="fetch-result-hint" style="color: var(--success); font-size: 0.85rem; font-weight: 600; margin-left: 10px; transition: opacity 0.3s;"></span>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="results-section">
+                <!-- 统计记录 -->
+                <div class="table-wrapper hidden" id="stats-wrapper" style="margin-bottom: 20px;">
+                    <table id="stats-table">
+                        <thead>
+                            <tr>
+                                <th>操作人</th>
+                                <th>错分单量</th>
+                                <th>单量占比</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stats-tbody">
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="table-wrapper hidden" id="table-wrapper">
                     <table id="results-table">
                         <thead>
