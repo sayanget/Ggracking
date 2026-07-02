@@ -103,6 +103,7 @@ async function init() {
     // Initialize Barcode/QR Code scanner
     initBarcodeScanner();
     initBagPackModal();
+    initBarcodeGenerator();
 }
 
 let html5QrCode = null;
@@ -466,6 +467,114 @@ const parseDate = (d) => {
     return isNaN(t) ? 0 : t;
 };
 
+const BARCODE_SVG = `<svg class="barcode-svg-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; cursor: pointer; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+  <line x1="3" y1="5" x2="3" y2="19"></line>
+  <line x1="6" y1="5" x2="6" y2="19"></line>
+  <line x1="9" y1="5" x2="9" y2="19"></line>
+  <line x1="12" y1="5" x2="12" y2="19"></line>
+  <line x1="15" y1="5" x2="15" y2="19"></line>
+  <line x1="18" y1="5" x2="18" y2="19"></line>
+  <line x1="21" y1="5" x2="21" y2="19"></line>
+</svg>`;
+
+function showBarcodeModal(value, typeLabel) {
+    let modal = document.getElementById('barcode-modal');
+    if (!modal) {
+        const modalHtml = `
+            <div id="barcode-modal" class="modal hidden">
+                <div class="modal-content card barcode-modal-content" style="max-width: 480px; text-align: center; border: 1px solid var(--border); padding: 1.5rem;">
+                    <header class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                        <h3 id="barcode-modal-title" style="margin:0; font-size:1.1rem;">条形码生成</h3>
+                        <button class="close-modal" id="close-barcode-modal" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--text-muted);">&times;</button>
+                    </header>
+                    <div class="modal-body" style="display: flex; flex-direction: column; align-items: center; gap: 1.25rem;">
+                        <div style="background: #ffffff; padding: 1.25rem; border-radius: 12px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%;">
+                            <svg id="barcode-svg" style="max-width: 100%; height: auto; display: block;"></svg>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 4px; width: 100%;">
+                            <span id="barcode-type-label" style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;"></span>
+                            <span id="barcode-value-display" style="font-family: 'Outfit', monospace; font-size: 1.15rem; font-weight: 600; color: var(--text-main); word-break: break-all; user-select: all;"></span>
+                        </div>
+                        <div style="display: flex; gap: 10px; width: 100%;">
+                            <button id="copy-barcode-btn" class="btn-secondary" style="flex: 1; padding: 0.6rem; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                                📋 复制单号
+                            </button>
+                            <button id="close-barcode-btn" class="btn-primary" style="flex: 1; padding: 0.6rem; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        modal = document.getElementById('barcode-modal');
+        
+        document.getElementById('close-barcode-modal').addEventListener('click', () => modal.classList.add('hidden'));
+        document.getElementById('close-barcode-btn').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
+        });
+        
+        document.getElementById('copy-barcode-btn').addEventListener('click', async () => {
+            const val = document.getElementById('barcode-value-display').textContent;
+            try {
+                await navigator.clipboard.writeText(val);
+                const copyBtn = document.getElementById('copy-barcode-btn');
+                const origText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✅ 已复制';
+                setTimeout(() => {
+                    copyBtn.innerHTML = origText;
+                }, 1500);
+            } catch (err) {
+                alert('复制失败，请手动选择复制');
+            }
+        });
+    }
+    
+    document.getElementById('barcode-modal-title').textContent = `${typeLabel} · 条形码`;
+    document.getElementById('barcode-type-label').textContent = typeLabel;
+    document.getElementById('barcode-value-display').textContent = value;
+    
+    modal.classList.remove('hidden');
+    
+    if (window.JsBarcode) {
+        try {
+            window.JsBarcode("#barcode-svg", value, {
+                format: "CODE128",
+                width: 2.2,
+                height: 80,
+                displayValue: false,
+                margin: 5,
+                background: "#ffffff",
+                lineColor: "#000000"
+            });
+        } catch (err) {
+            console.error("Barcode generation error:", err);
+            const svg = document.getElementById('barcode-svg');
+            svg.innerHTML = `<text x="10" y="50" fill="red" font-weight="bold">生成失败: ${err.message || err}</text>`;
+        }
+    } else {
+        const svg = document.getElementById('barcode-svg');
+        svg.innerHTML = `<text x="10" y="50" fill="red" font-weight="bold">未加载 JsBarcode 库</text>`;
+    }
+}
+
+function initBarcodeGenerator() {
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.barcode-trigger-btn');
+        if (btn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const barcodeVal = btn.getAttribute('data-barcode');
+            const isBag = btn.getAttribute('data-is-bag') === 'true';
+            if (barcodeVal) {
+                showBarcodeModal(barcodeVal, isBag ? '袋牌号' : '运单号');
+            }
+        }
+    });
+}
+
 function escapeHtml(text) {
     if (!text) return '';
     return String(text)
@@ -491,7 +600,7 @@ function formatBaggingDesc(desc, eventDate) {
     const after = escapeHtml(desc.slice(idx + label.length));
     const safeLabel = escapeHtml(label);
     const safeDate = escapeHtml(eventDate || '');
-    const link = `<a href="#" class="bag-label-link" data-package-no="${safeLabel}" data-event-date="${safeDate}" title="查看 DMS 集包记录">${safeLabel}</a>`;
+    const link = `<a href="#" class="bag-label-link" data-package-no="${safeLabel}" data-event-date="${safeDate}" title="查看 DMS 集包记录">${safeLabel}</a> <span class="barcode-trigger-btn" data-barcode="${safeLabel}" data-is-bag="true" title="显示 Code128 条形码" style="cursor: pointer; margin-left: 2px; vertical-align: middle; display: inline-flex; align-items: center;">${BARCODE_SVG}</span>`;
     return before + link + after;
 }
 
@@ -1370,6 +1479,7 @@ function renderResults(results) {
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
                             <span class="waybill-no" onclick="open17TrackModal('${waybillNo}')">${waybillNo}</span>
+                            <span class="barcode-trigger-btn" data-barcode="${waybillNo}" title="显示 Code128 条形码" style="cursor: pointer; margin-left: 2px; vertical-align: middle; display: inline-flex; align-items: center;">${BARCODE_SVG}</span>
                             <span class="badge-17track" id="badge-17track-${waybillNo}">17TRACK: 正在查询...</span>
                             ${totalDurationHtml}
                         </div>
